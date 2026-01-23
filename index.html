@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cybersecurity Risk Assessment Tool</title>
+  <meta name="description" content="Free cybersecurity risk assessment tool for small businesses and students. Identify risks and learn how to reduce them." />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+
+    header {
+      background: #0a2540;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 8px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .mode-select {
+      margin-bottom: 20px;
+    }
+
+    .question {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+
+    button {
+      background: #0a2540;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background: #163b66;
+    }
+
+    .result {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 6px;
+      display: none;
+    }
+
+    .low {
+      background: #e6f4ea;
+      border-left: 6px solid #2e7d32;
+    }
+
+    .medium {
+      background: #fff8e1;
+      border-left: 6px solid #f9a825;
+    }
+
+    .high {
+      background: #fdecea;
+      border-left: 6px solid #c62828;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Cybersecurity Risk Assessment</h1>
+  <p>Identify your security risks and learn how to reduce them</p>
+</header>
+
+<main>
+
+  <div class="mode-select">
+    <label for="mode">Select Mode:</label>
+    <select id="mode">
+      <option value="business">Small Business</option>
+      <option value="student">Student / Learning</option>
+    </select>
+  </div>
+
+  <h2>Assessment Questions</h2>
+
+  <div class="question">
+    <label>Do you use Multi-Factor Authentication (MFA)?</label>
+    <select class="score">
+      <option value="0">Yes, everywhere</option>
+      <option value="2">Only on some accounts</option>
+      <option value="4">No</option>
+    </select>
+  </div>
+
+  <div class="question">
+    <label>Are systems and software regularly updated?</label>
+    <select class="score">
+      <option value="0">Always up to date</option>
+      <option value="2">Sometimes delayed</option>
+      <option value="4">Rarely or never</option>
+    </select>
+  </div>
+
+  <div class="question">
+    <label>Are backups performed and tested?</label>
+    <select class="score">
+      <option value="0">Yes, regularly tested</option>
+      <option value="2">Backups exist but not tested</option>
+      <option value="4">No backups</option>
+    </select>
+  </div>
+
+  <div class="question">
+    <label>Is sensitive data encrypted?</label>
+    <select class="score">
+      <option value="0">Yes</option>
+      <option value="2">Partially</option>
+      <option value="4">No</option>
+    </select>
+  </div>
+
+  <button onclick="calculateRisk()">Calculate Risk</button>
+
+  <div id="result" class="result"></div>
+
+</main>
+
+<footer>
+  <p>This tool is for educational and awareness purposes only.</p>
+</footer>
+
+<script>
+  function calculateRisk() {
+    const scores = document.querySelectorAll('.score');
+    let total = 0;
+
+    scores.forEach(s => total += parseInt(s.value));
+
+    const mode = document.getElementById('mode').value;
+    const resultBox = document.getElementById('result');
+
+    let level = '';
+    let message = '';
+    let cssClass = '';
+
+    if (total <= 4) {
+      level = 'Low Risk';
+      cssClass = 'low';
+    } else if (total <= 9) {
+      level = 'Medium Risk';
+      cssClass = 'medium';
+    } else {
+      level = 'High Risk';
+      cssClass = 'high';
+    }
+
+    if (mode === 'business') {
+      message = {
+        low: 'Your organization follows good security practices. Continue monitoring and improving.',
+        medium: 'Your organization has noticeable security gaps. Address these to reduce the risk of incidents.',
+        high: 'Your organization is at serious risk of a cyber incide
