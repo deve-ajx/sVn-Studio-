@@ -36,22 +36,34 @@
     }
   </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+  <style>
+.video-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: black;
+}
 
-    .card-hover:hover { transform: scale(1.05); box-shadow: 0 15px 25px rgba(0,0,0,0.2); }
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  border: none;
+  pointer-events: none;
+}
+</style>
 
-    .video-wrapper iframe { width: 100vw; height: 100vh; border: none; pointer-events: none; }
+<div class="video-wrapper">
+  <iframe
+    src="https://player.cloudinary.com/embed/?cloud_name=dm6k0etap&public_id=Firefly_A_cinematic_scene_featuring_a_sleek_laptop_falling_through_a_dark_dramatic_environment._The_jzvf5f&autoplay=true&muted=true&loop=true&controls=false&fluid=false"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+  </iframe>
+</div>
 
-    .scroll-down { animation: bounce 2s infinite; }
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-      40% {transform: translateY(-20px);}
-      60% {transform: translateY(-10px);}
-    }
-    .testimonial-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
   </style>
 </head>
 <body class="font-sans bg-light text-dark">
