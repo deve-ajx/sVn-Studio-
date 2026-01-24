@@ -1,193 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cybersecurity Risk Assessment Tool</title>
-  <meta name="description" content="Free cybersecurity risk assessment tool for small businesses and students. Identify risks and learn how to reduce them." />
+  <meta charset="UTF-8">
+  <title>sVn Studio | Design • Web • Ads</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
+    * {
       margin: 0;
       padding: 0;
-      color: #222;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
+    body {
+      background: #0f0f12;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
     header {
-      background: #0a2540;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 15, 18, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
     }
 
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      background: #fff;
-      padding: 25px;
-      border-radius: 8px;
-    }
-
-    h2 {
-      margin-top: 0;
-    }
-
-    .mode-select {
-      margin-bottom: 20px;
-    }
-
-    .question {
-      margin-bottom: 15px;
-    }
-
-    label {
+    .logo {
+      font-size: 24px;
       font-weight: bold;
     }
 
-    select {
+    .logo span {
+      font-weight: 300;
+      margin-left: 6px;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 30px;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 60px;
+      background: radial-gradient(circle at top, #1a1a22, #0f0f12);
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      line-height: 1.1;
+    }
+
+    .hero span {
+      color: #8fd3ff;
+    }
+
+    .hero p {
+      margin: 20px 0;
+      max-width: 500px;
+      opacity: 0.85;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      background: #8fd3ff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 60px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1a1a22;
+      padding: 30px;
+      border-radius: 16px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    /* PORTFOLIO */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .portfolio-item {
+      background: #1a1a22;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item img {
       width: 100%;
-      padding: 8px;
-      margin-top: 5px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .portfolio-item div {
+      padding: 20px;
+      text-align: center;
+      opacity: 0.85;
+    }
+
+    /* CONTACT */
+    form {
+      max-width: 500px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 14px;
+      border-radius: 10px;
+      border: none;
     }
 
     button {
-      background: #0a2540;
-      color: #fff;
+      padding: 14px 30px;
       border: none;
-      padding: 12px 20px;
+      border-radius: 30px;
+      background: #8fd3ff;
+      font-weight: bold;
       cursor: pointer;
-      font-size: 16px;
-      border-radius: 4px;
     }
 
-    button:hover {
-      background: #163b66;
-    }
-
-    .result {
-      margin-top: 25px;
-      padding: 20px;
-      border-radius: 6px;
-      display: none;
-    }
-
-    .low {
-      background: #e6f4ea;
-      border-left: 6px solid #2e7d32;
-    }
-
-    .medium {
-      background: #fff8e1;
-      border-left: 6px solid #f9a825;
-    }
-
-    .high {
-      background: #fdecea;
-      border-left: 6px solid #c62828;
-    }
-
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #555;
+      padding: 30px;
+      background: #0b0b0e;
+      opacity: 0.6;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      header {
+        padding: 20px;
+      }
+
+      .hero {
+        padding: 0 20px;
+      }
+
+      section {
+        padding: 80px 20px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      nav {
+        display: none;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <header>
-  <h1>Cybersecurity Risk Assessment</h1>
-  <p>Identify your security risks and learn how to reduce them</p>
+  <div class="logo">sVn<span>Studio</span></div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<main>
-
-  <div class="mode-select">
-    <label for="mode">Select Mode:</label>
-    <select id="mode">
-      <option value="business">Small Business</option>
-      <option value="student">Student / Learning</option>
-    </select>
+<section class="hero show">
+  <div>
+    <h1>Your Vision.<br><span>Our Creation.</span></h1>
+    <p>We design websites, build brands, and create digital ads that stand out.</p>
+    <a href="#contact" class="btn">Start a Project</a>
   </div>
+</section>
 
-  <h2>Assessment Questions</h2>
-
-  <div class="question">
-    <label>Do you use Multi-Factor Authentication (MFA)?</label>
-    <select class="score">
-      <option value="0">Yes, everywhere</option>
-      <option value="2">Only on some accounts</option>
-      <option value="4">No</option>
-    </select>
+<section id="services">
+  <h2>What We Do</h2>
+  <div class="services-grid">
+    <div class="card">🌐 Web Design & Development</div>
+    <div class="card">🎨 Branding & Logo Design</div>
+    <div class="card">📢 Digital Advertising</div>
   </div>
+</section>
 
-  <div class="question">
-    <label>Are systems and software regularly updated?</label>
-    <select class="score">
-      <option value="0">Always up to date</option>
-      <option value="2">Sometimes delayed</option>
-      <option value="4">Rarely or never</option>
-    </select>
+<section id="portfolio">
+  <h2>Our Work</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="">
+      <div>Website Project</div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="">
+      <div>Brand Identity</div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="">
+      <div>Ad Campaign</div>
+    </div>
   </div>
+</section>
 
-  <div class="question">
-    <label>Are backups performed and tested?</label>
-    <select class="score">
-      <option value="0">Yes, regularly tested</option>
-      <option value="2">Backups exist but not tested</option>
-      <option value="4">No backups</option>
-    </select>
-  </div>
+<section id="about">
+  <h2>About sVn Studio</h2>
+  <p>
+    sVn Studio is a creative digital agency focused on modern design,
+    clean branding, and powerful digital experiences.
+  </p>
+</section>
 
-  <div class="question">
-    <label>Is sensitive data encrypted?</label>
-    <select class="score">
-      <option value="0">Yes</option>
-      <option value="2">Partially</option>
-      <option value="4">No</option>
-    </select>
-  </div>
-
-  <button onclick="calculateRisk()">Calculate Risk</button>
-
-  <div id="result" class="result"></div>
-
-</main>
+<section id="contact">
+  <h2>Let’s Work Together</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <textarea placeholder="Tell us about your project"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
 
 <footer>
-  <p>This tool is for educational and awareness purposes only.</p>
+  © 2025 sVn Studio. All rights reserved.
 </footer>
 
 <script>
-  function calculateRisk() {
-    const scores = document.querySelectorAll('.score');
-    let total = 0;
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute("href"))
+        .scrollIntoView({ behavior: "smooth" });
+    });
+  });
 
-    scores.forEach(s => total += parseInt(s.value));
+  // Scroll animation
+  const sections = document.querySelectorAll("section");
 
-    const mode = document.getElementById('mode').value;
-    const resultBox = document.getElementById('result');
+  const reveal = () => {
+    sections.forEach(sec => {
+      const top = sec.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        sec.classList.add("show");
+      }
+    });
+  };
 
-    let level = '';
-    let message = '';
-    let cssClass = '';
+  window.addEventListener("scroll", reveal);
+</script>
 
-    if (total <= 4) {
-      level = 'Low Risk';
-      cssClass = 'low';
-    } else if (total <= 9) {
-      level = 'Medium Risk';
-      cssClass = 'medium';
-    } else {
-      level = 'High Risk';
-      cssClass = 'high';
-    }
-
-    if (mode === 'business') {
-      message = {
-        low: 'Your organization follows good security practices. Continue monitoring and improving.',
-        medium: 'Your organization has noticeable security gaps. Address these to reduce the risk of incidents.',
-        high: 'Your organization is at serious risk of a cyber incide
+</body>
+</html>
