@@ -58,7 +58,8 @@
     .hero {
       height: 100vh;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
       padding: 0 60px;
       background: radial-gradient(circle at top, #1a1a22, #0f0f12);
     }
@@ -86,6 +87,16 @@
       text-decoration: none;
       border-radius: 30px;
       font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* VIDEO SECTION */
+    .hero-video {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 800px;
+      border-radius: 16px;
+      overflow: hidden;
     }
 
     /* SECTIONS */
@@ -154,7 +165,35 @@
       opacity: 0.85;
     }
 
-    /* CONTACT */
+    /* WEBSITE TYPE SECTION */
+    .website-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .website-card {
+      background: #1a1a22;
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .website-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .website-card h3 {
+      margin-bottom: 10px;
+      color: #8fd3ff;
+    }
+
+    .website-card p {
+      opacity: 0.85;
+    }
+
+    /* CONTACT FORM */
     form {
       max-width: 500px;
     }
@@ -174,6 +213,21 @@
       background: #8fd3ff;
       font-weight: bold;
       cursor: pointer;
+    }
+
+    /* INSTAGRAM CONTACT */
+    .instagram-contact {
+      text-align: center;
+      padding: 60px 20px;
+      background: #1a1a22;
+      border-radius: 16px;
+    }
+
+    .instagram-contact a {
+      color: #8fd3ff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
     }
 
     /* FOOTER */
@@ -225,7 +279,13 @@
   <div>
     <h1>Your Vision.<br><span>Our Creation.</span></h1>
     <p>We design websites, build brands, and create digital ads that stand out.</p>
-    <a href="#contact" class="btn">Start a Project</a>
+    <a href="#website-type" class="btn">Want a Website</a>
+
+    <!-- VIDEO EMBED -->
+    <div class="hero-video">
+      <iframe src="https://player.cloudinary.com/embed/?cloud_name=dm6k0etap&public_id=Firefly_A_cinematic_scene_featuring_a_sleek_laptop_falling_through_a_dark_dramatic_environment._The_jzvf5f&autoplay=true&controls=false&muted=true&loop=true" 
+      width="100%" height="450" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+    </div>
   </div>
 </section>
 
@@ -238,20 +298,46 @@
   </div>
 </section>
 
+<section id="website-type">
+  <h2>Type of Website</h2>
+  <div class="website-options">
+    <div class="website-card">
+      <h3>GitHub Hosting</h3>
+      <p>₦20,000 – Simple web for small business</p>
+    </div>
+    <div class="website-card">
+      <h3>Netlify.app</h3>
+      <p>₦30,000 – Small/medium websites</p>
+    </div>
+    <div class="website-card">
+      <h3>Vercel.app</h3>
+      <p>₦30,000 – Medium websites</p>
+    </div>
+    <div class="website-card">
+      <h3>.com Domain Website</h3>
+      <p>₦140,000–200,000 – Professional websites</p>
+    </div>
+    <div class="website-card">
+      <h3>Branding & Logo</h3>
+      <p>₦3,000–8,000 – Branding services</p>
+    </div>
+  </div>
+</section>
+
 <section id="portfolio">
   <h2>Our Work</h2>
   <div class="portfolio-grid">
     <div class="portfolio-item">
-      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="">
-      <div>Website Project</div>
+      <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36" alt="Project 1">
+      <div>Website Project – Mixed Nigeria</div>
     </div>
     <div class="portfolio-item">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="">
-      <div>Brand Identity</div>
+      <img src="https://images.unsplash.com/photo-1603415526960-f0b7a3b24e4c" alt="Project 2">
+      <div>Brand Identity – Mixed Nigeria</div>
     </div>
     <div class="portfolio-item">
-      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="">
-      <div>Ad Campaign</div>
+      <img src="https://images.unsplash.com/photo-1622495890456-3d2e2a72f5ed" alt="Project 3">
+      <div>Ad Campaign – Mixed Nigeria</div>
     </div>
   </div>
 </section>
@@ -272,6 +358,13 @@
     <textarea placeholder="Tell us about your project"></textarea>
     <button type="submit">Send Message</button>
   </form>
+</section>
+
+<section id="instagram">
+  <div class="instagram-contact">
+    <h2>Talk to Us on Instagram</h2>
+    <p>For business or work inquiries, reach out to <a href="https://instagram.com/ali0rbit" target="_blank">@ali0rbit</a></p>
+  </div>
 </section>
 
 <footer>
