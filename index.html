@@ -65,10 +65,68 @@
   <h1>Building Digital Experiences</h1>
   <p>sVn is a premier digital agency crafting world-class websites, bold branding, and immersive user experiences.</p>
 
-<p class="insta-contact">
-  Contact us —
-  <a href="https://ig.me/m/ali0rbit" target="_blank">Chat with us on Instagram</a>
-</p>
+<!-- Hero Section -->
+<style>
+  .insta-contact {
+    margin-top: 14px;
+    font-size: 0.95rem;
+    color: #bbb;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .insta-contact a {
+    margin-left: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    background: linear-gradient(90deg, #f58529, #dd2a7b, #8134af);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .insta-contact a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #f58529, #dd2a7b, #8134af);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  .insta-contact a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<section class="hero">
+  <h1>Building Digital Experiences</h1>
+  <p>sVn is a premier digital agency crafting world-class websites, bold branding, and immersive user experiences.</p>
+
+  <p class="insta-contact">
+    Contact us —
+    <a href="https://ig.me/m/ali0rbit" target="_blank">Chat with us on Instagram</a>
+  </p>
+
+  <button onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
+    Get a Quote
+  </button>
+</section>
 
 
   <button onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
