@@ -4,82 +4,207 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>sVn Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    /* ----- GENERAL STYLES ----- */
-    * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-    body {background:#0f0f0f;color:white;scroll-behavior:smooth;}
-    a {text-decoration:none;color:inherit;}
-    section {padding:80px 20px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:transform 0.4s ease;}
-    section:hover {transform:translateY(-6px);}
-    
-    /* ----- HERO SECTION ----- */
-    .hero {background:linear-gradient(120deg,#0f0f0f,#1a1a1a);text-align:center;position:relative;overflow:hidden;}
-    .hero h1 {font-size:3rem;background:linear-gradient(90deg,#f58529,#dd2a7b,#8134af);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:fadeUp 1s ease forwards;}
-    .hero p {margin-top:15px;font-size:1.2rem;opacity:0.8;animation:fadeUp 1.2s ease forwards;}
-    .hero button {margin-top:30px;padding:14px 28px;font-weight:600;border:none;border-radius:50px;background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);cursor:pointer;color:white;transition:all 0.3s ease;}
-    .hero button:hover {transform:scale(1.05);box-shadow:0 10px 30px rgba(221,42,123,0.4);}
-    
-    /* ----- SECTIONS ----- */
-    .section-title {font-size:2rem;margin-bottom:20px;background:linear-gradient(90deg,#f58529,#dd2a7b,#8134af);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-    .section-placeholder {width:80%;max-width:1000px;height:200px;border:2px dashed #555;border-radius:15px;display:flex;justify-content:center;align-items:center;font-size:1.2rem;color:#888;cursor:pointer;transition:all 0.3s ease;}
-    .section-placeholder:hover {border-color:#f58529;color:white;transform:scale(1.05);}
-    
-    /* ----- ANIMATIONS ----- */
-    @keyframes fadeUp {from {opacity:0;transform:translateY(20px);} to {opacity:1;transform:translateY(0);}}
-    
-    /* ----- BOUNCING ICON ----- */
-    .bounce {display:inline-block;animation:bounce 2s infinite;}
-    @keyframes bounce {0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
-    
-    /* ----- RESPONSIVE ----- */
-    @media(max-width:768px){.hero h1{font-size:2rem;}.hero p{font-size:1rem;}}
+    /* ========== RESET & BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15,15,15,0.85);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: #00ffe0;
+    }
+
+    nav a {
+      margin-left: 2rem;
+      font-weight: 600;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff00ff;
+      transform: scale(1.2);
+    }
+
+    /* ========== HERO SECTION ========== */
+    section.hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: bounceIn 1s ease forwards;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    /* ========== SECTIONS ========== */
+    section {
+      min-height: 100vh;
+      padding: 5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.5s ease;
+      cursor: pointer;
+    }
+
+    section:hover {
+      transform: scale(1.02);
+    }
+
+    section h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00ffe0;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    section p {
+      font-size: 1rem;
+      max-width: 600px;
+      text-align: center;
+      color: #ccc;
+    }
+
+    /* ========== ANIMATIONS ========== */
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      padding: 2rem;
+      text-align: center;
+      background: #111;
+      color: #888;
+    }
   </style>
 </head>
 <body>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
+  <!-- HEADER -->
+  <header>
     <h1>sVn Studio</h1>
-    <p>We craft websites, logos, and digital experiences that WOW.</p>
-    <button onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'})">Explore</button>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Welcome to sVn Studio</h2>
+    <p>We craft mind-blowing websites, logos, and digital experiences that stick.</p>
   </section>
 
-  <!-- ABOUT SECTION -->
-  <section id="about">
-    <h2 class="section-title">About Us</h2>
-    <div class="section-placeholder" onclick="alert('Fill this section with About content!')">
-      Click here to fill About Us
-    </div>
-  </section>
-
-  <!-- SERVICES SECTION -->
+  <!-- SERVICES -->
   <section id="services">
-    <h2 class="section-title">Our Services</h2>
-    <div class="section-placeholder" onclick="alert('Fill this section with Services content!')">
-      Click here to fill Services
-    </div>
+    <h3>Our Services</h3>
+    <p>Click this section to see details about our web development, branding, and design services.</p>
   </section>
 
-  <!-- PORTFOLIO SECTION -->
+  <!-- PORTFOLIO -->
   <section id="portfolio">
-    <h2 class="section-title">Portfolio</h2>
-    <div class="section-placeholder" onclick="alert('Fill this section with Portfolio content!')">
-      Click here to fill Portfolio
-    </div>
+    <h3>Portfolio</h3>
+    <p>Click this section to showcase your previous projects and case studies.</p>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="section-placeholder" onclick="alert('Fill this section with Contact info!')">
-      Click here to fill Contact
-    </div>
-    <p style="margin-top:20px;">
-      <a href="https://ig.me/m/ali0rbit" target="_blank" style="font-size:2rem;">
-        <span class="bounce">📸</span> Instagram
-      </a>
-    </p>
+  <!-- ABOUT -->
+  <section id="about">
+    <h3>About Us</h3>
+    <p>Click this section to tell your story, team, and mission.</p>
   </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h3>Contact</h3>
+    <p>Click this section to add your contact forms or social links.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2026 sVn Studio. All Rights Reserved.
+  </footer>
+
+  <script>
+    // Make each section clickable and log click for now
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+      section.addEventListener('click', () => {
+        alert(`You clicked on: ${section.querySelector('h3')?.innerText || 'Hero'}`);
+        // Here you can expand the section or open modal later
+      });
+    });
+
+    // Optional: Smooth scroll animation for nav
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 
 </body>
 </html>
