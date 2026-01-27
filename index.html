@@ -2,55 +2,88 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>sVn Studio</title>
+<title>ALISVN Tech Agency</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+:root{
+  --dark:#0b0b0b;
+  --accent:#38bdf8;
+  --light:#e5e7eb;
+}
+
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-body{background:#0b0b0b;color:#e5e5e5;overflow-x:hidden}
+body{background:var(--dark);color:var(--light);overflow-x:hidden}
 
 /* HEADER */
 header{
   display:flex;justify-content:space-between;align-items:center;
-  padding:20px 40px;background:rgba(15,15,15,0.95);
-  border-bottom:1px solid #222;backdrop-filter:blur(10px)
+  padding:20px 40px;background:rgba(15,15,15,.95);
+  border-bottom:1px solid #111;backdrop-filter:blur(10px)
 }
+
 .logo{
-  width:65px;height:65px;border-radius:50%;padding:5px;
-  background:linear-gradient(145deg,#2a2a2a,#111);
-  box-shadow:0 0 25px rgba(255,255,255,.15);
+  width:60px;height:60px;border-radius:50%;
+  padding:4px;border:2px solid var(--accent);
   transition:.6s
 }
 .logo:hover{transform:rotate(360deg) scale(1.1)}
-nav a{color:#bbb;margin-left:25px;text-decoration:none;position:relative}
+
+nav a{
+  color:var(--light);margin-left:25px;
+  text-decoration:none;position:relative;font-weight:500
+}
 nav a::after{
   content:"";position:absolute;bottom:-6px;left:0;width:0;height:2px;
-  background:#777;transition:.3s
+  background:var(--accent);transition:.3s
 }
 nav a:hover::after{width:100%}
 
 /* HERO */
 .hero{
-  text-align:center;padding:130px 20px;position:relative
+  text-align:center;padding:140px 20px;position:relative
 }
-.hero h1{font-size:3.2rem;animation:down 1s ease}
+
+/* ALISVN BRAND TEXT */
+.brand{
+  font-size:3.8rem;font-weight:800;letter-spacing:3px;
+}
+.brand span{
+  display:inline-block;
+  animation:bounce 2s infinite;
+}
+.brand .ali{color:var(--light)}
+.brand .svn{
+  color:var(--accent);
+  text-shadow:0 0 25px rgba(56,189,248,.6);
+  animation-delay:.2s;
+}
+
 .hero p{
-  max-width:720px;margin:25px auto;color:#aaa;
-  animation:up 1.4s ease
+  max-width:720px;margin:25px auto;color:#9ca3af;
+  animation:fadeUp 1.4s ease
 }
+
 .btn{
-  padding:15px 38px;border-radius:30px;
-  background:linear-gradient(135deg,#2b2b2b,#141414);
-  color:#fff;border:none;cursor:pointer;
+  padding:15px 40px;border-radius:30px;
+  background:transparent;
+  color:var(--accent);
+  border:2px solid var(--accent);
+  cursor:pointer;font-size:1rem;
   transition:.4s
 }
-.btn:hover{transform:translateY(-6px);box-shadow:0 10px 40px rgba(255,255,255,.2)}
+.btn:hover{
+  background:var(--accent);
+  color:#000;
+  box-shadow:0 0 40px rgba(56,189,248,.6);
+  transform:translateY(-6px)
+}
 
-/* FLOATING ICONS */
+/* FLOATING TECH ICONS */
 .float i{
-  position:absolute;font-size:2rem;color:#333;
+  position:absolute;font-size:2rem;color:#1f2933;
   animation:float 10s infinite linear
 }
 .float i:nth-child(1){top:20%;left:10%}
@@ -60,43 +93,58 @@ nav a:hover::after{width:100%}
 /* SECTIONS */
 section{padding:90px 20px;max-width:1100px;margin:auto}
 .section-title{text-align:center;margin-bottom:50px}
-.section-title h2{font-size:2.4rem}
-
-/* BOXES */
-.box{
-  background:linear-gradient(145deg,#161616,#0f0f0f);
-  border:1px solid #222;border-radius:16px;
-  padding:35px;margin-bottom:40px;
-  animation:up 1.2s ease
+.section-title h2{
+  font-size:2.4rem;
+  color:var(--accent)
 }
 
-/* SERVICES GRID */
+/* BOX */
+.box{
+  background:#0f0f0f;
+  border:1px solid #111;
+  border-radius:18px;
+  padding:40px;margin-bottom:40px;
+  animation:fadeUp 1.2s ease
+}
+
+/* SERVICES */
 .grid{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:25px
 }
 .card{
-  background:#121212;border:1px solid #222;
-  padding:30px;border-radius:14px;
+  background:#0c0c0c;
+  border:1px solid #111;
+  padding:30px;border-radius:16px;
   transition:.4s
 }
-.card:hover{transform:translateY(-10px);box-shadow:0 10px 30px rgba(0,0,0,.6)}
+.card:hover{
+  transform:translateY(-10px);
+  border-color:var(--accent);
+  box-shadow:0 0 30px rgba(56,189,248,.25)
+}
 
 /* CODE SCREEN */
 .code{
-  background:#050505;border-radius:14px;
-  border:1px solid #333;padding:30px;
-  font-family:monospace;color:#7dd3fc
+  background:#020617;
+  border-radius:16px;
+  border:1px solid #0f172a;
+  padding:30px;
+  font-family:monospace;
+  color:var(--accent)
 }
-.code span{color:#a3e635}
+.code span{color:var(--light)}
 
 /* INSTAGRAM */
 .instagram{text-align:center;margin-top:25px}
 .instagram a{
-  font-size:2.8rem;color:#ccc;
+  font-size:2.8rem;color:var(--light);
   transition:.4s
 }
-.instagram a:hover{color:#c13584;transform:scale(1.2)}
+.instagram a:hover{
+  color:#c13584;
+  transform:scale(1.2)
+}
 
 /* MODAL */
 .modal{
@@ -105,25 +153,42 @@ section{padding:90px 20px;max-width:1100px;margin:auto}
   justify-content:center;align-items:center;z-index:99
 }
 .modal-content{
-  background:#111;padding:35px;border-radius:16px;
-  width:90%;max-width:500px;animation:pop .4s
+  background:#0b0b0b;padding:35px;
+  border-radius:20px;
+  width:90%;max-width:500px;
+  border:1px solid var(--accent);
+  animation:pop .4s
 }
 .price{
-  background:#181818;padding:14px;
-  margin:12px 0;border-left:4px solid #555
+  background:#020617;
+  padding:14px;
+  margin:12px 0;
+  border-left:4px solid var(--accent)
 }
 
 /* FOOTER */
 footer{
-  background:#060606;padding:30px;
-  text-align:center;color:#666
+  background:#020617;padding:30px;
+  text-align:center;color:#9ca3af
 }
 
 /* ANIMATIONS */
-@keyframes up{from{opacity:0;transform:translateY(40px)}to{opacity:1}}
-@keyframes down{from{opacity:0;transform:translateY(-40px)}to{opacity:1}}
-@keyframes float{from{transform:translateY(0)}to{transform:translateY(-120px)}}
-@keyframes pop{from{transform:scale(.7);opacity:0}to{transform:scale(1)}}
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1}
+}
+@keyframes float{
+  from{transform:translateY(0)}
+  to{transform:translateY(-120px)}
+}
+@keyframes pop{
+  from{transform:scale(.7);opacity:0}
+  to{transform:scale(1)}
+}
 </style>
 </head>
 
@@ -140,9 +205,14 @@ footer{
 </header>
 
 <div class="hero">
-  <h1>ALISVN Tech Agency</h1>
-  <p>Modern websites, logos and digital adverts built with clean code and strong tech identity.</p>
+  <div class="brand">
+    <span class="ali">ALI</span><span class="svn">SVN</span>
+  </div>
+  <p>
+    Modern websites, logos, and digital adverts built with clean code and strong tech identity.
+  </p>
   <button class="btn" onclick="openModal()">Web Types & Pricing</button>
+
   <div class="float">
     <i class="fas fa-code"></i>
     <i class="fas fa-laptop-code"></i>
@@ -153,7 +223,7 @@ footer{
 <section id="about">
   <div class="section-title"><h2>About Us</h2></div>
   <div class="box">
-    We are a digital agency based in <strong>Abuja, Nigeria</strong>, focused on building professional websites and digital designs that help businesses grow online.
+    We are a tech-focused digital agency based in <strong>Abuja, Nigeria</strong>, building modern and professional websites for businesses.
   </div>
 </section>
 
@@ -205,7 +275,7 @@ footer{
 </div>
 
 <footer>
-  © 2026 ALISVN Tech Agency — Built with Code & Precision
+  © 2026 ALISVN Tech Agency — Modern • Clean • Powerful
 </footer>
 
 <script>
