@@ -2,238 +2,292 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>ALISVN Tech Agency</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sVn Studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for Instagram Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-    /* ========== RESET & BASE ========== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     body {
-      background: #0f0f0f;
-      color: #fff;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
+      background: #111;
+      color: #e0e0e0;
+      line-height: 1.6;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* ========== HEADER ========== */
     header {
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #333;
+    }
+
+    header img {
+      width: 120px;
+      animation: fadeIn 2s ease;
+    }
+
+    nav a {
+      color: #ccc;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+      background: radial-gradient(circle at top, #222, #0f0f0f);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #aaa;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 14px 30px;
+      background: #2f2f2f;
+      border: 1px solid #444;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 6px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .btn:hover {
+      background: #3a3a3a;
+      transform: scale(1.08);
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .tech-box {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid #333;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .tech-box::before {
+      content: "</>";
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2rem;
+      color: #333;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    .instagram {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .instagram a {
+      color: #e0e0e0;
+      font-size: 2.5rem;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .instagram a:hover {
+      color: #c13584;
+      transform: scale(1.2);
+    }
+
+    footer {
+      background: #0b0b0b;
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #222;
+      color: #777;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
       align-items: center;
-      background: rgba(15,15,15,0.85);
-      backdrop-filter: blur(10px);
       z-index: 1000;
     }
 
-    header h1 {
-      font-weight: 800;
-      font-size: 1.8rem;
-      color: #00ffe0;
+    .modal-content {
+      background: #1c1c1c;
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 10px;
+      border: 1px solid #444;
+      animation: slideUp 0.5s ease;
     }
 
-    nav a {
-      margin-left: 2rem;
-      font-weight: 600;
-      transition: transform 0.3s ease, color 0.3s ease;
+    .price {
+      background: #141414;
+      padding: 12px;
+      margin: 10px 0;
+      border-left: 4px solid #555;
     }
 
-    nav a:hover {
-      color: #ff00ff;
-      transform: scale(1.2);
+    .close-btn {
+      margin-top: 20px;
+      width: 100%;
     }
 
-    /* ========== HERO SECTION ========== */
-    section.hero {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      animation: bounceIn 1s ease forwards;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      animation: fadeIn 2s ease forwards;
-    }
-
-    /* ========== SECTIONS ========== */
-    section {
-      min-height: 100vh;
-      padding: 5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.5s ease;
-      cursor: pointer;
-    }
-
-    section:hover {
-      transform: scale(1.02);
-    }
-
-    section h3 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #00ffe0;
-      animation: fadeInUp 1s ease forwards;
-    }
-
-    section p {
-      font-size: 1rem;
-      max-width: 600px;
-      text-align: center;
-      color: #ccc;
-    }
-
-    /* ========== ANIMATIONS ========== */
-    @keyframes bounceIn {
-      0% { transform: scale(0.5); opacity: 0; }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); opacity: 1; }
+    @keyframes slideUp {
+      from { transform: translateY(60px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
-    @keyframes fadeInUp {
-      0% { transform: translateY(20px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-
-    /* ========== FOOTER ========== */
-    footer {
-      padding: 2rem;
-      text-align: center;
-      background: #111;
-      color: #888;
-    }
   </style>
 </head>
+
 <body>
 
   <!-- HEADER -->
   <header>
-    <h1>sVn Studio</h1>
+    <img src="https://res.cloudinary.com/dm6k0etap/image/upload/v1769549277/0919b84a-9700-465e-8827-3a4e24a11790_idxg1u.jpg" alt="Company Logo">
     <nav>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
       <a href="#about">About</a>
+      <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <h2>Welcome to sVn Studio</h2>
-    <p>We craft mind-blowing websites, logos, and digital experiences that stick.</p>
-  </section>
-
-<!-- Our Services Section -->
-<section id="services" style="padding: 60px 20px; background-color: #f9f9f9; text-align: center;">
-  <h2 style="font-size: 36px; margin-bottom: 20px;">Our Services</h2>
-  <p style="font-size: 18px; margin-bottom: 50px; color: #555;">
-    We provide top-notch solutions to help your business grow.
-  </p>
-  
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-    
-    <!-- Service 1 -->
-    <div style="background: white; padding: 30px; border-radius: 10px; width: 250px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-      <h3 style="font-size: 24px; margin-bottom: 15px;">Web Design</h3>
-      <p style="color: #666;">Creating beautiful and responsive websites that impress your users.</p>
-    </div>
-    
-    <!-- Service 2 -->
-    <div style="background: white; padding: 30px; border-radius: 10px; width: 250px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-      <h3 style="font-size: 24px; margin-bottom: 15px;">SEO Optimization</h3>
-      <p style="color: #666;">Improving your website’s ranking so customers can find you easily.</p>
-    </div>
-    
-    <!-- Service 3 -->
-    <div style="background: white; padding: 30px; border-radius: 10px; width: 250px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-      <h3 style="font-size: 24px; margin-bottom: 15px;">Digital Marketing</h3>
-      <p style="color: #666;">Promoting your brand online to reach more customers effectively.</p>
-    </div>
-    
-    <!-- Service 4 -->
-    <div style="background: white; padding: 30px; border-radius: 10px; width: 250px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-      <h3 style="font-size: 24px; margin-bottom: 15px;">App Development</h3>
-      <p style="color: #666;">Building user-friendly mobile apps for iOS and Android platforms.</p>
-    </div>
-    
+  <div class="hero">
+    <h1>ALISVN Digital & Tech Agency</h1>
+    <p>
+      We design modern websites, logos, and digital advertisements with a strong
+      tech identity. If you want your business to look professional and powerful
+      online, we’ve got you covered.
+    </p>
+    <button class="btn" onclick="openModal()">View Web Types & Prices</button>
   </div>
-</section>
-
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <h3>Portfolio</h3>
-    <p>Click this section to showcase your previous projects and case studies.</p>
-  </section>
 
   <!-- ABOUT -->
   <section id="about">
-    <h3>About Us</h3>
-    <p>Click this section to tell your story, team, and mission.</p>
+    <div class="tech-box">
+      <h2>Who We Are</h2>
+      <p>
+        We are a Nigeria-based digital agency located in <strong>Abuja</strong>.
+        Our focus is building fast, secure, and modern websites with clean code
+        and professional design.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="tech-box">
+      <h2>What We Do</h2>
+      <p>
+        • Website Design & Development<br>
+        • Logo Creation<br>
+        • Online Advert Design<br><br>
+        All projects are handled professionally with a strong tech and computer-driven
+        approach.
+      </p>
+    </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
-    <h3>Contact</h3>
-    <p>Click this section to add your contact forms or social links.</p>
+    <div class="tech-box">
+      <h2>Contact Us</h2>
+      <p>
+        To request a website, logo, or advert design, please reach out to us directly
+        on Instagram. All customer communication is handled there.
+      </p>
+
+      <div class="instagram">
+        <a href="https://instagram.com/alisvn___" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+
+      <p style="margin-top:20px; text-align:center;">
+        📍 Location: Abuja, Nigeria
+      </p>
+    </div>
   </section>
+
+  <!-- MODAL -->
+  <div class="modal" id="priceModal">
+    <div class="modal-content">
+      <h2>Website Types & Prices</h2>
+
+      <div class="price">GitHub Website Publishing – ₦20,000</div>
+      <div class="price">Netlify Website – ₦30,000</div>
+      <div class="price">Vercel Website – ₦30,000</div>
+      <div class="price">Website with .com or .ng – ₦150,000</div>
+
+      <button class="btn close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
-    &copy; 2026 sVn Studio. All Rights Reserved.
+    © 2026 ALISVN Tech Agency — Built with code & creativity
   </footer>
 
+  <!-- JAVASCRIPT -->
   <script>
-    // Make each section clickable and log click for now
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-      section.addEventListener('click', () => {
-        alert(`You clicked on: ${section.querySelector('h3')?.innerText || 'Hero'}`);
-        // Here you can expand the section or open modal later
-      });
-    });
+    function openModal() {
+      document.getElementById("priceModal").style.display = "flex";
+    }
 
-    // Optional: Smooth scroll animation for nav
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
+    function closeModal() {
+      document.getElementById("priceModal").style.display = "none";
+    }
+
+    window.onclick = function(e) {
+      const modal = document.getElementById("priceModal");
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    }
   </script>
 
 </body>
