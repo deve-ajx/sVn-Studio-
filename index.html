@@ -23,14 +23,12 @@ header{
   padding:20px 40px;background:rgba(15,15,15,.95);
   border-bottom:1px solid #111;backdrop-filter:blur(10px)
 }
-
 .logo{
   width:60px;height:60px;border-radius:50%;
   padding:4px;border:2px solid var(--accent);
   transition:.6s
 }
 .logo:hover{transform:rotate(360deg) scale(1.1)}
-
 nav a{
   color:var(--light);margin-left:25px;
   text-decoration:none;position:relative;font-weight:500
@@ -45,8 +43,6 @@ nav a:hover::after{width:100%}
 .hero{
   text-align:center;padding:140px 20px;position:relative
 }
-
-/* ALISVN BRAND TEXT */
 .brand{
   font-size:3.8rem;font-weight:800;letter-spacing:3px;
 }
@@ -60,12 +56,10 @@ nav a:hover::after{width:100%}
   text-shadow:0 0 25px rgba(56,189,248,.6);
   animation-delay:.2s;
 }
-
 .hero p{
   max-width:720px;margin:25px auto;color:#9ca3af;
   animation:fadeUp 1.4s ease
 }
-
 .btn{
   padding:15px 40px;border-radius:30px;
   background:transparent;
@@ -80,8 +74,6 @@ nav a:hover::after{width:100%}
   box-shadow:0 0 40px rgba(56,189,248,.6);
   transform:translateY(-6px)
 }
-
-/* FLOATING TECH ICONS */
 .float i{
   position:absolute;font-size:2rem;color:#1f2933;
   animation:float 10s infinite linear
@@ -97,8 +89,6 @@ section{padding:90px 20px;max-width:1100px;margin:auto}
   font-size:2.4rem;
   color:var(--accent)
 }
-
-/* BOX */
 .box{
   background:#0f0f0f;
   border:1px solid #111;
@@ -106,8 +96,6 @@ section{padding:90px 20px;max-width:1100px;margin:auto}
   padding:40px;margin-bottom:40px;
   animation:fadeUp 1.2s ease
 }
-
-/* SERVICES */
 .grid{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:25px
@@ -123,8 +111,6 @@ section{padding:90px 20px;max-width:1100px;margin:auto}
   border-color:var(--accent);
   box-shadow:0 0 30px rgba(56,189,248,.25)
 }
-
-/* CODE SCREEN */
 .code{
   background:#020617;
   border-radius:16px;
@@ -134,8 +120,6 @@ section{padding:90px 20px;max-width:1100px;margin:auto}
   color:var(--accent)
 }
 .code span{color:var(--light)}
-
-/* INSTAGRAM */
 .instagram{text-align:center;margin-top:25px}
 .instagram a{
   font-size:2.8rem;color:var(--light);
@@ -166,6 +150,48 @@ section{padding:90px 20px;max-width:1100px;margin:auto}
   border-left:4px solid var(--accent)
 }
 
+/* AUTH MODAL */
+.auth-modal{
+  position:fixed;inset:0;background:rgba(0,0,0,0.85);
+  display:flex;justify-content:center;align-items:center;
+  z-index:100;opacity:0;pointer-events:none;
+  transition:0.4s;
+}
+.auth-modal.show{
+  opacity:1;pointer-events:auto;
+}
+.auth-content{
+  background:#0b0b0b;padding:40px;border-radius:20px;
+  width:90%;max-width:400px;position:relative;
+  border:2px solid var(--accent);
+  animation:pop 0.5s;
+  text-align:center;
+}
+.auth-content h2{
+  color:var(--accent);margin-bottom:20px;
+}
+.auth-content input{
+  width:100%;padding:12px;margin:10px 0;
+  border-radius:12px;border:1px solid #333;
+  background:#111;color:#fff;font-size:1rem;
+  transition:0.3s;
+}
+.auth-content input:focus{border-color:var(--accent);outline:none}
+.auth-btn{
+  width:100%;padding:12px;margin-top:15px;
+  border:none;border-radius:12px;
+  background:var(--accent);color:#000;
+  font-weight:600;font-size:1rem;
+  cursor:pointer;transition:0.3s;
+}
+.auth-btn:hover{box-shadow:0 0 30px rgba(56,189,248,.5);transform:translateY(-3px);}
+.auth-switch{margin-top:15px;color:#aaa;font-size:0.9rem;}
+.auth-switch span#switchLink{color:var(--accent);cursor:pointer;margin-left:6px;}
+.close-auth{
+  position:absolute;top:15px;right:15px;background:none;border:none;
+  color:#aaa;font-size:1.2rem;cursor:pointer;
+}
+
 /* FOOTER */
 footer{
   background:#020617;padding:30px;
@@ -189,21 +215,20 @@ footer{
   from{transform:scale(.7);opacity:0}
   to{transform:scale(1)}
 }
+
+/* SVN APP */
+#app{display:none;max-width:500px;margin:30px auto}
+#app input, #app button{
+  width:100%;padding:10px;margin-top:10px;background:#1c1c1c;
+  border:1px solid #333;color:white;border-radius:8px;
+}
+#app button{cursor:pointer}
+.post{border-bottom:1px solid #333;padding:10px;margin-top:10px}
+.post img, .post video{width:100%;border-radius:8px}
+.like{background:none;border:none;color:#ff2d55;font-size:16px}
 </style>
 </head>
-
 <body>
-  <div style="width:100%; max-width:700px; margin:auto; padding:20px 0;">
-  <iframe
-    src="https://player.cloudinary.com/embed/?cloud_name=dm6k0etap&public_id=Firefly_A_cinematic_scene_featuring_a_sleek_laptop_falling_through_a_dark_dramatic_environment._The_jzvf5f"
-    width="100%"
-    height="400"
-    frameborder="0"
-    allow="autoplay; loop; encrypted-media; picture-in-picture"
-    allowfullscreen
-  ></iframe>
-</div>
-
 
 <header>
   <img class="logo" src="https://res.cloudinary.com/dm6k0etap/image/upload/v1769549277/0919b84a-9700-465e-8827-3a4e24a11790_idxg1u.jpg">
@@ -212,6 +237,7 @@ footer{
     <a href="#services">Services</a>
     <a href="#tech">Tech</a>
     <a href="#contact">Contact</a>
+    <a href="javascript:void(0)" onclick="openAuthModal()">Login / Sign Up</a>
   </nav>
 </header>
 
@@ -219,9 +245,7 @@ footer{
   <div class="brand">
     <span class="ali">ALI</span><span class="svn">SVN</span>
   </div>
-  <p>
-    Modern websites, logos, and digital adverts built with clean code and strong tech identity.
-  </p>
+  <p>Modern websites, logos, and digital adverts built with clean code and strong tech identity.</p>
   <button class="btn" onclick="openModal()">Web Types & Pricing</button>
 
   <div class="float">
@@ -231,6 +255,7 @@ footer{
   </div>
 </div>
 
+<!-- ABOUT -->
 <section id="about">
   <div class="section-title"><h2>About Us</h2></div>
   <div class="box">
@@ -238,6 +263,7 @@ footer{
   </div>
 </section>
 
+<!-- SERVICES -->
 <section id="services">
   <div class="section-title"><h2>What We Build</h2></div>
   <div class="grid">
@@ -248,6 +274,7 @@ footer{
   </div>
 </section>
 
+<!-- TECH -->
 <section id="tech">
   <div class="section-title"><h2>Our Tech Environment</h2></div>
   <div class="box">
@@ -261,10 +288,11 @@ footer{
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="section-title"><h2>Contact & Location</h2></div>
   <div class="box">
-    All website, logo, and advert requests are handled via Instagram.
+    All requests are handled via Instagram.
     <div class="instagram">
       <a href="https://instagram.com/alisvn____" target="_blank">
         <i class="fab fa-instagram"></i>
@@ -274,6 +302,7 @@ footer{
   </div>
 </section>
 
+<!-- MODAL PRICING -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <h2>Website Types & Prices</h2>
@@ -281,19 +310,141 @@ footer{
     <div class="price">Netlify – ₦30,000</div>
     <div class="price">Vercel – ₦30,000</div>
     <div class="price">.com / .ng Website – ₦150,000</div>
-    <div class="price">Logo + Full website + SEO + Social ads ₦250,000 Basic One ₦60,000
+    <div class="price">Logo + Full website + SEO + Social ads ₦250,000 Basic One ₦60,000</div>
     <button class="btn" onclick="closeModal()" style="margin-top:20px;width:100%">Close</button>
   </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="auth-modal" id="authModal">
+  <div class="auth-content">
+    <h2 id="authTitle">Sign In</h2>
+    <input type="email" id="authEmail" placeholder="Email">
+    <input type="password" id="authPassword" placeholder="Password">
+    <button class="auth-btn" id="authActionBtn">Sign In</button>
+    <p class="auth-switch">
+      <span id="switchText">Don't have an account?</span>
+      <span id="switchLink">Sign Up</span>
+    </p>
+    <button class="close-auth" onclick="closeAuthModal()"><i class="fas fa-times"></i></button>
+  </div>
+</div>
+
+<!-- SVN APP -->
+<div id="app">
+  <input type="file" id="file">
+  <button onclick="upload()">Upload</button>
+  <div id="feed"></div>
 </div>
 
 <footer>
   © 2026 ALIsVn Tech Agency — Modern • Clean • Powerful
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+const SUPABASE_URL = "https://gukdrjrcpntinjgpiqee.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd1a2RyanJjcG50aW5qZ3BpcWVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0ODkxMTgsImV4cCI6MjA4NjA2NTExOH0.rsvm84b3oSS3miNSdE3wvLPxEW-H6ppQLkoMw4G-qrQ";
+
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+/* MODAL FUNCTIONS */
 function openModal(){document.getElementById("modal").style.display="flex"}
 function closeModal(){document.getElementById("modal").style.display="none"}
-</script>
 
+/* AUTH FUNCTIONS */
+const authModal = document.getElementById("authModal");
+const authTitle = document.getElementById("authTitle");
+const authActionBtn = document.getElementById("authActionBtn");
+const switchLink = document.getElementById("switchLink");
+const switchText = document.getElementById("switchText");
+
+let isSignIn = true;
+function openAuthModal(){authModal.classList.add("show")}
+function closeAuthModal(){authModal.classList.remove("show")}
+
+switchLink.onclick = ()=>{
+  isSignIn = !isSignIn;
+  if(isSignIn){
+    authTitle.textContent = "Sign In";
+    authActionBtn.textContent = "Sign In";
+    switchText.textContent = "Don't have an account?";
+    switchLink.textContent = "Sign Up";
+  }else{
+    authTitle.textContent = "Sign Up";
+    authActionBtn.textContent = "Sign Up";
+    switchText.textContent = "Already have an account?";
+    switchLink.textContent = "Sign In";
+  }
+}
+
+authActionBtn.onclick = async ()=>{
+  const email = document.getElementById("authEmail").value;
+  const password = document.getElementById("authPassword").value;
+  if(!email || !password){alert("Enter email and password"); return;}
+  
+  if(isSignIn){
+    const { error } = await supabaseClient.auth.signInWithPassword({email,password});
+    if(error){alert(error.message); return;}
+    closeAuthModal();
+    loadFeed();
+  }else{
+    const { error } = await supabaseClient.auth.signUp({email,password});
+    if(error){alert(error.message); return;}
+    alert("Account created! Please sign in.");
+    switchLink.click(); // Switch to sign in after signup
+  }
+}
+
+/* AUTH STATE AND SVN APP */
+const appDiv = document.getElementById("app");
+const feed = document.getElementById("feed");
+const fileInput = document.getElementById("file");
+
+supabaseClient.auth.onAuthStateChange((_event, session)=>{
+  if(session){
+    appDiv.style.display="block";
+    loadFeed();
+  }else{
+    appDiv.style.display="none";
+  }
+});
+
+/* UPLOAD */
+async function upload(){
+  const file = fileInput.files[0];
+  if(!file) return alert("Select a file first");
+  const type = file.type.startsWith("video") ? "video" : "image";
+  const name = Date.now()+"_"+file.name;
+
+  const { error: uploadError } = await supabaseClient.storage.from("media").upload(name,file);
+  if(uploadError) return alert(uploadError.message);
+
+  const { data } = supabaseClient.storage.from("media").getPublicUrl(name);
+  await supabaseClient.from("posts").insert({media_url:data.publicUrl,media_type:type});
+  loadFeed();
+}
+
+/* LIKE & FEED */
+async function likePost(id){
+  await supabaseClient.from("likes").insert({post_id:id});
+  loadFeed();
+}
+
+async function loadFeed(){
+  const { data, error } = await supabaseClient.from("posts").select("*, likes(count)").order("created_at",{ascending:false});
+  if(error) return alert(error.message);
+
+  feed.innerHTML="";
+  data.forEach(post=>{
+    feed.innerHTML+=`
+      <div class="post">
+        ${post.media_type==="image"?`<img src="${post.media_url}">`:`<video src="${post.media_url}" controls></video>`}
+        <button class="like" onclick="likePost('${post.id}')">❤️ ${post.likes?.[0]?.count || 0}</button>
+      </div>
+    `;
+  });
+}
+</script>
 </body>
 </html>
