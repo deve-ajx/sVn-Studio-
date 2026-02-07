@@ -221,14 +221,6 @@ section{padding:90px 20px;max-width:1100px;margin:auto}
   from{transform:scale(.7);opacity:0}
   to{transform:scale(1)}
 }
-
-/* HIDE SITE UNTIL LOGIN */
-body:not(.logged-in) header,
-body:not(.logged-in) section,
-body:not(.logged-in) footer,
-body:not(.logged-in) .hero{
-  display:none;
-}
 </style>
 </head>
 
@@ -346,6 +338,8 @@ body:not(.logged-in) .hero{
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+document.addEventListener("DOMContentLoaded", function(){
+
 const SUPABASE_URL = "https://gukdrjrcpntinjgpiqee.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd1a2RyanJjcG50aW5qZ3BpcWVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0ODkxMTgsImV4cCI6MjA4NjA2NTExOH0.rsvm84b3oSS3miNSdE3wvLPxEW-H6ppQLkoMw4G-qrQ";
 
@@ -359,15 +353,14 @@ const switchText = document.getElementById("switchText");
 
 let isSignIn = true;
 
-// Switch Sign In / Sign Up
 switchLink.onclick = () => {
   isSignIn = !isSignIn;
-  if (isSignIn) {
+  if(isSignIn){
     authTitle.textContent = "Sign In";
     authActionBtn.textContent = "Sign In";
     switchText.textContent = "Don't have an account?";
     switchLink.textContent = "Sign Up";
-  } else {
+  }else{
     authTitle.textContent = "Sign Up";
     authActionBtn.textContent = "Sign Up";
     switchText.textContent = "Already have an account?";
@@ -375,20 +368,19 @@ switchLink.onclick = () => {
   }
 }
 
-// Auth action
 authActionBtn.onclick = async () => {
   const email = document.getElementById("authEmail").value;
   const password = document.getElementById("authPassword").value;
-  if (!email || !password) { alert("Enter email and password"); return; }
+  if(!email || !password){ alert("Enter email and password"); return; }
 
-  if (isSignIn) {
-    const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
-    if (error) { alert(error.message); return; }
+  if(isSignIn){
+    const { error } = await supabaseClient.auth.signInWithPassword({ email,password });
+    if(error){ alert(error.message); return; }
     authScreen.style.display = "none";
     document.body.classList.add("logged-in");
-  } else {
-    const { error } = await supabaseClient.auth.signUp({ email, password });
-    if (error) { alert(error.message); return; }
+  }else{
+    const { error } = await supabaseClient.auth.signUp({ email,password });
+    if(error){ alert(error.message); return; }
     alert("Account created! Please sign in.");
     switchLink.click();
   }
@@ -397,14 +389,16 @@ authActionBtn.onclick = async () => {
 // Persist session
 (async () => {
   const { data: { session } } = await supabaseClient.auth.getSession();
-  if (session) {
+  if(session){
     authScreen.style.display = "none";
     document.body.classList.add("logged-in");
   }
 })();
 
-function openModal(){document.getElementById("modal").style.display="flex"}
-function closeModal(){document.getElementById("modal").style.display="none"}
+window.openModal = ()=>{document.getElementById("modal").style.display="flex"}
+window.closeModal = ()=>{document.getElementById("modal").style.display="none"}
+
+}); // DOMContentLoaded
 </script>
 </body>
 </html>
