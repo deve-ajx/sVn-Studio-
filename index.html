@@ -90,14 +90,15 @@ body:not(.logged-in) footer{
 <section id="contact"><div class="section-title"><h2>Contact</h2></div></section>
 <footer>© 2026 ALIsVn Tech Agency — Modern • Clean • Powerful</footer>
 
+<!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// Supabase setup
+document.addEventListener("DOMContentLoaded", () => {
+
 const SUPABASE_URL = "https://gukdrjrcpntinjgpiqee.supabase.co";
 const SUPABASE_KEY = "YOUR_SUPABASE_ANON_KEY"; // Replace this with your key
 const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// DOM elements
 const authScreen = document.getElementById("authScreen");
 const authTitle = document.getElementById("authTitle");
 const authActionBtn = document.getElementById("authActionBtn");
@@ -107,7 +108,7 @@ const switchText = document.getElementById("switchText");
 let isSignIn = true;
 
 // Toggle Sign In / Sign Up
-switchLink.onclick = () => {
+switchLink.addEventListener("click", () => {
   isSignIn = !isSignIn;
   if(isSignIn){
     authTitle.textContent = "Sign In";
@@ -120,26 +121,26 @@ switchLink.onclick = () => {
     switchText.textContent = "Already have an account?";
     switchLink.textContent = "Sign In";
   }
-};
+});
 
 // Auth button click
-authActionBtn.onclick = async () => {
+authActionBtn.addEventListener("click", async () => {
   const email = document.getElementById("authEmail").value;
   const password = document.getElementById("authPassword").value;
   if(!email || !password){ alert("Enter email and password"); return; }
 
   if(isSignIn){
-    const { error } = await supabase.auth.signInWithPassword({ email,password });
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
     if(error){ alert(error.message); return; }
     authScreen.style.display = "none";
     document.body.classList.add("logged-in");
   }else{
-    const { error } = await supabase.auth.signUp({ email,password });
+    const { data, error } = await supabase.auth.signUp({ email, password });
     if(error){ alert(error.message); return; }
     alert("Account created! Please sign in.");
     switchLink.click();
   }
-};
+});
 
 // Persist session
 (async () => {
@@ -149,6 +150,8 @@ authActionBtn.onclick = async () => {
     document.body.classList.add("logged-in");
   }
 })();
+
+});
 </script>
 
 </body>
