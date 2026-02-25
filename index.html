@@ -33,7 +33,7 @@ header{
 
 nav a{
   color:var(--light);margin-left:25px;
-  text-decoration:none;position:relative;font-weight:500
+  text-decoration:none;position:relative;font-weight:500;cursor:pointer;
 }
 nav a::after{
   content:"";position:absolute;bottom:-6px;left:0;width:0;height:2px;
@@ -166,6 +166,28 @@ section{padding:90px 20px;max-width:1100px;margin:auto}
   border-left:4px solid var(--accent)
 }
 
+/* LOGIN/SIGNUP MODAL */
+.auth-modal{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,0.95);justify-content:center;align-items:center;z-index:100;
+}
+.auth-modal .modal-content{
+  padding:30px;
+}
+.auth-modal input{
+  width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid var(--accent);background:#111;color:#fff;
+}
+.auth-modal button{
+  width:100%;padding:12px;border-radius:8px;background:var(--accent);border:none;color:#000;font-weight:600;margin-top:10px;cursor:pointer;
+}
+.auth-modal button:hover{opacity:0.9}
+
+/* MEMBERS ONLY SECTION */
+#membersSection{display:none;margin-top:50px;}
+.comment-box{margin-top:20px;}
+.comment{background:#111;padding:15px;border-radius:12px;margin-bottom:10px;position:relative;}
+.delete-btn{position:absolute;top:10px;right:10px;background:red;border:none;color:#fff;padding:4px 8px;border-radius:5px;cursor:pointer}
+
 /* FOOTER */
 footer{
   background:#020617;padding:30px;
@@ -189,12 +211,6 @@ footer{
   from{transform:scale(.7);opacity:0}
   to{transform:scale(1)}
 }
-
-/* MEMBERS ONLY SECTION */
-#membersSection{display:none;margin-top:50px;}
-.comment-box{margin-top:20px;}
-.comment{background:#111;padding:15px;border-radius:12px;margin-bottom:10px;position:relative;}
-.delete-btn{position:absolute;top:10px;right:10px;background:red;border:none;color:#fff;padding:4px 8px;border-radius:5px;cursor:pointer;}
 </style>
 </head>
 
@@ -294,102 +310,120 @@ footer{
   </div>
 </div>
 
+<!-- AUTH MODAL -->
+<div class="auth-modal" id="authModal">
+  <div class="modal-content">
+    <h2 id="authTitle">Login / Signup</h2>
+    <input type="email" id="authEmail" placeholder="Email">
+    <input type="password" id="authPassword" placeholder="Password">
+    <button id="authBtn">Submit</button>
+    <button id="authCloseBtn" style="background:red;margin-top:10px;">Close</button>
+  </div>
+</div>
+
 <footer>
   © 2026 sVn Studio Tech Agency — Modern • Clean • Powerful
 </footer>
 
-<!-- MODAL SCRIPT -->
 <script>
 function openModal(){document.getElementById("modal").style.display="flex"}
 function closeModal(){document.getElementById("modal").style.display="none"}
 </script>
 
-<!-- FIREBASE AUTH + COMMENTS -->
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-  import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyBJJPsL7PTMm03FaPzJjzSEhsA_GozBwU4",
-    authDomain: "svns-4c251.firebaseapp.com",
-    projectId: "svns-4c251",
-    storageBucket: "svns-4c251.firebasestorage.app",
-    messagingSenderId: "278710095353",
-    appId: "1:278710095353:web:03fda6868c064af6f9c128"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyBJJPsL7PTMm03FaPzJjzSEhsA_GozBwU4",
+  authDomain: "svns-4c251.firebaseapp.com",
+  projectId: "svns-4c251",
+  storageBucket: "svns-4c251.firebasestorage.app",
+  messagingSenderId: "278710095353",
+  appId: "1:278710095353:web:03fda6868c064af6f9c128"
+};
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-  const memberLink = document.getElementById("memberLink");
-  const membersSection = document.getElementById("membersSection");
+const memberLink = document.getElementById("memberLink");
+const membersSection = document.getElementById("membersSection");
+const authModal = document.getElementById("authModal");
+const authBtn = document.getElementById("authBtn");
+const authCloseBtn = document.getElementById("authCloseBtn");
+const authEmail = document.getElementById("authEmail");
+const authPassword = document.getElementById("authPassword");
 
-  // CLICK BECOME A MEMBER
-  memberLink.addEventListener("click", () => {
-    const email = prompt("Enter email to register/login:");
-    const password = prompt("Enter password:");
-    if(!email || !password) return alert("Email and password required!");
+// SHOW LOGIN/SIGNUP MODAL
+memberLink.addEventListener("click", ()=>{authModal.style.display="flex"});
 
-    // Try to login first
-    signInWithEmailAndPassword(auth,email,password)
-    .then(()=>alert("Logged in!"))
-    .catch(()=>{
-      // If login fails, create account
-      createUserWithEmailAndPassword(auth,email,password)
-      .then(()=>alert("Account created!"))
-      .catch(err=>alert(err.message))
-    });
+// CLOSE MODAL
+authCloseBtn.addEventListener("click", ()=>{authModal.style.display="none";});
+
+// SUBMIT LOGIN/SIGNUP
+authBtn.addEventListener("click", async ()=>{
+  const email = authEmail.value;
+  const password = authPassword.value;
+  if(!email || !password) return alert("Email and password required!");
+
+  try{
+    await signInWithEmailAndPassword(auth,email,password);
+    alert("Logged in!");
+  }catch{
+    try{
+      await createUserWithEmailAndPassword(auth,email,password);
+      alert("Account created!");
+    }catch(err){return alert(err.message);}
+  }
+  authModal.style.display="none";
+});
+
+// SHOW/HIDE MEMBERS SECTION
+onAuthStateChanged(auth,user=>{
+  if(user) membersSection.style.display="block";
+  else membersSection.style.display="none";
+});
+
+// COMMENTS SYSTEM
+const postCommentBtn = document.getElementById("postCommentBtn");
+const commentBox = document.getElementById("commentBox");
+
+postCommentBtn.addEventListener("click", async ()=>{
+  const text = document.getElementById("commentInput").value;
+  if(!text) return;
+  const user = auth.currentUser;
+  if(!user) return alert("Login to comment");
+  await addDoc(collection(db,"comments"),{
+    uid:user.uid,
+    email:user.email,
+    text,
+    timestamp: new Date()
   });
+  document.getElementById("commentInput").value="";
+});
 
-  // AUTH STATE CHANGE
-  onAuthStateChanged(auth,user=>{
-    if(user){
-      membersSection.style.display="block";
-    } else {
-      membersSection.style.display="none";
+// REALTIME COMMENTS
+const q = query(collection(db,"comments"), orderBy("timestamp","asc"));
+onSnapshot(q,(snapshot)=>{
+  commentBox.innerHTML="";
+  snapshot.forEach(docSnap=>{
+    const data = docSnap.data();
+    const id = docSnap.id;
+    const div = document.createElement("div");
+    div.classList.add("comment");
+    div.innerHTML = `<strong>${data.email}</strong>: ${data.text}`;
+    if(auth.currentUser && auth.currentUser.uid===data.uid){
+      const delBtn = document.createElement("button");
+      delBtn.classList.add("delete-btn");
+      delBtn.textContent="Delete";
+      delBtn.onclick = async ()=>{await deleteDoc(doc(db,"comments",id))};
+      div.appendChild(delBtn);
     }
+    commentBox.appendChild(div);
   });
-
-  // COMMENTS
-  const postCommentBtn = document.getElementById("postCommentBtn");
-  const commentBox = document.getElementById("commentBox");
-
-  postCommentBtn.addEventListener("click", async ()=>{
-    const text = document.getElementById("commentInput").value;
-    if(!text) return;
-    const user = auth.currentUser;
-    if(!user) return alert("Login to comment");
-    await addDoc(collection(db,"comments"),{
-      uid:user.uid,
-      email:user.email,
-      text,
-      timestamp: new Date()
-    });
-    document.getElementById("commentInput").value="";
-  });
-
-  // REALTIME COMMENTS
-  const q = query(collection(db,"comments"), orderBy("timestamp","asc"));
-  onSnapshot(q,(snapshot)=>{
-    commentBox.innerHTML="";
-    snapshot.forEach(docSnap=>{
-      const data = docSnap.data();
-      const id = docSnap.id;
-      const div = document.createElement("div");
-      div.classList.add("comment");
-      div.innerHTML = `<strong>${data.email}</strong>: ${data.text}`;
-      if(auth.currentUser && auth.currentUser.uid===data.uid){
-        const delBtn = document.createElement("button");
-        delBtn.classList.add("delete-btn");
-        delBtn.textContent="Delete";
-        delBtn.onclick = async ()=>{await deleteDoc(doc(db,"comments",id))};
-        div.appendChild(delBtn);
-      }
-      commentBox.appendChild(div);
-    });
-  });
+});
 </script>
 
 </body>
