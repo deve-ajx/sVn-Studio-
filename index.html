@@ -189,11 +189,16 @@ footer{
   from{transform:scale(.7);opacity:0}
   to{transform:scale(1)}
 }
+
+/* MEMBERS ONLY SECTION */
+#membersSection{display:none;margin-top:50px;}
+.comment-box{margin-top:20px;}
+.comment{background:#111;padding:15px;border-radius:12px;margin-bottom:10px;position:relative;}
+.delete-btn{position:absolute;top:10px;right:10px;background:red;border:none;color:#fff;padding:4px 8px;border-radius:5px;cursor:pointer;}
 </style>
 </head>
 
 <body>
-
 
 <header>
   <img class="logo" src="https://res.cloudinary.com/dm6k0etap/image/upload/v1769549277/0919b84a-9700-465e-8827-3a4e24a11790_idxg1u.jpg">
@@ -202,6 +207,7 @@ footer{
     <a href="#services">Services</a>
     <a href="#tech">Tech</a>
     <a href="#contact">Contact</a>
+    <a href="#" id="memberLink">Become a Member</a>
   </nav>
 </header>
 
@@ -251,6 +257,18 @@ footer{
   </div>
 </section>
 
+<!-- MEMBERS ONLY SECTION -->
+<section id="membersSection">
+  <div class="section-title"><h2>Members Only Comments</h2></div>
+  <div class="box">
+    <h3>Leave a Comment</h3>
+    <textarea id="commentInput" rows="3" style="width:100%;border-radius:8px;padding:10px;background:#111;color:#fff;border:1px solid #38bdf8;"></textarea><br>
+    <button class="btn" id="postCommentBtn" style="margin-top:10px;">Post Comment</button>
+
+    <div class="comment-box" id="commentBox"></div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="section-title"><h2>Contact & Location</h2></div>
   <div class="box">
@@ -280,9 +298,98 @@ footer{
   © 2026 sVn Studio Tech Agency — Modern • Clean • Powerful
 </footer>
 
+<!-- MODAL SCRIPT -->
 <script>
 function openModal(){document.getElementById("modal").style.display="flex"}
 function closeModal(){document.getElementById("modal").style.display="none"}
+</script>
+
+<!-- FIREBASE AUTH + COMMENTS -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBJJPsL7PTMm03FaPzJjzSEhsA_GozBwU4",
+    authDomain: "svns-4c251.firebaseapp.com",
+    projectId: "svns-4c251",
+    storageBucket: "svns-4c251.firebasestorage.app",
+    messagingSenderId: "278710095353",
+    appId: "1:278710095353:web:03fda6868c064af6f9c128"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  const memberLink = document.getElementById("memberLink");
+  const membersSection = document.getElementById("membersSection");
+
+  // CLICK BECOME A MEMBER
+  memberLink.addEventListener("click", () => {
+    const email = prompt("Enter email to register/login:");
+    const password = prompt("Enter password:");
+    if(!email || !password) return alert("Email and password required!");
+
+    // Try to login first
+    signInWithEmailAndPassword(auth,email,password)
+    .then(()=>alert("Logged in!"))
+    .catch(()=>{
+      // If login fails, create account
+      createUserWithEmailAndPassword(auth,email,password)
+      .then(()=>alert("Account created!"))
+      .catch(err=>alert(err.message))
+    });
+  });
+
+  // AUTH STATE CHANGE
+  onAuthStateChanged(auth,user=>{
+    if(user){
+      membersSection.style.display="block";
+    } else {
+      membersSection.style.display="none";
+    }
+  });
+
+  // COMMENTS
+  const postCommentBtn = document.getElementById("postCommentBtn");
+  const commentBox = document.getElementById("commentBox");
+
+  postCommentBtn.addEventListener("click", async ()=>{
+    const text = document.getElementById("commentInput").value;
+    if(!text) return;
+    const user = auth.currentUser;
+    if(!user) return alert("Login to comment");
+    await addDoc(collection(db,"comments"),{
+      uid:user.uid,
+      email:user.email,
+      text,
+      timestamp: new Date()
+    });
+    document.getElementById("commentInput").value="";
+  });
+
+  // REALTIME COMMENTS
+  const q = query(collection(db,"comments"), orderBy("timestamp","asc"));
+  onSnapshot(q,(snapshot)=>{
+    commentBox.innerHTML="";
+    snapshot.forEach(docSnap=>{
+      const data = docSnap.data();
+      const id = docSnap.id;
+      const div = document.createElement("div");
+      div.classList.add("comment");
+      div.innerHTML = `<strong>${data.email}</strong>: ${data.text}`;
+      if(auth.currentUser && auth.currentUser.uid===data.uid){
+        const delBtn = document.createElement("button");
+        delBtn.classList.add("delete-btn");
+        delBtn.textContent="Delete";
+        delBtn.onclick = async ()=>{await deleteDoc(doc(db,"comments",id))};
+        div.appendChild(delBtn);
+      }
+      commentBox.appendChild(div);
+    });
+  });
 </script>
 
 </body>
