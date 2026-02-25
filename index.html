@@ -113,6 +113,7 @@ footer{
 <!-- 🔐 AUTH SCREEN -->
 <div id="authScreen">
   <h2>sVn Studio Members Access</h2>
+  <input type="text" id="username" placeholder="Choose a username">
   <input type="email" id="email" placeholder="Email">
   <input type="password" id="password" placeholder="Password">
   <div>
@@ -191,10 +192,20 @@ document.getElementById("loginBtn").onclick = async ()=>{
 };
 
 document.getElementById("signupBtn").onclick = async ()=>{
+  const username = document.getElementById("username").value.trim();
+  if(!username) return message.innerText = "Username required!";
+  
   try{
     const userCred = await createUserWithEmailAndPassword(auth,email.value,password.value);
     await sendEmailVerification(userCred.user);
-    message.innerText="Account created! Check your email.";
+    
+    // Save username in Firestore under "users" collection
+    await addDoc(collection(db,"users"),{
+      uid: userCred.user.uid,
+      username: username
+    });
+
+    message.innerText = "Account created! Check your email to verify.";
   }catch(err){message.innerText=err.message;}
 };
 
@@ -231,7 +242,11 @@ onSnapshot(q,(snapshot)=>{
     const id=docSnap.id;
     const div=document.createElement("div");
     div.classList.add("comment");
-    div.innerHTML=`<strong>${data.email}</strong>: ${data.text}`;
+    import { getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const userDoc = await getDoc(doc(db,"users",data.uid));
+const username = userDoc.exists() ? userDoc.data().username : data.email;
+div.innerHTML = `<strong>${username}</strong>: ${data.text}`;
     if(auth.currentUser && auth.currentUser.uid===data.uid){
       const delBtn=document.createElement("button");
       delBtn.classList.add("delete-btn");
