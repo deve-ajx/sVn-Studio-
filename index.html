@@ -54,7 +54,7 @@ nav a:hover::after{width:100%}
   display:inline-block;
   animation:bounce 2s infinite;
 }
-.brand .sVn{color:var(--light)}
+.brand .svn{color:var(--light)}
 .brand .Studio{
   color:var(--accent);
   text-shadow:0 0 25px rgba(56,189,248,.6);
@@ -229,7 +229,7 @@ footer{
 
 <div class="hero">
   <div class="brand">
-    <span class="svn">sVn</span><span class="svn">STUDIO</span>
+    <span class="svn">sVn</span><span class="Studio">STUDIO</span>
   </div>
   <p>
     Modern websites, logos, and digital adverts built with clean code and strong tech identity.
@@ -305,7 +305,7 @@ footer{
     <div class="price">Netlify – ₦35,000</div>
     <div class="price">Vercel – ₦35,000</div>
     <div class="price">.com / .ng Website – ₦150,000</div>
-    <div class="price">Logo + Full website + SEO + Social ads ₦250,000 Basic One ₦60,000
+    <div class="price">Logo + Full website + SEO + Social ads ₦250,000 Basic One ₦60,000</div>
     <button class="btn" onclick="closeModal()" style="margin-top:20px;width:100%">Close</button>
   </div>
 </div>
@@ -332,16 +332,16 @@ function closeModal(){document.getElementById("modal").style.display="none"}
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBJJPsL7PTMm03FaPzJjzSEhsA_GozBwU4",
-  authDomain: "svns-4c251.firebaseapp.com",
-  projectId: "svns-4c251",
-  storageBucket: "svns-4c251.firebasestorage.app",
-  messagingSenderId: "278710095353",
-  appId: "1:278710095353:web:03fda6868c064af6f9c128"
+  apiKey: "AIzaSyD0CpkbFpoKPvB1akarURWyzwiwftOiq5g",
+  authDomain: "studio-1d6b7.firebaseapp.com",
+  projectId: "studio-1d6b7",
+  storageBucket: "studio-1d6b7.firebasestorage.app",
+  messagingSenderId: "808981598394",
+  appId: "1:808981598394:web:fe6789050b9a39e288f283"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -358,31 +358,36 @@ const authPassword = document.getElementById("authPassword");
 
 // SHOW LOGIN/SIGNUP MODAL
 memberLink.addEventListener("click", ()=>{authModal.style.display="flex"});
+authCloseBtn.addEventListener("click", ()=>{authModal.style.display="none"});
 
-// CLOSE MODAL
-authCloseBtn.addEventListener("click", ()=>{authModal.style.display="none";});
-
-// SUBMIT LOGIN/SIGNUP
+// LOGIN/SIGNUP WITH EMAIL VERIFICATION
 authBtn.addEventListener("click", async ()=>{
   const email = authEmail.value;
   const password = authPassword.value;
   if(!email || !password) return alert("Email and password required!");
 
   try{
-    await signInWithEmailAndPassword(auth,email,password);
-    alert("Logged in!");
+    // Try login first
+    const userCredential = await signInWithEmailAndPassword(auth,email,password);
+    if(!userCredential.user.emailVerified){
+      alert("Please verify your email before logging in!");
+      return;
+    }
+    alert("Logged in successfully!");
   }catch{
+    // If login fails, try creating account
     try{
-      await createUserWithEmailAndPassword(auth,email,password);
-      alert("Account created!");
+      const userCredential = await createUserWithEmailAndPassword(auth,email,password);
+      await sendEmailVerification(userCredential.user);
+      alert("Account created! Check your email to verify before login.");
     }catch(err){return alert(err.message);}
   }
   authModal.style.display="none";
 });
 
-// SHOW/HIDE MEMBERS SECTION
+// SHOW/HIDE MEMBERS SECTION BASED ON VERIFIED LOGIN
 onAuthStateChanged(auth,user=>{
-  if(user) membersSection.style.display="block";
+  if(user && user.emailVerified) membersSection.style.display="block";
   else membersSection.style.display="none";
 });
 
@@ -394,7 +399,7 @@ postCommentBtn.addEventListener("click", async ()=>{
   const text = document.getElementById("commentInput").value;
   if(!text) return;
   const user = auth.currentUser;
-  if(!user) return alert("Login to comment");
+  if(!user || !user.emailVerified) return alert("Login with verified email to comment");
   await addDoc(collection(db,"comments"),{
     uid:user.uid,
     email:user.email,
