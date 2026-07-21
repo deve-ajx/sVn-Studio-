@@ -73,7 +73,9 @@
     }
 
     html { scroll-behavior: smooth; }
-    body { letter-spacing: .01em; }
+    body { letter-spacing: .01em; background: #f4f4f2 !important; }
+    .bg-white { background-color: #fbfbfa !important; }
+    .bg-gray-50, .bg-light { background-color: #f4f4f2 !important; }
     nav { border-bottom: 1px solid rgba(37, 76, 54, .12); }
     nav .font-serif { letter-spacing: -.04em; }
     .product-card { border: 1px solid #e5dfd1; border-radius: 0 !important; box-shadow: none !important; }
@@ -98,6 +100,20 @@
     .menu-trigger:hover { background: #254c36; color: #fff; border-color: #254c36; }
     .product-actions button { border-radius: 0 !important; }
     .newsletter-input { border-radius: 0 !important; }
+    #testimonials, #updatesPanel, [onclick="toggleUpdates()"], body > .grid.grid-cols-2.md\:grid-cols-4 { display: none !important; }
+    a[href*="wa.me"] { display: none !important; }
+    .hero-actions { position: absolute; left: 1.5rem; bottom: .75rem; }
+    .hero-shop-button { width: 54px; height: 54px; padding: 0 !important; border-radius: 50% !important; background: #dfb674 !important; color: #182418 !important; box-shadow: 0 12px 28px rgba(0,0,0,.22); }
+    .hero-shop-button:hover { background: #fff !important; color: #254c36 !important; }
+    .newsletter-section { padding-block: 3.5rem !important; }
+    .newsletter-card { max-width: 44rem; margin: auto; padding: 2rem; background: #fff; border: 1px solid #e5dfd1; box-shadow: 0 16px 35px rgba(24,36,24,.08); }
+    .founder-section { background: #254c36 !important; color: #fff; }
+    .founder-section h2, .founder-section h3 { color: #fff !important; }
+    .founder-section .text-gray-600 { color: #d7e4da !important; }
+    .founder-section .bg-accent { background: #dfb674 !important; }
+    .founder-section img { border-radius: 0 !important; border: 1px solid rgba(223,182,116,.65) !important; }
+    .image-swap, .brand-video, .old-updates-content { display: none !important; }
+    @media (min-width: 768px) { .hero-actions { left: 3rem; bottom: .75rem; } }
     @media (max-width: 767px) {
       #mobileMenu { background: rgba(247, 244, 236, .98); border-top: 1px solid #e5dfd1; }
       .product-card { max-width: 420px; margin-inline: auto; }
@@ -138,7 +154,8 @@
   <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-20 items-center">
-        <div class="flex-shrink-0 flex items-center">
+        <div class="flex-shrink-0 flex items-center gap-2">
+          <img src="https://i.postimg.cc/kMNcWsxw/0B5D3244-9224-430C-8BA6-A567DB41C1BB.png" alt="Diz&Dat logo" class="h-9 w-9 rounded-full object-cover">
           <span class="text-2xl font-serif font-bold text-primary">Diz&Dat</span>
         </div>
         <div class="hidden md:block">
@@ -146,7 +163,6 @@
             <a href="#" class="text-dark hover:text-primary font-medium transition">Home</a>
             <a href="#products" class="text-dark hover:text-primary font-medium transition">Products</a>
             <a href="#about" class="text-dark hover:text-primary font-medium transition">About</a>
-            <a href="#testimonials" class="text-dark hover:text-primary font-medium transition">Reviews</a>
             <a href="#contact" class="text-dark hover:text-primary font-medium transition">Contact</a>
           </div>
         </div>
@@ -169,11 +185,11 @@
       <a href="#" class="block">Home</a>
       <a href="#products" class="block">Products</a>
       <a href="#about" class="block">About</a>
-      <a href="#testimonials" class="block">Reviews</a>
       <a href="#contact" class="block">Contact</a>
       <button id="cartMenuButton" class="flex w-full items-center justify-between border-t border-stone-200 pt-4 text-left text-primary" type="button">
         <span><i class="fas fa-shopping-bag mr-2"></i>Your cart</span><span id="cartCount" class="bg-primary px-2 py-0.5 text-xs text-white">0</span>
       </button>
+      <button id="chatMenuButton" class="block w-full text-left text-sm text-dark" type="button"><i class="fas fa-comment-dots mr-2 text-primary"></i>Chat with us</button>
       <button id="adminMenuButton" class="block w-full text-left text-sm text-dark" type="button">Admin sign in</button>
       <div id="adminPanel" class="admin-panel hidden border-t border-stone-200 pt-4">
         <p id="adminStatus" class="mb-3 text-xs text-gray-600">Sign in to publish store announcements.</p>
@@ -187,23 +203,17 @@
   <section class="relative h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/90 z-0"></div>
     <div class="absolute inset-0 opacity-20 z-0">
-      <div class="absolute inset-0 bg-[url('https://i.postimg.cc/XqwhLjPz/Screenshot-30.png')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-[url('https://i.postimg.cc/kMNcWsxw/0B5D3244-9224-430C-8BA6-A567DB41C1BB.png')] bg-cover bg-center"></div>
     </div>
     
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
       <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 animate-fade-in">Elevate Your Style</h1>
       <p class="text-xl md:text-2xl text-white/90 mb-8">Discover premium Jallabiyas, exquisite perfumes, stylish caps & comfortable shoes</p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <div class="hero-actions flex flex-col sm:flex-row justify-center gap-4">
         <a href="https://www.instagram.com/diz_and_dat_by_abdul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
-   class="inline-flex items-center justify-center bg-white text-primary font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105" 
-   target="_blank" rel="noopener">
-  <span>Shop Now</span>
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-          </svg>
-        </a>
-        <a href="https://wa.me/2347066867217" target="_blank" class="inline-flex items-center justify-center bg-green-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-105">
-          <i class="fab fa-whatsapp mr-2"></i> Chat Now
+   class="hero-shop-button inline-flex items-center justify-center transition-all duration-300 transform hover:scale-105" 
+   target="_blank" rel="noopener" aria-label="Shop Diz&Dat" title="Shop Diz&Dat">
+  <i class="fas fa-shopping-bag text-lg"></i>
         </a>
       </div>
     </div>
@@ -439,7 +449,7 @@
 </div>
 
   <!-- CEO Section -->
-  <section class="py-20 bg-white">
+  <section class="founder-section py-20 bg-white">
     <div class="max-w-7xl mx-auto px-6 text-center">
       <span class="text-sm font-medium text-primary uppercase tracking-wider">Leadership</span>
       <h2 class="mt-2 text-4xl font-serif font-bold text-dark mb-12">Meet Our Founder</h2>
@@ -508,7 +518,7 @@
     </section> <!-- End Testimonials -->
 
 <!-- Brand Video -->
-<section class="py-16 bg-light">
+<section class="brand-video py-16 bg-light">
   <div class="max-w-6xl mx-auto px-6 text-center">
     <h2 class="text-3xl font-serif mb-6">Behind the Brand</h2>
 
@@ -523,14 +533,15 @@
   </section>
 
   <!-- Newsletter -->
-  <section class="py-16 bg-gradient-to-r from-primary to-secondary">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-serif font-bold text-white mb-4">Stay Updated</h2>
-      <p class="text-white/90 mb-8">Subscribe to our newsletter for exclusive offers, new arrivals, and style tips</p>
+  <section class="newsletter-section py-16 bg-light">
+    <div class="newsletter-card max-w-4xl mx-auto px-6 text-center">
+      <p class="text-xs font-bold tracking-[.18em] text-secondary uppercase mb-2">Private access</p>
+      <h2 class="text-3xl font-serif font-bold text-dark mb-3">Stay updated</h2>
+      <p class="text-gray-600 mb-6">New arrivals and special releases—sent occasionally.</p>
       
       <form id="newsletterForm" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
         <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-full focus:outline-none newsletter-input">
-        <button type="submit" class="bg-accent text-white font-semibold px-6 py-3 rounded-full hover:bg-dark transition">
+        <button type="submit" class="bg-primary text-white font-semibold px-6 py-3 rounded-none hover:bg-dark transition">
           Subscribe
         </button>
       </form>
@@ -613,7 +624,6 @@
             <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
             <li><a href="#products" class="text-gray-400 hover:text-white transition">Products</a></li>
             <li><a href="#about" class="text-gray-400 hover:text-white transition">About Us</a></li>
-            <li><a href="#testimonials" class="text-gray-400 hover:text-white transition">Testimonials</a></li>
             <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
           </ul>
         </div>
@@ -734,6 +744,7 @@
   <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+Tawk_API.onLoad=function(){ Tawk_API.hideWidget(); };
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
@@ -744,6 +755,14 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+<script>
+  document.getElementById('chatMenuButton').addEventListener('click', () => {
+    if (window.Tawk_API && typeof window.Tawk_API.maximize === 'function') {
+      window.Tawk_API.showWidget();
+      window.Tawk_API.maximize();
+    }
+  });
+</script>
 <!-- ICON GRID SECTION -->
 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 text-center">
   <!-- You will love it -->
