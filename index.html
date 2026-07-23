@@ -745,21 +745,21 @@ s0.parentNode.insertBefore(s1,s0);
     const loginForm = document.getElementById('adminLoginForm');
     const announcementForm = document.getElementById('announcementForm');
     const adminMenuButton = document.getElementById('adminMenuButton');
-    let announcements = [];
+    let updates = [];
 
     document.querySelector('#products .mt-12.text-center').insertAdjacentHTML('beforebegin', `
-      <div id="announcements" class="mt-16 border-t border-stone-200 pt-12">
+      <div id="updates" class="mt-16 border-t border-stone-200 pt-12">
         <div class="mb-8 text-center"><span class="text-sm font-medium text-primary uppercase tracking-wider">From Diz&Dat</span><h2 class="mt-2 text-3xl font-serif font-bold text-dark">Store announcements</h2></div>
         <div id="announcementList" class="grid gap-5 md:grid-cols-2"><p class="text-center text-sm text-gray-500 md:col-span-2">Loading store announcements...</p></div>
       </div>`);
-    const publicAnnouncements = document.getElementById('announcementList');
+    const publicUpdates = document.getElementById('announcementList');
     const escapeHtml = value => String(value || '').replace(/[&<>"']/g, character => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[character]);
     const isAdmin = () => auth.currentUser?.email === adminEmail;
     const setStatus = text => { adminStatus.textContent = text; };
 
-    function renderAnnouncements() {
-      if (!announcements.length) { publicAnnouncements.innerHTML = '<p class="text-center text-sm text-gray-500 md:col-span-2">No announcements yet. Please check back soon.</p>'; return; }
-      publicAnnouncements.innerHTML = announcements.map(({ id, post }) => {
+    function renderUpdates() {
+      if (!updates.length) { publicUpdates.innerHTML = '<p class="text-center text-sm text-gray-500 md:col-span-2">No announcements yet. Please check back soon.</p>'; return; }
+      publicUpdates.innerHTML = updates.map(({ id, post }) => {
         const date = post.createdAt?.toDate ? post.createdAt.toDate().toLocaleDateString('en-NG', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Just now';
         const photo = post.imageUrl ? `<img src="${escapeHtml(post.imageUrl)}" alt="Diz&Dat store announcement" class="mb-4 w-full" draggable="false">` : '';
         const controls = isAdmin() ? `<div class="mt-4 flex gap-3 text-xs"><button data-edit="${id}" type="button" class="font-semibold text-primary">Edit</button><button data-delete="${id}" type="button" class="font-semibold text-red-700">Delete</button></div>` : '';
