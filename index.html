@@ -5,7 +5,16 @@
      crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diz&Dat – Premium Fashion & Accessories</title>
+  <meta name="theme-color" content="#254c36" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Diz&Dat" />
+  <meta name="apple-touch-fullscreen" content="yes" />
+  <link rel="manifest" href="dizdat-manifest.json" />
+  <link rel="icon" href="dizdat-icons/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="dizdat-icons/apple-touch-icon.png" />
+  <title>Diz&Dat â€“ Premium Fashion & Accessories</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script>
@@ -67,30 +76,26 @@
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
     
-    .newsletter-input:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(223, 182, 116, 0.35);
-    }
-
     html { scroll-behavior: smooth; }
     body { letter-spacing: .01em; background: #f4f4f2 !important; }
     .bg-white { background-color: #fbfbfa !important; }
     .bg-gray-50, .bg-light { background-color: #f4f4f2 !important; }
     nav { border-bottom: 1px solid rgba(37, 76, 54, .12); }
     nav .font-serif { letter-spacing: -.04em; }
-    .product-card { border: 1px solid #e5dfd1; border-radius: 0 !important; box-shadow: none !important; }
+    :root { --surface-radius: 16px; }
+    .product-card { border: 1px solid #e5dfd1; border-radius: var(--surface-radius) !important; box-shadow: none !important; }
     .product-card:hover { box-shadow: 0 18px 36px rgba(24, 36, 24, .12) !important; transform: translateY(-5px); }
     .product-card img { transition: transform .45s ease; }
-    .testimonial-card { border: 1px solid #e5dfd1; border-radius: 0 !important; box-shadow: none; transition: .3s ease; }
+    .testimonial-card { border: 1px solid #e5dfd1; border-radius: var(--surface-radius) !important; box-shadow: none; transition: .3s ease; }
     .testimonial-card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(24, 36, 24, .1); }
     .scroll-down { font-size: .7rem; letter-spacing: .18em; font-weight: 700; color: #fff; opacity: .9; }
-    #backToTop { background: #254c36; border-radius: 0; }
-    #updatesPanel, #modalBackdrop > div { border: 1px solid #e5dfd1; border-radius: 0 !important; }
+    #backToTop { background: #254c36; border-radius: 50%; z-index: 60; }
+    #modalBackdrop > div { border: 1px solid #e5dfd1; border-radius: var(--surface-radius) !important; }
     .section-kicker { color: #a96842; }
-    .announcement-card { border-left: 3px solid #a96842; }
-    .announcement-card img { aspect-ratio: 16 / 8; object-fit: cover; }
+    .announcement-card { border-left: 3px solid #a96842; border-radius: var(--surface-radius); overflow: hidden; }
+    .announcement-card img { display: block; width: 100%; height: auto; max-height: none; object-fit: contain; }
     .cart-item + .cart-item { border-top: 1px solid #e5dfd1; }
-    .admin-panel input, .admin-panel textarea { width: 100%; padding: .7rem .8rem; border: 1px solid #cfc8b9; border-radius: 0; background: #fff; }
+    .admin-panel input, .admin-panel textarea { width: 100%; padding: .7rem .8rem; border: 1px solid #cfc8b9; border-radius: 10px; background: #fff; }
     .admin-panel textarea { min-height: 110px; resize: vertical; }
     .scroll-down, section.h-screen > [class~="bottom-10"] { display: none !important; }
     #mobileMenu { position: absolute; right: 1rem; top: 100%; width: min(22rem, calc(100vw - 2rem)); background: rgba(255,255,255,.98); border: 1px solid #e5dfd1; box-shadow: 0 18px 44px rgba(24,36,24,.14); }
@@ -98,21 +103,20 @@
     #mobileMenu a:hover, #mobileMenu button:hover { color: #a96842; }
     .menu-trigger { border: 1px solid #d8d2c5; padding: .55rem; transition: .2s ease; }
     .menu-trigger:hover { background: #254c36; color: #fff; border-color: #254c36; }
-    .product-actions button { border-radius: 0 !important; }
-    .newsletter-input { border-radius: 0 !important; }
-    #testimonials, #updatesPanel, [onclick="toggleUpdates()"], body > .grid.grid-cols-2.md\:grid-cols-4 { display: none !important; }
+    .product-actions button { border-radius: 10px !important; }
+    #testimonials { display: none !important; }
     a[href*="wa.me"] { display: none !important; }
     .hero-actions { position: absolute; left: 1.5rem; bottom: .75rem; }
     .hero-shop-button { width: 54px; height: 54px; padding: 0 !important; border-radius: 50% !important; background: #dfb674 !important; color: #182418 !important; box-shadow: 0 12px 28px rgba(0,0,0,.22); }
     .hero-shop-button:hover { background: #fff !important; color: #254c36 !important; }
-    .newsletter-section { padding-block: 3.5rem !important; }
-    .newsletter-card { max-width: 44rem; margin: auto; padding: 2rem; background: #fff; border: 1px solid #e5dfd1; box-shadow: 0 16px 35px rgba(24,36,24,.08); }
     .founder-section { background: #254c36 !important; color: #fff; }
     .founder-section h2, .founder-section h3 { color: #fff !important; }
     .founder-section .text-gray-600 { color: #d7e4da !important; }
     .founder-section .bg-accent { background: #dfb674 !important; }
-    .founder-section img { border-radius: 0 !important; border: 1px solid rgba(223,182,116,.65) !important; }
+    .founder-section img { border-radius: var(--surface-radius) !important; border: 1px solid rgba(223,182,116,.65) !important; }
     .image-swap, .brand-video, .old-updates-content { display: none !important; }
+    img { -webkit-touch-callout: none; -webkit-user-drag: none; user-select: none; }
+    .rounded-xl, .rounded-lg, .rounded-full:not(.hero-shop-button), iframe { border-radius: var(--surface-radius) !important; }
     @media (min-width: 768px) { .hero-actions { left: 3rem; bottom: .75rem; } }
     @media (max-width: 767px) {
       #mobileMenu { background: rgba(247, 244, 236, .98); border-top: 1px solid #e5dfd1; }
@@ -121,35 +125,6 @@
   </style>
 </head>
 <body class="font-sans bg-light text-dark">
-  <!-- UPDATES PANEL -->
-<div id="updatesPanel"
-     class="hidden fixed top-8 right-3 bg-gray rounded-xl shadow-x1 p-12 z-50 w-60">
-
-  <div class="grid grid-cols-2 gap-4 text-center">
-
-    <div onclick="openModal('products')" class="cursor-pointer hover:scale-105 transition">
-      <i class="fas fa-shopping-bag text-3xl text-pink-500"></i>
-      <p class="text-xs mt-1">diz&dat</p>
-    </div>
-
-    <div onclick="openModal('customers')" class="cursor-pointer hover:scale-105 transition">
-      <i class="fas fa-heart text-3xl text-red-500"></i>
-      <p class="text-xs mt-1">Reviews</p>
-    </div>
-
-    <div onclick="openModal('offers')" class="cursor-pointer hover:scale-105 transition">
-      <i class="fas fa-clock text-3xl text-yellow-500"></i>
-      <p class="text-xs mt-1">Offers</p>
-    </div>
-
-    <div onclick="openModal('news')" class="cursor-pointer hover:scale-105 transition">
-      <i class="fas fa-newspaper text-3xl text-blue-500"></i>
-      <p class="text-xs mt-1">News</p>
-    </div>
-
-  </div>
-</div>
-
   <!-- Navigation -->
   <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -203,7 +178,7 @@
   <section class="relative h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/90 z-0"></div>
     <div class="absolute inset-0 opacity-20 z-0">
-      <div class="absolute inset-0 bg-[url('https://i.postimg.cc/kMNcWsxw/0B5D3244-9224-430C-8BA6-A567DB41C1BB.png')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-[url('https://i.postimg.cc/28kNN5xX/IMG-1390.jpg')] bg-cover bg-center"></div>
     </div>
     
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
@@ -225,8 +200,8 @@
         </svg>
       </a>
     </div>
-    <!-- 👇 Scroll Down Indicator (PASTE HERE) -->
-  <div class="scroll-down">OUR CUSTOMERS ARE OUR PRIDE🤝</div>
+    <!-- ðŸ‘‡ Scroll Down Indicator (PASTE HERE) -->
+  <div class="scroll-down">OUR CUSTOMERS ARE OUR PRIDEðŸ¤</div>
   </section>
 
   <!-- Featured Categories -->
@@ -246,7 +221,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent"></div>
             <div class="product-actions absolute bottom-0 left-0 right-0 p-4 opacity-0 transform translate-y-4 transition-all duration-300">
               <div class="flex justify-between items-center">
-                <span class="text-xl font-bold text-white">₦12,000</span>
+                <span class="text-xl font-bold text-white">â‚¦12,000</span>
                 <button class="bg-accent text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-primary transition">
                   Add to Cart
                 </button>
@@ -267,7 +242,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent"></div>
             <div class="product-actions absolute bottom-0 left-0 right-0 p-4 opacity-0 transform translate-y-4 transition-all duration-300">
               <div class="flex justify-between items-center">
-                <span class="text-xl font-bold text-white">₦3,000-₦5,000</span>
+                <span class="text-xl font-bold text-white">â‚¦3,000-â‚¦5,000</span>
                 <button class="bg-accent text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-primary transition">
                   Add to Cart
                 </button>
@@ -287,7 +262,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent"></div>
             <div class="product-actions absolute bottom-0 left-0 right-0 p-4 opacity-0 transform translate-y-4 transition-all duration-300">
               <div class="flex justify-between items-center">
-                <span class="text-xl font-bold text-white">₦4,000</span>
+                <span class="text-xl font-bold text-white">â‚¦4,000</span>
                 <button class="bg-accent text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-primary transition">
                   Add to Cart
                 </button>
@@ -307,7 +282,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent"></div>
             <div class="product-actions absolute bottom-0 left-0 right-0 p-4 opacity-0 transform translate-y-4 transition-all duration-300">
               <div class="flex justify-between items-center">
-                <span class="text-xl font-bold text-white">₦9,000</span>
+                <span class="text-xl font-bold text-white">â‚¦9,000</span>
                 <button class="bg-accent text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-primary transition">
                   Add to Cart
                 </button>
@@ -467,7 +442,7 @@
             <h3 class="text-2xl font-serif font-bold text-dark">Abduooll</h3>
             <p class="text-gray-600 mt-2">Founder & Creative Director</p>
             <p class="mt-6 text-gray-600 leading-relaxed">
-              "At Diz&Dat, we believe fashion is more than just clothing—it's a form of self-expression. Our mission is to provide our customers with unique, high-quality pieces that help them showcase their individuality."
+              "At Diz&Dat, we believe fashion is more than just clothingâ€”it's a form of self-expression. Our mission is to provide our customers with unique, high-quality pieces that help them showcase their individuality."
             </p>
             <div class="mt-8 flex justify-center md:justify-start space-x-4">
               <a href="https://www.instagram.com/diz_and_dat_by_abduooll" target="_blank" class="bg-primary/10 text-primary p-3 rounded-full hover:bg-primary hover:text-white transition">
@@ -530,22 +505,6 @@
       allowfullscreen>
     </iframe>
   </div>
-  </section>
-
-  <!-- Newsletter -->
-  <section class="newsletter-section py-16 bg-light">
-    <div class="newsletter-card max-w-4xl mx-auto px-6 text-center">
-      <p class="text-xs font-bold tracking-[.18em] text-secondary uppercase mb-2">Private access</p>
-      <h2 class="text-3xl font-serif font-bold text-dark mb-3">Stay updated</h2>
-      <p class="text-gray-600 mb-6">New arrivals and special releases—sent occasionally.</p>
-      
-      <form id="newsletterForm" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-        <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-full focus:outline-none newsletter-input">
-        <button type="submit" class="bg-primary text-white font-semibold px-6 py-3 rounded-none hover:bg-dark transition">
-          Subscribe
-        </button>
-      </form>
-    </div>
   </section>
 
   <!-- Contact Section -->
@@ -726,25 +685,17 @@
       });
     });
     
-    // Simple form validation for newsletter
-    const newsletterForm = document.getElementById('newsletterForm');
-    if (newsletterForm) {
-      newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const emailInput = newsletterForm.querySelector('input[type="email"]');
-        if (emailInput.value.includes('@')) {
-          alert('Thank you for subscribing to our newsletter!');
-          emailInput.value = '';
-        } else {
-          alert('Please enter a valid email address.');
-        }
-      });
-    }
+    // Discourage copying of site imagery without interfering with links or controls.
+    document.addEventListener('contextmenu', event => { if (event.target.closest('img')) event.preventDefault(); });
+    document.addEventListener('dragstart', event => { if (event.target.closest('img')) event.preventDefault(); });
+    document.addEventListener('selectstart', event => { if (event.target.closest('img')) event.preventDefault(); });
   </script>
   <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 Tawk_API.onLoad=function(){ Tawk_API.hideWidget(); };
+Tawk_API.onChatMinimized=function(){ Tawk_API.hideWidget(); };
+Tawk_API.onChatHidden=function(){ Tawk_API.hideWidget(); };
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
@@ -763,137 +714,20 @@ s0.parentNode.insertBefore(s1,s0);
     }
   });
 </script>
-<!-- ICON GRID SECTION -->
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 text-center">
-  <!-- You will love it -->
-  <div class="flex flex-col items-center cursor-pointer hover:scale-105 transition-transform" onclick="openModal('products')">
-    <i class="fas fa-shopping-bag text-6xl text-pink-500"></i>
-    <p class="mt-2 font-semibold text-lg">diz&dat</p>
-  </div>
-
-  <!-- Customer Reviews -->
-  <div class="flex flex-col items-center cursor-pointer hover:scale-105 transition-transform" onclick="openModal('customers')">
-    <i class="fas fa-heart text-6xl text-red-500"></i>
-    <p class="mt-2 font-semibold text-lg">Customer Reviews</p>
-  </div>
-
-  <!-- Limited Offers -->
-  <div class="flex flex-col items-center cursor-pointer hover:scale-105 transition-transform" onclick="openModal('offers')">
-    <i class="fas fa-clock text-6xl text-yellow-500"></i>
-    <p class="mt-2 font-semibold text-lg">Limited Offers</p>
-  </div>
-
-  <!-- Fashion News -->
-  <div class="flex flex-col items-center cursor-pointer hover:scale-105 transition-transform" onclick="openModal('news')">
-    <i class="fas fa-newspaper text-6xl text-blue-500"></i>
-    <p class="mt-2 font-semibold text-lg">Fashion News</p>
-  </div>
-</div>
-
 <!-- MODAL BACKDROP -->
 <div id="modalBackdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-start pt-20 z-50 overflow-auto">
   <div class="bg-gray-50 rounded-xl max-w-3xl w-11/12 p-6 relative">
-    <button class="absolute top-3 right-3 text-gray-600 text-2xl font-bold hover:text-gray-900" onclick="closeModal()">✕</button>
+    <button class="absolute top-3 right-3 text-gray-600 text-2xl font-bold hover:text-gray-900" onclick="closeModal()">âœ•</button>
     <div id="modalContent" class="space-y-4"></div>
   </div>
 </div>
 
 <script>
-  const modalContent = {
-    products: `
-      <h2 class="text-2xl font-bold mb-4 text-pink-600">Products</h2>
-      <p class="mb-2">Check out our hottest items right now!</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <img src="https://res.cloudinary.com/dm6k0etap/image/upload/v1768918044/IMG_0061_vrufyo.jpg" alt="Product" class="rounded-lg w-full">
-        <iframe src="https://player.cloudinary.com/embed/?cloud_name=dm6k0etap&public_id=RPReplay_Final1768916653_cqvpx6" class="w-full aspect-video rounded-lg" allowfullscreen></iframe>
-        <iframe src="https://player.cloudinary.com/embed/?cloud_name=dm6k0etap&public_id=RPReplay_Final1768916799_wewsqy" class="w-full aspect-video rounded-lg" allowfullscreen></iframe>
-      </div>
-    `,
-    customers: `
-      <h2 class="text-2xl font-bold mb-4 text-red-600">Customer Reviews</h2>
-      <p class="mb-2">Here’s our happy customers☺️</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <img src="https://res.cloudinary.com/dm6k0etap/image/upload/v1768918044/IMG_0061_vrufyo.jpg" alt="Customer" class="rounded-lg w-full">
-        <iframe src="https://player.cloudinary.com/embed/?cloud_name=dm6k0etap&public_id=RPReplay_Final1768916653_cqvpx6" class="w-full aspect-video rounded-lg" allowfullscreen></iframe>
-      </div>
-    `,
-    offers: `
-      <h2 class="text-2xl font-bold mb-4 text-yellow-600">Limited Offers</h2>
-      <p class="mb-2">Grab these deals before they run out!</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <img src="https://res.cloudinary.com/dm6k0etap/image/upload/v1768918017/IMG_0058_exlznt.jpg" alt="Limited Offer" class="rounded-lg w-full">
-        <iframe src="https://player.cloudinary.com/embed/?cloud_name=dm6k0etap&public_id=RPReplay_Final1768769093_zwmowy" class="w-full aspect-video rounded-lg" allowfullscreen></iframe>
-      </div>
-      <ul class="mt-2 list-disc ml-5">
-        <li>Perfume Set – 20% off (offer ends 4 February 2026)</li>
-        <li>Jallabiya – Buy 8 get 1 free</li>
-      </ul>
-    `,
-    news: `
-      <h2 class="text-2xl font-bold mb-4 text-blue-600">Fashion News & Magazine</h2>
-      <p class="mb-2">Wearing Confidence: Stories of Style, Tradition, and Global Triumph:</p>
-      <ul class="list-disc ml-5 space-y-1">
-        <li>🌍 The Global Success of Jallabiya Brands: From Tradition to Worldwide Fame
-In recent years, the Jallabiya—once seen mainly as a traditional garment of the Middle East and parts of Africa—has transformed into a global fashion symbol. What started as a simple, modest outfit designed for comfort in hot climates has now entered international runways, luxury boutiques, and online stores worldwide.
-🌟 From Local Markets to Global Brands
-Many successful Jallabiya companies began as small family businesses in countries like Saudi Arabia, UAE, Morocco, Nigeria, and Sudan. Tailors crafted pieces by hand, focusing on quality fabrics, embroidery, and cultural identity. With the rise of social media, e-commerce, and fashion influencers, these brands found a global audience.
-Today, Jallabiya brands are:
-Shipping products to Europe, North America, and Asia
-Collaborating with fashion designers and influencers
-Appearing in Ramadan and Eid collections of global fashion retailers
-Brands that once sold only locally now generate millions in annual revenue, proving that cultural fashion can compete on the world stage.
-👗 Why the World Fell in Love with the Jallabiya
-The international success of the Jallabiya is no accident. Several key factors contributed:
-Comfort meets elegance: Loose, breathable designs fit modern lifestyles.
-Modesty with style: Appeals to modest fashion lovers globally.
-Cultural authenticity: People value clothing with meaning and heritage.
-Versatility: Worn casually, formally, or even styled for luxury events.
-During Ramadan, demand spikes globally as Muslims and non-Muslims alike embrace the elegance of Jallabiya designs for gatherings and celebrations.
-✨ A Fascinating Story: How Good Outfits Change Lives
-There’s a saying in fashion:
-“When you look good, you feel good—and when you feel good, you perform better.”
-A young entrepreneur from North Africa once shared a powerful story. Growing up, he wore simple clothes, never thinking fashion mattered much. One day, he invested in a well-tailored outfit for an important meeting. The difference was immediate—people treated him with more respect, he felt more confident, and his posture even changed.
-That single experience sparked a journey. He began studying fashion, understanding fabrics, cuts, and presentation. Years later, he launched a modest fashion brand, blending traditional Jallabiya styles with modern designs. Today, his brand sells worldwide and empowers local artisans.
-This story reflects a universal truth: clothing is not just fabric—it’s identity, confidence, and expression.
-🌐 Fashion, Culture, and the Future
-Across Nigeria, Morocco, Saudi Arabia, and beyond, designers are redefining traditional wear. Nigerian designers combine Jallabiya styles with Ankara and embroidery, Moroccan artisans introduce luxury handwork, and Gulf brands lead with minimalist elegance.
-Fashion magazines now highlight Jallabiya collections as:
-“The future of modest luxury”
-“Where tradition meets modern global style”
-“A cultural statement worn with pride”
-As sustainability and cultural appreciation grow, Jallabiya fashion is positioned to remain relevant, respected, and profitable worldwide.Ramadan 2026 fashion trends in Saudi Arabia – elegant Jallabiyas and abayas</li>
-        <li>Moroccan and Nigerian traditional clothing making waves internationally</li>
-        <li>Modern fusion styles combining West African prints with contemporary fashion</li>
-        <li>Top accessories and styling tips for Eid celebrations</li>
-        <li>Fashion magazines highlight: Trending fabrics, color palettes, and seasonal must-haves</li>
-      </ul>
-    `
-  };
-
-  function openModal(section) {
-    document.getElementById('modalContent').innerHTML = modalContent[section];
-    document.getElementById('modalBackdrop').classList.remove('hidden');
-    document.getElementById('modalBackdrop').classList.add('flex');
-  }
-
   function closeModal() {
     document.getElementById('modalBackdrop').classList.add('hidden');
     document.getElementById('modalBackdrop').classList.remove('flex');
   }
 </script>
-<script>
-  function toggleUpdates() {
-    const panel = document.getElementById("updatesPanel");
-    panel.classList.toggle("hidden");
-  }
-</script>
-<!-- TOP STATUS BAR UPDATES INDICATOR -->
-<div class="fixed top-0 inset-x-0 z-50 flex justify-end pr-3 pt-1">
-  <div onclick="toggleUpdates()"
-       class="bg-black text-white text-xs px-3 py-1 rounded-full shadow-md cursor-pointer animate-bounce hover:bg-gray-800 transition">
-    ● Updates
-  </div>
-</div>
 
   <script type="module">
     import { initializeApp, getApps } from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js';
@@ -927,7 +761,7 @@ As sustainability and cultural appreciation grow, Jallabiya fashion is positione
       if (!announcements.length) { publicAnnouncements.innerHTML = '<p class="text-center text-sm text-gray-500 md:col-span-2">No announcements yet. Please check back soon.</p>'; return; }
       publicAnnouncements.innerHTML = announcements.map(({ id, post }) => {
         const date = post.createdAt?.toDate ? post.createdAt.toDate().toLocaleDateString('en-NG', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Just now';
-        const photo = post.imageUrl ? `<img src="${escapeHtml(post.imageUrl)}" alt="Diz&Dat store announcement" class="mb-4 w-full">` : '';
+        const photo = post.imageUrl ? `<img src="${escapeHtml(post.imageUrl)}" alt="Diz&Dat store announcement" class="mb-4 w-full" draggable="false">` : '';
         const controls = isAdmin() ? `<div class="mt-4 flex gap-3 text-xs"><button data-edit="${id}" type="button" class="font-semibold text-primary">Edit</button><button data-delete="${id}" type="button" class="font-semibold text-red-700">Delete</button></div>` : '';
         return `<article class="announcement-card bg-white p-5 shadow-sm">${photo}<p class="whitespace-pre-wrap text-gray-700">${escapeHtml(post.text)}</p><p class="mt-4 text-xs font-semibold uppercase tracking-wider text-gray-500">${date}</p>${controls}</article>`;
       }).join('');
@@ -950,9 +784,14 @@ As sustainability and cultural appreciation grow, Jallabiya fashion is positione
     const cart = JSON.parse(localStorage.getItem('dizdatCart') || '[]');
     const cartCount = document.getElementById('cartCount');
     const saveCart = () => { localStorage.setItem('dizdatCart', JSON.stringify(cart)); cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0); };
-    const openCart = () => { const items = cart.map((item, index) => `<div class="cart-item flex gap-3 py-3"><img src="${escapeHtml(item.image)}" alt="" class="h-16 w-16 object-cover"><div class="flex-1"><p class="font-semibold">${escapeHtml(item.name)}</p><p class="text-sm text-gray-600">${escapeHtml(item.price)} × ${item.quantity}</p></div><button data-cart-remove="${index}" class="text-sm text-red-700" type="button">Remove</button></div>`).join(''); const message = cart.map(item => `${item.quantity} × ${item.name} (${item.price})`).join('\n'); document.getElementById('modalContent').innerHTML = `<h2 class="mb-3 text-2xl font-serif font-bold text-dark">Your cart</h2>${items || '<p class="py-6 text-gray-500">Your cart is empty.</p>'}${cart.length ? `<a class="mt-4 inline-block bg-primary px-5 py-3 font-semibold text-white" target="_blank" rel="noopener" href="https://wa.me/2347066867217?text=${encodeURIComponent('Hello Diz&Dat, I would like to order:\n' + message)}">Order on WhatsApp</a>` : ''}`; document.getElementById('modalBackdrop').classList.remove('hidden'); document.getElementById('modalBackdrop').classList.add('flex'); document.querySelectorAll('[data-cart-remove]').forEach(button => button.addEventListener('click', () => { cart.splice(Number(button.dataset.cartRemove), 1); saveCart(); openCart(); })); };
+    const openCart = () => { const items = cart.map((item, index) => `<div class="cart-item flex gap-3 py-3"><img src="${escapeHtml(item.image)}" alt="" class="h-16 w-16 object-cover"><div class="flex-1"><p class="font-semibold">${escapeHtml(item.name)}</p><p class="text-sm text-gray-600">${escapeHtml(item.price)} Ã— ${item.quantity}</p></div><button data-cart-remove="${index}" class="text-sm text-red-700" type="button">Remove</button></div>`).join(''); const message = cart.map(item => `${item.quantity} Ã— ${item.name} (${item.price})`).join('\n'); document.getElementById('modalContent').innerHTML = `<h2 class="mb-3 text-2xl font-serif font-bold text-dark">Your cart</h2>${items || '<p class="py-6 text-gray-500">Your cart is empty.</p>'}${cart.length ? `<a class="mt-4 inline-block bg-primary px-5 py-3 font-semibold text-white" target="_blank" rel="noopener" href="https://wa.me/2347066867217?text=${encodeURIComponent('Hello Diz&Dat, I would like to order:\n' + message)}">Order on WhatsApp</a>` : ''}`; document.getElementById('modalBackdrop').classList.remove('hidden'); document.getElementById('modalBackdrop').classList.add('flex'); document.querySelectorAll('[data-cart-remove]').forEach(button => button.addEventListener('click', () => { cart.splice(Number(button.dataset.cartRemove), 1); saveCart(); openCart(); })); };
     document.querySelectorAll('.product-card').forEach(card => { const button = card.querySelector('button'); button.addEventListener('click', () => { const item = { name: card.querySelector('h3').textContent.trim(), price: card.querySelector('.product-actions span').textContent.trim(), image: card.querySelector('img').src, quantity: 1 }; const existing = cart.find(entry => entry.name === item.name); if (existing) existing.quantity += 1; else cart.push(item); saveCart(); button.textContent = 'Added'; setTimeout(() => { button.textContent = 'Add to Cart'; }, 1200); }); });
     document.getElementById('cartMenuButton').addEventListener('click', openCart); saveCart();
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./dizdat-service-worker.js'));
+    }
   </script>
 </body>
 </html>
