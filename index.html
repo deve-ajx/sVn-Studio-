@@ -1,44 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Diz&amp;Dat &ndash; Premium Fashion &amp; Accessories in Maiduguri</title>
-  <meta name="description" content="Shop premium Jallabiyas, perfumes, caps and shoes from Diz&amp;Dat in Maiduguri. Nationwide delivery.">
-  <meta name="theme-color" content="#254c36">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Diz&amp;Dat">
+  <!-- Google AdSense (unchanged) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2122907975187090"
+     crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#254c36" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Diz&Dat" />
+  <meta name="apple-touch-fullscreen" content="yes" />
+  <link rel="manifest" href="dizdat-manifest.json" />
+  <link rel="icon" href="dizdat-icons/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="dizdat-icons/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="dizdat-icons/icon-16.png" />
+  <link rel="apple-touch-icon" href="dizdat-icons/apple-touch-icon.png" />
 
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Diz&amp;Dat &ndash; Premium Fashion &amp; Accessories">
-  <meta property="og:description" content="Premium Jallabiyas, perfumes, caps and shoes. Nationwide delivery.">
-  <meta property="og:image" content="https://i.postimg.cc/28kNN5xX/IMG-1390.jpg">
+  <title>Diz&Dat – Premium Fashion & Accessories</title>
+  <meta name="description" content="Diz&Dat – premium Jallabiyas, perfumes, caps and shoes in Maiduguri, Nigeria. Browse the collection and order on Instagram or WhatsApp with nationwide delivery." />
 
-  <link rel="manifest" href="dizdat-manifest.json">
-  <link rel="icon" href="dizdat-icons/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="dizdat-icons/icon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="dizdat-icons/icon-16.png">
-  <link rel="apple-touch-icon" href="dizdat-icons/apple-touch-icon.png">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Diz&Dat" />
+  <meta property="og:title" content="Diz&Dat – Premium Fashion & Accessories" />
+  <meta property="og:description" content="Premium Jallabiyas, exquisite perfumes, stylish caps and comfortable shoes. Nationwide delivery from Maiduguri." />
+  <meta property="og:image" content="https://i.postimg.cc/28kNN5xX/IMG-1390.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Diz&Dat – Premium Fashion & Accessories" />
+  <meta name="twitter:description" content="Premium Jallabiyas, perfumes, caps and shoes. Nationwide delivery." />
+  <meta name="twitter:image" content="https://i.postimg.cc/28kNN5xX/IMG-1390.jpg" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  <!-- Schema.org structured data (phone only; the email is deliberately not published here) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ClothingStore",
+    "@type": "Store",
     "name": "Diz&Dat",
     "description": "Premium Jallabiyas, perfumes, caps and shoes.",
-    "image": "https://i.postimg.cc/28kNN5xX/IMG-1390.jpg",
+    "image": "https://i.postimg.cc/yYdqTCbM/9BD21E46-BB00-4341-BF5D-A4A06627E965.png",
     "telephone": "+2347066867217",
-    "email": "abdulyahmad047@gmail.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "No. 8 Homan Road, Old GRA",
+      "streetAddress": "No 8 Homan Road, Old GRA",
       "addressLocality": "Maiduguri",
       "addressCountry": "NG"
     },
@@ -46,955 +51,1296 @@
   }
   </script>
 
+  <!-- Theme is applied before first paint so there is no light/dark flash -->
+  <script>
+    (function () {
+      try {
+        var pref = localStorage.getItem('dizdatTheme') || 'system';
+        var dark = pref === 'dark' || (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme-pref', pref);
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.setAttribute('content', dark ? '#0d1611' : '#254c36');
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preload" as="image" href="https://i.postimg.cc/yYdqTCbM/9BD21E46-BB00-4341-BF5D-A4A06627E965.png">
+
   <style>
-    /* ---------- Tokens ---------- */
+    /* =====================================================
+       1. THEME TOKENS  (light = default, dark via data-theme)
+       ===================================================== */
     :root {
-      --forest: #254c36;
-      --deep: #16291d;
-      --copper: #a96842;
-      --gold: #dfb674;
-      --linen: #f7f4ec;
-      --ink: #182418;
-      --muted: #5d665c;
-      --line: #e5dfd1;
-      --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --green: #254c36; --green-deep: #1B4332; --gold: #dfb674; --clay: #a96842;
+      --bg: #FAF8F4; --surface: #ffffff; --surface-2: #F3EFE6;
+      --text: #182418; --muted: #56645a; --border: #e5dfd1;
+      --link: #1B4332; --kicker: #8f5230;
+      --btn-bg: #1B4332; --btn-fg: #ffffff; --btn-hover: #8f5230;
+      --badge-bg: #8f5230; --badge-fg: #ffffff;
+      --tint: rgba(37,76,54,.08); --tint-strong: rgba(37,76,54,.14);
+      --glass: rgba(250,248,244,.74); --glass-strong: rgba(250,248,244,.94); --glass-border: rgba(255,255,255,.6);
+      --shadow: 0 10px 30px rgba(24,36,24,.07); --shadow-lg: 0 24px 55px rgba(24,36,24,.16);
+      --overlay: rgba(7,13,9,.6); --danger: #b3261e; --focus: #8f5230;
+      --footer-bg: #182418; --radius: 18px;
       color-scheme: light;
     }
+    :root[data-theme="dark"] {
+      --bg: #0d1611; --surface: #15231b; --surface-2: #1b2c22;
+      --text: #f1eee5; --muted: #a8b7ac; --border: rgba(223,182,116,.18);
+      --link: #dfb674; --kicker: #dfb674;
+      --btn-bg: #dfb674; --btn-fg: #182418; --btn-hover: #f0cd93;
+      --badge-bg: #dfb674; --badge-fg: #182418;
+      --tint: rgba(223,182,116,.10); --tint-strong: rgba(223,182,116,.18);
+      --glass: rgba(16,28,21,.72); --glass-strong: rgba(18,31,23,.94); --glass-border: rgba(223,182,116,.22);
+      --shadow: 0 10px 30px rgba(0,0,0,.35); --shadow-lg: 0 24px 55px rgba(0,0,0,.55);
+      --overlay: rgba(2,6,4,.72); --danger: #ff9b92; --focus: #dfb674;
+      --footer-bg: #08100b;
+      color-scheme: dark;
+    }
 
-    /* ---------- Base ---------- */
+    /* =====================================================
+       2. BASE
+       ===================================================== */
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body {
-      margin: 0;
-      font-family: var(--font-body);
-      color: var(--ink);
-      background: #fff;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    body:has(dialog[open]) { overflow: hidden; }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; color: inherit; cursor: pointer; }
-    h1, h2, h3 { margin: 0; font-family: var(--font-display); line-height: 1.1; letter-spacing: -.02em; }
-    p { margin: 0; }
+    html.modal-open { overflow: hidden; }
+    body { margin: 0; font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; line-height: 1.6; letter-spacing: .01em;
+      background: var(--bg); color: var(--text); overflow-x: hidden; transition: background-color .25s ease, color .25s ease; }
+    h1, h2, h3, h4, p, ul { margin: 0; }
+    ul { padding: 0; list-style: none; }
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+    button, input, textarea { font: inherit; color: inherit; }
+    button { cursor: pointer; }
     [hidden] { display: none !important; }
-    :focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; }
-    .container { width: min(100% - 2.5rem, 1180px); margin-inline: auto; }
-    .skip { position: absolute; left: -9999px; top: 0; z-index: 100; padding: .6rem 1rem; border-radius: 8px; background: #fff; }
-    .skip:focus { left: 1rem; top: 1rem; }
-    [id] { scroll-margin-top: 6rem; }
+    .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    :where(a, button, input, textarea, [tabindex]):focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+    .skip-link { position: fixed; left: 12px; top: -80px; z-index: 300; padding: .7rem 1rem; border-radius: 12px; background: var(--btn-bg); color: var(--btn-fg); font-weight: 700; text-decoration: none; transition: top .2s; }
+    .skip-link:focus { top: 12px; }
+    main:focus { outline: none; }
+    .dd-wrap { width: min(100%, 80rem); margin-inline: auto; }
+    .dd-section { padding: clamp(4rem, 8vw, 7rem) 1.25rem; scroll-margin-top: 4.5rem; }
+    .dd-surface { background: var(--surface); }
+    .dd-soft { background: var(--bg); }
 
-    /* img protection (CSS side) */
-    img { -webkit-touch-callout: none; -webkit-user-drag: none; user-select: none; }
+    /* Section headings */
+    .dd-head { text-align: center; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+    .dd-kicker { font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--kicker); }
+    .dd-head h2 { margin-top: .5rem; font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.15; letter-spacing: -.03em; }
+    .dd-rule { width: 5rem; height: 3px; margin: 1rem auto 0; border-radius: 2px; background: var(--gold); }
 
-    /* ---------- Buttons ---------- */
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
-      min-height: 48px; padding: .75rem 1.5rem;
-      border: 1px solid transparent; border-radius: 999px;
-      font-size: .95rem; font-weight: 600; line-height: 1.1; text-align: center;
-      transition: background .2s, color .2s, border-color .2s, transform .15s;
+    /* =====================================================
+       3. BUTTONS
+       ===================================================== */
+    .dd-btn { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 46px; padding: .65rem 1.3rem; border: 1px solid transparent; border-radius: 999px;
+      font-size: .92rem; font-weight: 600; text-decoration: none; text-align: center; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease; }
+    .dd-btn:hover { transform: translateY(-2px); }
+    .dd-btn-primary { background: var(--btn-bg); color: var(--btn-fg); box-shadow: 0 8px 20px rgba(24,36,24,.16); }
+    .dd-btn-primary:hover { background: var(--btn-hover); }
+    .dd-btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
+    .dd-btn-ghost:hover { background: var(--tint); border-color: var(--link); }
+    .dd-btn-gold { background: #dfb674; color: #182418; box-shadow: 0 10px 25px rgba(0,0,0,.22); }
+    .dd-btn-gold:hover { background: #f0cd93; }
+    .dd-btn-light { background: #fff; color: #1B4332; box-shadow: 0 10px 25px rgba(0,0,0,.2); }
+    .dd-btn-light:hover { background: #dfb674; }
+    .dd-btn-outline-light { color: #fff; border-color: #dfb674; background: transparent; }
+    .dd-btn-outline-light:hover { background: rgba(223,182,116,.18); }
+    .dd-btn-hero { min-height: 52px; padding-inline: 1.5rem; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+    .dd-btn-sm { min-height: 42px; padding: .5rem .8rem; font-size: .85rem; }
+    .dd-btn.is-added { background: #2e7d4f; color: #fff; }
+    .dd-link-btn { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem 0; border: 0; background: none; color: var(--link); font-weight: 600; font-size: .85rem; text-decoration: underline; text-underline-offset: 3px; }
+    .dd-link-btn.danger { color: var(--danger); }
+
+    .dd-icon-btn { position: relative; display: inline-grid; place-items: center; flex: none; width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 50%; background: transparent; color: var(--text); text-decoration: none; transition: background-color .2s, color .2s, border-color .2s; }
+    .dd-icon-btn:hover { background: var(--btn-bg); color: var(--btn-fg); border-color: var(--btn-bg); }
+    .dd-badge { position: absolute; top: -5px; right: -5px; display: grid; place-items: center; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--badge-bg); color: var(--badge-fg); font-size: .68rem; font-weight: 700; line-height: 1; }
+
+    /* =====================================================
+       4. HEADER + MENU
+       ===================================================== */
+    .dd-nav { position: fixed; top: 14px; left: 50%; z-index: 60; width: min(calc(100% - 28px), 1180px); transform: translateX(-50%);
+      border: 1px solid var(--glass-border); border-radius: 20px; background: var(--glass); box-shadow: var(--shadow);
+      -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); transition: transform .3s ease, box-shadow .3s ease; }
+    .dd-nav.is-elevated { box-shadow: 0 16px 38px rgba(20,32,24,.2); }
+    .dd-nav.is-hidden { transform: translate(-50%, -140%); }
+    .dd-nav-inner { display: flex; align-items: center; justify-content: space-between; gap: .75rem; height: 68px; padding: 0 .85rem 0 1rem; }
+    .dd-brand { display: flex; align-items: center; gap: .6rem; min-width: 0; text-decoration: none; }
+    .dd-logo { flex: none; width: auto; height: 42px; max-width: 128px; object-fit: contain; }
+    .dd-wordmark { display: none; font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -.05em; color: var(--link); white-space: nowrap; }
+    .dd-nav-links { display: none; align-items: center; gap: 1.75rem; }
+    .dd-nav-links a { font-weight: 500; font-size: .95rem; text-decoration: none; transition: color .2s; }
+    .dd-nav-links a:hover { color: var(--kicker); }
+    .dd-actions { display: flex; align-items: center; gap: .4rem; flex: none; }
+    .dd-menu { position: absolute; right: 0; top: calc(100% + .6rem); width: min(20rem, calc(100vw - 1.5rem)); padding: .6rem; border: 1px solid var(--glass-border); border-radius: 18px;
+      background: var(--glass-strong); box-shadow: var(--shadow-lg); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+      opacity: 0; visibility: hidden; transform: translateY(-8px) scale(.98); transform-origin: top right; transition: opacity .22s ease, transform .22s ease, visibility .22s ease; }
+    .dd-menu.is-open { opacity: 1; visibility: visible; transform: none; }
+    .dd-menu-item { display: flex; align-items: center; gap: .75rem; width: 100%; padding: .7rem .8rem; border: 0; border-radius: 12px; background: none; color: var(--text); font-size: .95rem; font-weight: 500; text-align: left; text-decoration: none; }
+    .dd-menu-item:hover { background: var(--tint); }
+    .dd-menu-item > i { width: 1.2rem; text-align: center; color: var(--link); }
+    .dd-menu-item .dd-badge { position: static; margin-left: auto; }
+    .dd-menu-sep { height: 1px; margin: .4rem .5rem; background: var(--border); }
+    .dd-menu-label { padding: .4rem .8rem .5rem; font-size: .78rem; font-weight: 600; color: var(--muted); }
+    .dd-seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: .25rem; margin: 0 .3rem .3rem; padding: .25rem; border-radius: 14px; background: var(--surface-2); }
+    .dd-seg.two { grid-template-columns: repeat(2, 1fr); margin: 0; }
+    .dd-seg button { display: flex; flex-direction: column; align-items: center; gap: .25rem; padding: .55rem .25rem; border: 0; border-radius: 10px; background: transparent; color: var(--muted); font-size: .74rem; font-weight: 600; transition: background-color .2s, color .2s; }
+    .dd-seg button[aria-pressed="true"] { background: var(--surface); color: var(--link); box-shadow: var(--shadow); }
+
+    /* =====================================================
+       5. HERO
+       ===================================================== */
+    .dd-hero { position: relative; display: grid; grid-template-rows: 1fr auto; min-height: 100vh; min-height: 100svh; padding: 6.5rem 1.25rem 2rem; overflow: hidden; isolation: isolate; color: #fff;
+      background: linear-gradient(115deg, rgba(8,17,12,.9), rgba(27,67,50,.62)), url('https://i.postimg.cc/28kNN5xX/IMG-1390.jpg') center / cover no-repeat; }
+    .dd-hero > * { width: min(100%, 70rem); margin-inline: auto; }
+    .dd-hero-copy { align-self: center; padding-bottom: 1rem; }
+    .dd-hero h1 { max-width: 46rem; font-size: clamp(2.9rem, 8.5vw, 6.6rem); font-weight: 700; line-height: .98; letter-spacing: -.05em; text-shadow: 0 10px 35px rgba(0,0,0,.28); }
+    .dd-gold { color: #dfb674; font-style: italic; }
+    .dd-gold-rule { width: 78px; height: 1px; margin: 1.5rem 0; background: #dfb674; }
+    .dd-hero-copy p { max-width: 31rem; font-size: 1.08rem; color: rgba(255,255,255,.92); }
+    .dd-hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+    .dd-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: .25rem; margin-top: 1.5rem; padding: .9rem; border: 1px solid rgba(212,175,55,.4); border-radius: 20px; background: rgba(14,29,21,.5);
+      -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); box-shadow: 0 18px 42px rgba(0,0,0,.2); }
+    .dd-stat { display: flex; align-items: center; gap: .6rem; padding: .4rem .6rem; }
+    .dd-stat > i { width: 1.25rem; text-align: center; color: #dfb674; }
+    .dd-stat strong { display: block; font-size: .86rem; line-height: 1.25; }
+    .dd-stat span { display: block; font-size: .68rem; line-height: 1.3; color: rgba(255,255,255,.8); }
+    .dd-scroll-cue { display: none; }
+
+    /* =====================================================
+       6. CARDS  (products, announcements)
+       ===================================================== */
+    .dd-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .dd-grid > * { width: 100%; max-width: 26rem; margin-inline: auto; }
+    .dd-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); transition: transform .25s ease, box-shadow .25s ease, border-color .25s; }
+    .dd-soft .dd-card, .dd-modal-panel .dd-card { background: var(--surface); }
+    .dd-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .dd-media { position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; padding: 0; overflow: hidden; border: 0; background: var(--surface-2); }
+    .dd-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; -webkit-touch-callout: none; -webkit-user-drag: none; user-select: none; }
+    .dd-card:hover .dd-media img { transform: scale(1.04); }
+    .dd-tag { position: absolute; top: .8rem; right: .8rem; padding: .25rem .7rem; border-radius: 999px; background: var(--btn-bg); color: var(--btn-fg); font-size: .66rem; font-weight: 700; letter-spacing: .06em; box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+    .dd-tag.alt { background: var(--badge-bg); color: var(--badge-fg); }
+    .dd-card-body { display: flex; flex: 1; flex-direction: column; gap: .35rem; padding: 1.1rem 1.15rem 1.2rem; }
+    .dd-card h3 { font-size: 1.2rem; line-height: 1.25; letter-spacing: -.02em; }
+    .dd-card-body > p { color: var(--muted); font-size: .92rem; }
+    .dd-price { margin-top: auto; padding-top: .55rem; font-size: 1.05rem; font-weight: 700; color: var(--link); }
+    .dd-card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-top: .7rem; }
+    .dd-card-actions .dd-btn { padding-inline: .5rem; font-size: .84rem; }
+    .dd-center { margin-top: 3rem; text-align: center; }
+
+    /* Announcement cards: same card system, image is shown complete (contain) over a soft blurred copy of itself */
+    .dd-posts { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+    .dd-post { flex: 1 1 260px; max-width: 22rem; }
+    .dd-post .dd-media { isolation: isolate; }
+    .dd-post .dd-media::before { content: ''; position: absolute; inset: 0; z-index: -1; background: var(--bg-img) center / cover no-repeat; filter: blur(22px) saturate(1.1); transform: scale(1.2); opacity: .55; }
+    .dd-post .dd-media img { object-fit: contain; }
+    .dd-post-date { font-size: .78rem; font-weight: 600; color: var(--muted); }
+    .dd-post-text { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .97rem; color: var(--text); }
+    .dd-post-text.is-clamped { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+    .dd-post-admin { display: flex; gap: 1rem; margin-top: .5rem; padding-top: .7rem; border-top: 1px solid var(--border); }
+    .dd-empty { padding: 1rem 0; color: var(--muted); text-align: center; }
+
+    /* =====================================================
+       7. BANNER, COLLECTIONS, ABOUT
+       ===================================================== */
+    .dd-banner { padding: clamp(4rem, 8vw, 6rem) 1.25rem; text-align: center; color: #fff; background: linear-gradient(120deg, #1B4332, #254c36 55%, #a96842); }
+    .dd-banner h2 { margin-bottom: 1rem; font-size: clamp(1.9rem, 5vw, 3.2rem); line-height: 1.15; letter-spacing: -.03em; }
+    .dd-banner p { max-width: 36rem; margin: 0 auto 2rem; font-size: 1.1rem; color: rgba(255,255,255,.92); }
+    .dd-collections { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .dd-collection { position: relative; display: block; width: 100%; aspect-ratio: 4 / 3; padding: 0; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-2); box-shadow: var(--shadow); color: #fff; text-align: center; transition: transform .25s ease, box-shadow .25s ease; }
+    .dd-collection:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .dd-collection img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; -webkit-touch-callout: none; -webkit-user-drag: none; user-select: none; }
+    .dd-collection:hover img { transform: scale(1.05); }
+    .dd-collection::after { content: ''; position: absolute; inset: auto 0 0 0; height: 55%; background: linear-gradient(to top, rgba(10,20,14,.85), transparent); }
+    .dd-collection-label { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; padding: 1.25rem; }
+    .dd-collection h3 { margin-bottom: .35rem; font-size: 1.5rem; color: #fff; }
+    .dd-collection-label span { font-size: .9rem; border-bottom: 1px solid rgba(255,255,255,.55); }
+    .dd-about { display: grid; gap: 2.5rem; align-items: center; }
+    .dd-about img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+    .dd-about h2 { margin-top: .5rem; font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.15; letter-spacing: -.03em; }
+    .dd-about .dd-rule { margin-left: 0; }
+    .dd-about-text { margin-top: 1.5rem; color: var(--muted); line-height: 1.75; }
+    .dd-about-text + .dd-about-text { margin-top: 1rem; }
+    .dd-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+    .dd-feature { display: flex; align-items: center; gap: .75rem; font-weight: 600; font-size: .95rem; }
+    .dd-bubble { display: inline-grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--tint); color: var(--link); }
+
+    /* =====================================================
+       8. CONTACT + FOOTER
+       ===================================================== */
+    .dd-contact { display: grid; gap: 1.5rem; }
+    .dd-panel { padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--border); border-radius: 24px; background: var(--surface); box-shadow: var(--shadow); }
+    .dd-soft .dd-panel { background: var(--surface); }
+    .dd-panel h3 { margin-bottom: 1.25rem; font-size: 1.5rem; letter-spacing: -.02em; }
+    .dd-panel h4 { margin: 1.75rem 0 1rem; font-size: 1rem; }
+    .dd-panel > p { color: var(--muted); margin-bottom: 1.5rem; }
+    .dd-info { display: flex; align-items: flex-start; gap: 1rem; }
+    .dd-info h4 { margin: 0 0 .15rem; }
+    .dd-info p { color: var(--muted); }
+    .dd-socials { display: flex; flex-wrap: wrap; gap: .9rem; }
+    .dd-social { display: inline-grid; place-items: center; width: 58px; height: 58px; border: 1px solid var(--border); border-radius: 50%; background: var(--tint); color: var(--link); font-size: 1.4rem; text-decoration: none; transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease; }
+    @media (hover: hover) {
+      .dd-social:hover { transform: translateY(-4px); color: #fff; border-color: transparent; }
+      .dd-social[data-contact="instagram"]:hover { background: linear-gradient(45deg, #f09433, #dc2743 50%, #bc1888); }
+      .dd-social[data-contact="whatsapp"]:hover { background: #1fa855; }
+      .dd-social[data-contact="email"]:hover { background: #a96842; }
+      .dd-social[data-contact="phone"]:hover { background: #254c36; }
     }
-    .btn:active { transform: scale(.98); }
-    .btn-forest { background: var(--forest); color: #fff; }
-    .btn-forest:hover { background: var(--deep); }
-    .btn-gold { background: var(--gold); color: var(--ink); }
-    .btn-gold:hover { background: #fff; }
-    .btn-line { border-color: rgba(255,255,255,.55); color: #fff; }
-    .btn-line:hover { background: #fff; color: var(--forest); }
-    .btn-outline { border-color: var(--forest); color: var(--forest); background: transparent; }
-    .btn-outline:hover { background: var(--forest); color: #fff; }
-    .btn-block { width: 100%; }
-    .btn.is-added { background: var(--forest); border-color: var(--forest); color: #fff; }
-    .text-link { font-weight: 600; color: var(--forest); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
-    .text-link:hover { color: var(--copper); }
+    .dd-form-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .dd-footer { padding: 3.5rem 1.25rem 2rem; background: var(--footer-bg); color: #e8e4d8; }
+    .dd-footer-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+    .dd-footer h3 { margin-bottom: 1rem; font-size: 1.4rem; color: #fff; }
+    .dd-footer h4 { margin-bottom: 1rem; font-weight: 700; color: #fff; }
+    .dd-footer p, .dd-footer li { color: #b9bfb3; font-size: .95rem; }
+    .dd-footer li + li { margin-top: .5rem; }
+    .dd-footer a { text-decoration: none; transition: color .2s; }
+    .dd-footer li a:hover { color: #dfb674; }
+    .dd-footer .dd-addr { display: flex; gap: .6rem; margin-bottom: 1rem; }
+    .dd-footer .dd-social { width: 44px; height: 44px; font-size: 1.1rem; background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); color: #f1eee5; }
+    .dd-footer .dd-socials { gap: .6rem; }
+    .dd-footer-bottom { margin-top: 2.5rem; padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,.1); }
 
-    /* ---------- Header ---------- */
-    .site-header {
-      position: fixed; z-index: 50;
-      top: calc(env(safe-area-inset-top, 0px) + 10px); left: 50%;
-      width: min(100% - 1.25rem, 1180px);
-      transform: translateX(-50%);
-      border: 1px solid rgba(255,255,255,.6); border-radius: 20px;
-      background: rgba(250,248,244,.8);
-      -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
-      box-shadow: 0 8px 26px rgba(20,32,24,.08);
-      transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+    /* =====================================================
+       9. MOBILE BOTTOM NAVIGATION (glass pill)
+       ===================================================== */
+    .dd-tabbar { position: fixed; left: 50%; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); z-index: 70; display: none; width: min(calc(100% - 24px), 440px); transform: translateX(-50%);
+      grid-template-columns: repeat(5, 1fr); gap: 2px; padding: 6px; border: 1px solid var(--glass-border); border-radius: 26px; background: var(--glass); box-shadow: 0 12px 36px rgba(10,20,14,.24);
+      -webkit-backdrop-filter: blur(22px) saturate(1.4); backdrop-filter: blur(22px) saturate(1.4); }
+    .dd-tab { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 0; min-height: 52px; padding: 6px 1px; border: 0; border-radius: 20px; background: transparent; color: var(--muted); font-size: .62rem; letter-spacing: 0; font-weight: 600; text-decoration: none; transition: background-color .2s, color .2s; }
+    .dd-tab i { font-size: 1.15rem; }
+    .dd-tab span:not(.dd-badge) { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .dd-tab.is-active { background: var(--tint-strong); color: var(--link); }
+    .dd-tab .dd-badge { top: 2px; right: calc(50% - 26px); }
+    .dd-top { position: fixed; right: 16px; bottom: calc(92px + env(safe-area-inset-bottom, 0px)); z-index: 65; display: grid; place-items: center; width: 46px; height: 46px; border: 0; border-radius: 50%; background: var(--btn-bg); color: var(--btn-fg); box-shadow: var(--shadow-lg);
+      opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s, background-color .2s; }
+    .dd-top.is-visible { opacity: 1; visibility: visible; }
+    .dd-top:hover { background: var(--btn-hover); }
+
+    /* =====================================================
+       10. MODAL, FORMS, TOASTS
+       ===================================================== */
+    .dd-modal { position: fixed; inset: 0; z-index: 100; display: grid; place-items: end center; }
+    .dd-modal-backdrop { position: absolute; inset: 0; background: var(--overlay); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+    .dd-modal-panel { position: relative; display: flex; flex-direction: column; width: 100%; max-height: 92vh; max-height: 92svh; overflow: hidden;
+      border: 1px solid var(--glass-border); border-radius: 24px 24px 0 0; background: var(--surface); color: var(--text); box-shadow: 0 -20px 60px rgba(0,0,0,.35); animation: dd-sheet .3s ease; }
+    .dd-modal-body { flex: 1; min-height: 0; padding: 1.25rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom, 0px)); overflow-y: auto; overscroll-behavior: contain; }
+    .dd-modal-close { position: absolute; top: .75rem; right: .75rem; z-index: 5; display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 50%; background: var(--surface); color: var(--text); box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+    .dd-modal-close:hover { background: var(--btn-bg); color: var(--btn-fg); }
+    .dd-modal-title, #modalTitle { margin-bottom: 1rem; padding-right: 2.75rem; font-size: 1.6rem; line-height: 1.2; letter-spacing: -.02em; }
+    .dd-detail-media { display: grid; place-items: center; aspect-ratio: 1 / 1; max-height: 52vh; margin-bottom: 1.1rem; overflow: hidden; border-radius: 16px; background: var(--surface-2); }
+    .dd-detail-media img { width: 100%; height: 100%; object-fit: contain; }
+    .dd-detail-text { color: var(--muted); }
+    .dd-detail .dd-price { margin: .5rem 0 1.25rem; padding: 0; font-size: 1.3rem; }
+    .dd-detail-actions { display: grid; gap: .6rem; }
+    .dd-hint { margin-top: .9rem; font-size: .8rem; color: var(--muted); }
+    .dd-viewer img { width: 100%; max-height: 78vh; object-fit: contain; border-radius: 14px; background: var(--surface-2); }
+    .dd-cart-item { display: grid; grid-template-columns: 64px 1fr; gap: .3rem .85rem; align-items: center; padding: .9rem 0; border-top: 1px solid var(--border); }
+    .dd-cart-item img { grid-row: span 2; width: 64px; height: 64px; object-fit: cover; border-radius: 12px; }
+    .dd-cart-name { font-weight: 600; line-height: 1.3; }
+    .dd-cart-price { font-size: .88rem; color: var(--muted); }
+    .dd-cart-row { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+    .dd-qty { display: inline-flex; align-items: center; border: 1px solid var(--border); border-radius: 999px; }
+    .dd-qty button { display: grid; place-items: center; width: 34px; height: 34px; border: 0; border-radius: 50%; background: none; color: var(--text); }
+    .dd-qty button:disabled { opacity: .35; cursor: not-allowed; }
+    .dd-qty output { min-width: 1.5rem; text-align: center; font-weight: 700; }
+    .dd-cart-actions { display: grid; gap: .6rem; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+    .dd-form { display: grid; gap: 0; }
+    .dd-field { display: grid; gap: .4rem; margin-bottom: 1rem; }
+    .dd-field label { font-size: .9rem; font-weight: 600; }
+    .dd-field small { font-size: .8rem; color: var(--muted); }
+    .dd-input, .dd-textarea { width: 100%; padding: .8rem .9rem; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); color: var(--text); font-size: 16px; }
+    .dd-textarea { min-height: 120px; resize: vertical; }
+    .dd-input::placeholder, .dd-textarea::placeholder { color: var(--muted); opacity: .8; }
+    .dd-status { margin-bottom: 1.1rem; padding: .7rem .9rem; border-radius: 12px; background: var(--surface-2); color: var(--muted); font-size: .88rem; }
+    .dd-status.is-error { background: rgba(179,38,30,.12); color: var(--danger); }
+    .dd-staff-block { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+    .dd-staff-block h3 { margin-bottom: .5rem; font-size: 1.15rem; }
+    .dd-staff-block .dd-hint { margin: 0 0 .8rem; }
+    .dd-preview { margin-bottom: 1rem; }
+    .dd-preview img { width: 100%; max-height: 200px; object-fit: contain; border-radius: 12px; background: var(--surface-2); }
+    .dd-toasts { position: fixed; left: 50%; bottom: calc(92px + env(safe-area-inset-bottom, 0px)); z-index: 120; display: grid; gap: .5rem; width: min(calc(100% - 32px), 420px); transform: translateX(-50%); pointer-events: none; }
+    .dd-toast { display: flex; align-items: center; gap: .6rem; padding: .8rem 1rem; border-radius: 14px; background: #182418; color: #fff; box-shadow: 0 12px 30px rgba(0,0,0,.3); font-size: .9rem; animation: dd-toast .25s ease; }
+    .dd-toast.is-error { background: #8c1d16; }
+    :root[data-theme="dark"] .dd-toast { background: #f1eee5; color: #182418; }
+    :root[data-theme="dark"] .dd-toast.is-error { background: #ffdad6; color: #410002; }
+    @keyframes dd-sheet { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+    @keyframes dd-pop { from { transform: scale(.95) translateY(12px); opacity: 0; } to { transform: none; opacity: 1; } }
+    @keyframes dd-toast { from { transform: translateY(10px); opacity: 0; } to { transform: none; opacity: 1; } }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* =====================================================
+       11. RESPONSIVE
+       ===================================================== */
+    @media (max-width: 419px) { .dd-hide-xs { display: none !important; } .dd-nav-inner { padding-left: .8rem; } }
+    @media (max-width: 767px) {
+      .dd-tabbar { display: grid; }
+      .dd-hero { padding-bottom: calc(6.2rem + env(safe-area-inset-bottom, 0px)); }
+      .dd-footer { padding-bottom: calc(7rem + env(safe-area-inset-bottom, 0px)); }
     }
-    .site-header.is-scrolled { background: rgba(250,248,244,.94); box-shadow: 0 14px 34px rgba(20,32,24,.15); }
-    .site-header.is-hidden { transform: translate(-50%, -160%); }
-    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 64px; padding-inline: .9rem 1rem; }
-    .brand { display: flex; align-items: center; gap: .6rem; }
-    .brand img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; }
-    .brand span { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: -.05em; color: var(--forest); }
-    .nav-links { display: none; align-items: center; gap: 2rem; }
-    .nav-links a { position: relative; font-weight: 500; font-size: .95rem; padding-block: .3rem; }
-    .nav-links a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px; background: var(--copper); transition: right .25s ease; }
-    .nav-links a:hover::after { right: 0; }
-    .nav-actions { display: flex; align-items: center; gap: .15rem; }
-    .icon-btn {
-      position: relative; display: inline-grid; place-items: center;
-      width: 42px; height: 42px; border: 0; border-radius: 50%; background: transparent; font-size: 1.1rem;
-      transition: background .2s, color .2s;
+    @media (min-width: 480px) { .dd-wordmark { display: inline; } }
+    @media (min-width: 640px) {
+      .dd-grid { grid-template-columns: repeat(2, 1fr); }
+      .dd-grid > * { max-width: none; }
+      .dd-media { aspect-ratio: 6 / 7; }
+      .dd-post .dd-media { aspect-ratio: 1 / 1; }
+      .dd-stats { grid-template-columns: repeat(4, 1fr); }
+      .dd-footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .dd-modal { place-items: center; padding: 20px; }
+      .dd-modal-panel { width: min(100%, 34rem); border-radius: 24px; animation-name: dd-pop; }
+      .dd-modal-body { padding: 1.75rem; }
+      .dd-modal-panel.wide { width: min(100%, 64rem); }
+      .dd-detail-actions { grid-template-columns: 1fr 1fr; }
     }
-    .icon-btn:hover { background: rgba(37,76,54,.09); color: var(--forest); }
-    .icon-btn.optional { display: none; }
-    .cart-count {
-      position: absolute; top: 3px; right: 1px; min-width: 18px; height: 18px; padding-inline: 4px;
-      display: grid; place-items: center; border-radius: 999px;
-      background: var(--copper); color: #fff; font-size: .68rem; font-weight: 700; line-height: 1;
+    @media (min-width: 768px) {
+      .dd-nav-links { display: flex; }
+      .dd-nav-inner { height: 72px; padding-inline: 1.25rem 1rem; }
+      .dd-logo { height: 48px; max-width: 150px; }
+      .dd-hero { padding-inline: 2rem; padding-bottom: 3.25rem; }
+      .dd-scroll-cue { position: absolute; bottom: 1rem; left: 50%; display: block; width: auto; color: #fff; font-size: .68rem; letter-spacing: .22em; transform: translateX(-50%); opacity: .8; }
+      .dd-collections { grid-template-columns: repeat(3, 1fr); }
+      .dd-collection { aspect-ratio: 4 / 5; }
+      .dd-contact { grid-template-columns: 1fr 1fr; }
+      .dd-top { bottom: 28px; right: 28px; }
+      .dd-toasts { bottom: 28px; }
     }
-    .menu-btn svg { width: 22px; height: 22px; transition: transform .25s ease; }
-    .menu-btn.is-active svg { transform: rotate(90deg); }
-    .mobile-menu {
-      position: absolute; top: calc(100% + 10px); right: 0; width: min(20rem, 100%);
-      padding: .6rem; border: 1px solid var(--line); border-radius: 18px;
-      background: rgba(250,248,244,.97); box-shadow: 0 20px 50px rgba(18,36,24,.2);
-      opacity: 0; visibility: hidden; transform: translateY(-8px); transform-origin: top right;
-      transition: opacity .22s ease, transform .22s ease, visibility .22s;
+    @media (min-width: 1024px) {
+      .dd-grid { grid-template-columns: repeat(4, 1fr); }
+      .dd-grid.dd-grid-compact { grid-template-columns: repeat(4, 1fr); }
+      .dd-about { grid-template-columns: 1fr 1fr; gap: 4rem; }
+      .dd-footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1.4fr; }
     }
-    .mobile-menu.is-open { opacity: 1; visibility: visible; transform: none; }
-    .mobile-menu a, .mobile-menu button {
-      display: flex; align-items: center; gap: .7rem; width: 100%; padding: .8rem .9rem;
-      border: 0; border-radius: 12px; background: transparent; text-align: left; font-weight: 500; font-size: 1rem;
-    }
-    .mobile-menu a:hover, .mobile-menu button:hover { background: #fff; color: var(--forest); }
-    .mobile-menu hr { margin: .4rem .5rem; border: 0; border-top: 1px solid var(--line); }
-    .mobile-menu i { width: 1.2rem; color: var(--forest); text-align: center; }
-    @media (min-width: 640px) { .icon-btn.optional { display: inline-grid; } }
-    @media (min-width: 900px) {
-      .nav-links { display: flex; }
-      .menu-btn, .mobile-menu { display: none; }
-    }
-
-    /* ---------- Hero ---------- */
-    .hero {
-      position: relative; isolation: isolate;
-      min-height: 100svh; display: flex; align-items: flex-end;
-      padding: 8rem 0 clamp(3.5rem, 9vh, 6rem);
-      color: #fff; background-color: var(--deep);
-      background-image:
-        linear-gradient(0deg, rgba(9,19,13,.92) 0%, rgba(9,19,13,.35) 55%, rgba(9,19,13,.55) 100%),
-        linear-gradient(100deg, rgba(22,41,29,.8) 0%, rgba(37,76,54,.25) 70%),
-        url('https://i.postimg.cc/28kNN5xX/IMG-1390.jpg');
-      background-size: cover; background-position: center;
-    }
-    .hero h1 { max-width: 11ch; font-size: clamp(3.4rem, 11vw, 8rem); font-weight: 600; line-height: .94; letter-spacing: -.05em; text-shadow: 0 10px 40px rgba(0,0,0,.3); }
-    .hero .lead { max-width: 30rem; margin-top: 1.5rem; font-size: clamp(1.05rem, 2.2vw, 1.25rem); line-height: 1.55; color: rgba(255,255,255,.9); }
-    .hero .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
-    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
-    .hero-copy > * { animation: rise .85s cubic-bezier(.2,.7,.2,1) both; }
-    .hero-copy > :nth-child(2) { animation-delay: .12s; }
-    .hero-copy > :nth-child(3) { animation-delay: .24s; }
-
-    /* ---------- Facts bar ---------- */
-    .facts { background: var(--deep); color: #fff; }
-    .facts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(255,255,255,.14); }
-    .fact { display: flex; align-items: center; gap: .8rem; padding: 1.2rem .9rem; background: var(--deep); }
-    .fact i { color: var(--gold); font-size: 1.15rem; width: 1.4rem; text-align: center; }
-    .fact strong { display: block; font-size: 1rem; line-height: 1.2; }
-    .fact span { display: block; font-size: .8rem; color: rgba(255,255,255,.7); line-height: 1.3; }
-    @media (min-width: 800px) { .facts-grid { grid-template-columns: repeat(4, 1fr); } .fact { justify-content: center; padding: 1.5rem 1rem; } }
-
-    /* ---------- Sections ---------- */
-    .section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
-    .section-linen { background: var(--linen); }
-    .section-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: .75rem 2rem; margin-bottom: clamp(1.75rem, 4vw, 3rem); }
-    .section-head h2 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; }
-
-    /* Products */
-    .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.25rem 1rem; }
-    @media (min-width: 900px) { .products { grid-template-columns: repeat(4, 1fr); gap: 2.75rem 1.5rem; } }
-    .item { display: flex; flex-direction: column; }
-    .item-media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 10px; background: var(--linen); }
-    .item-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
-    @media (hover: hover) { .item:hover .item-media img { transform: scale(1.05); } }
-    .tag { position: absolute; top: .7rem; left: .7rem; padding: .25rem .7rem; border-radius: 999px; background: var(--copper); color: #fff; font-size: .75rem; font-weight: 600; }
-    .tag.is-new { background: var(--forest); }
-    .item-info { flex: 1; padding: .9rem .1rem 1rem; }
-    .item h3 { font-size: 1.2rem; line-height: 1.2; letter-spacing: -.02em; }
-    .item-info p { margin-top: .35rem; font-size: .9rem; line-height: 1.45; color: var(--muted); }
-    .price { display: block; margin-top: .65rem; font-weight: 700; color: var(--forest); }
-    .add-to-cart { min-height: 44px; font-size: .9rem; }
-
-    /* Announcements */
-    .updates { border-top: 1px solid var(--line); }
-    .notes { display: grid; gap: 1.25rem; }
-    @media (min-width: 768px) { .notes { grid-template-columns: repeat(2, 1fr); } }
-    .note { overflow: hidden; border-left: 3px solid var(--copper); border-radius: 6px; background: var(--linen); padding: 1.25rem; }
-    .note img { width: 100%; height: auto; margin-bottom: 1rem; border-radius: 4px; }
-    .note p { white-space: pre-wrap; overflow-wrap: anywhere; }
-    .note time { display: block; margin-top: 1rem; font-size: .8rem; color: var(--muted); }
-    .note-tools { display: flex; gap: 1rem; margin-top: .8rem; font-size: .85rem; }
-    .note-tools button { padding: 0; border: 0; background: none; font-weight: 600; text-decoration: underline; color: var(--forest); }
-    .note-tools button[data-delete] { color: #a4262c; }
-
-    /* Collections mosaic */
-    .mosaic { display: grid; gap: 1rem; }
-    .tile { position: relative; display: block; overflow: hidden; min-height: 18rem; border-radius: 6px; background: var(--deep); }
-    .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
-    .tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(9,19,13,.78), transparent 60%); }
-    @media (hover: hover) { .tile:hover img { transform: scale(1.05); } }
-    .tile-caption { position: absolute; z-index: 1; left: 1.4rem; right: 1.4rem; bottom: 1.3rem; color: #fff; }
-    .tile-caption h3 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; }
-    .tile-caption span { display: inline-block; margin-top: .4rem; font-size: .9rem; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(255,255,255,.5); }
-    @media (min-width: 800px) {
-      .mosaic { grid-template-columns: 1.25fr 1fr; grid-template-rows: repeat(2, 20rem); }
-      .tile:first-child { grid-row: span 2; }
-    }
-
-    /* Banner */
-    .banner { padding-block: clamp(3.5rem, 8vw, 5.5rem); background: var(--forest); color: #fff; }
-    .banner-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.75rem 3rem; }
-    .banner h2 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 600; }
-    .banner p { max-width: 32rem; margin-top: .8rem; color: rgba(255,255,255,.85); font-size: 1.1rem; }
-
-    /* About */
-    .about-grid { display: grid; gap: 2.5rem; align-items: center; }
-    .about-grid img { width: 100%; height: auto; border-radius: 10px; }
-    .about-copy h2 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; margin-bottom: 1.5rem; }
-    .about-copy p { max-width: 34rem; color: var(--muted); font-size: 1.05rem; }
-    .about-copy p + p { margin-top: 1rem; }
-    .perks { display: grid; grid-template-columns: repeat(2, 1fr); margin: 2rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
-    .perks li { display: flex; align-items: center; gap: .75rem; padding: 1rem .25rem; border-bottom: 1px solid var(--line); font-weight: 500; }
-    .perks i { color: var(--copper); width: 1.3rem; text-align: center; }
-    @media (min-width: 900px) { .about-grid { grid-template-columns: 1fr 1fr; gap: 4.5rem; } }
-
-    /* Contact */
-    .contact-grid { display: grid; gap: 2.5rem; }
-    .details { margin: 0; }
-    .details > div { padding: 1.1rem 0; border-top: 1px solid var(--line); }
-    .details > div:last-child { border-bottom: 1px solid var(--line); }
-    .details dt { font-size: .85rem; color: var(--muted); }
-    .details dd { margin: .15rem 0 0; font-size: 1.15rem; font-weight: 500; overflow-wrap: anywhere; }
-    .details a:hover { color: var(--copper); }
-    .order-panel { padding: clamp(1.5rem, 4vw, 2.5rem); border-radius: 14px; background: var(--forest); color: #fff; }
-    .order-panel h3 { font-size: clamp(1.7rem, 3.5vw, 2.3rem); font-weight: 600; }
-    .order-panel p { margin: .8rem 0 1.5rem; color: rgba(255,255,255,.85); }
-    .order-panel .stack { display: grid; gap: .7rem; }
-    @media (min-width: 900px) { .contact-grid { grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: start; } }
-
-    /* Footer */
-    .site-footer { background: var(--ink); color: rgba(255,255,255,.72); padding-top: clamp(3rem, 6vw, 4.5rem); }
-    .footer-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.25rem 1.5rem; }
-    .footer-grid .wide { grid-column: 1 / -1; }
-    .site-footer h3, .site-footer h4 { color: #fff; }
-    .site-footer h3 { font-size: 1.6rem; margin-bottom: .75rem; }
-    .site-footer h4 { margin: 0 0 .9rem; font-family: var(--font-body); font-size: .95rem; letter-spacing: 0; }
-    .site-footer ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .5rem; }
-    .site-footer a:hover { color: #fff; }
-    .site-footer li { overflow-wrap: anywhere; }
-    .footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; margin-top: 3rem; padding-block: 1.5rem calc(1.5rem + env(safe-area-inset-bottom, 0px)); border-top: 1px solid rgba(255,255,255,.12); font-size: .9rem; }
-    .footer-bottom .social { display: flex; gap: 1.1rem; font-size: 1.15rem; }
-    .link-btn { padding: 0; border: 0; background: none; color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-    @media (min-width: 900px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1.4fr; } .footer-grid .wide { grid-column: auto; } }
-
-    /* Back to top + toast */
-    .to-top {
-      position: fixed; z-index: 40; right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
-      width: 46px; height: 46px; display: grid; place-items: center; border: 0; border-radius: 50%;
-      background: var(--forest); color: #fff; box-shadow: 0 8px 22px rgba(0,0,0,.22);
-      opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .25s, transform .25s, visibility .25s, background .2s;
-    }
-    .to-top.show { opacity: 1; visibility: visible; transform: none; }
-    .to-top:hover { background: var(--copper); }
-    .toast {
-      position: fixed; z-index: 120; left: 50%; bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
-      max-width: calc(100% - 2rem); padding: .75rem 1.2rem; border-radius: 999px;
-      background: var(--ink); color: #fff; font-size: .9rem; text-align: center;
-      opacity: 0; transform: translate(-50%, 10px); pointer-events: none; transition: opacity .25s, transform .25s;
-    }
-    .toast.show { opacity: 1; transform: translate(-50%, 0); }
-
-    /* ---------- Dialogs ---------- */
-    dialog { width: min(34rem, calc(100% - 1.5rem)); max-height: min(90vh, 44rem); padding: 0; border: 0; border-radius: 16px; background: #fff; color: var(--ink); box-shadow: 0 30px 80px rgba(0,0,0,.35); overflow: auto; }
-    dialog::backdrop { background: rgba(7,13,9,.62); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-    dialog[open] { animation: pop .22s ease; }
-    @keyframes pop { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
-    .dialog-inner { padding: 1.25rem 1.25rem 1.5rem; }
-    .dialog-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
-    .dialog-head h2 { font-size: 1.7rem; font-weight: 600; }
-    .empty { display: grid; justify-items: center; gap: 1rem; padding: 2rem 0 1rem; color: var(--muted); text-align: center; }
-    .empty i { font-size: 2rem; color: var(--line); }
-    .cart-item { display: grid; grid-template-columns: 64px 1fr auto; gap: .9rem; align-items: center; padding: .9rem 0; border-top: 1px solid var(--line); }
-    .cart-item img { width: 64px; height: 80px; object-fit: cover; border-radius: 6px; background: var(--linen); }
-    .cart-item h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 600; letter-spacing: 0; line-height: 1.3; }
-    .cart-item .price { margin: .1rem 0 .5rem; font-size: .9rem; }
-    .qty { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; }
-    .qty button { width: 32px; height: 32px; border: 0; background: none; font-size: 1.1rem; line-height: 1; }
-    .qty span { min-width: 1.6rem; text-align: center; font-weight: 600; font-size: .95rem; }
-    .remove { border: 0; background: none; padding: .4rem; color: #a4262c; font-size: .85rem; text-decoration: underline; }
-    .cart-actions { display: grid; gap: .7rem; margin-top: 1rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
-    .cart-actions .hint { font-size: .88rem; color: var(--muted); }
-    .form { display: grid; gap: 1rem; }
-    .field { display: grid; gap: .35rem; font-size: .9rem; font-weight: 500; }
-    .field input, .field textarea { width: 100%; padding: .75rem .85rem; border: 1px solid #cfc8b9; border-radius: 10px; background: #fff; font: inherit; font-size: 16px; }
-    .field textarea { min-height: 110px; resize: vertical; }
-    .row { display: flex; flex-wrap: wrap; gap: .6rem; }
-    .small { font-size: .88rem; color: var(--muted); }
-
+    .dd-grid-compact { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .dd-grid-compact .dd-card-body { padding: .9rem; }
+    .dd-grid-compact .dd-card-actions { grid-template-columns: 1fr; }
+    @media (max-width: 374px) { .dd-tab { font-size: .58rem; } }
+    @media (max-width: 359px) { .dd-grid-compact { grid-template-columns: 1fr; } }
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
-
-  <!-- Google AdSense (kept from the original site) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2122907975187090" crossorigin="anonymous"></script>
 </head>
-
 <body>
-  <a class="skip" href="#products">Skip to products</a>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- ===== Header ===== -->
-  <header class="site-header" id="siteHeader">
-    <div class="nav">
-      <a href="#top" class="brand" aria-label="Diz&amp;Dat home">
-        <img src="https://i.postimg.cc/kMNcWsxw/0B5D3244-9224-430C-8BA6-A567DB41C1BB.png" alt="" width="38" height="38">
-        <span>Diz&amp;Dat</span>
+  <!-- ============ HEADER ============ -->
+  <header class="dd-nav" id="siteNav">
+    <div class="dd-nav-inner">
+      <a class="dd-brand" href="#home" aria-label="Diz&Dat home">
+        <!-- New logo. If this image already contains the "Diz&Dat" name, delete the wordmark span below. -->
+        <img class="dd-logo" src="https://i.postimg.cc/yYdqTCbM/9BD21E46-BB00-4341-BF5D-A4A06627E965.png" alt="Diz&Dat logo" fetchpriority="high" decoding="async">
+        <span class="dd-wordmark" aria-hidden="true">Diz&amp;Dat</span>
       </a>
 
-      <nav class="nav-links" aria-label="Main">
-        <a href="#top">Home</a>
+      <nav class="dd-nav-links" aria-label="Primary">
+        <a href="#home">Home</a>
         <a href="#products">Products</a>
         <a href="#collections">Collections</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
 
-      <div class="nav-actions">
-        <a class="icon-btn optional" href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener" aria-label="Diz&amp;Dat on Instagram"><i class="fab fa-instagram"></i></a>
-        <a class="icon-btn optional js-wa" href="#" data-wa target="_blank" rel="noopener" aria-label="Chat on WhatsApp" hidden><i class="fab fa-whatsapp"></i></a>
-        <button class="icon-btn optional" type="button" data-chat aria-label="Chat with us"><i class="fas fa-comment-dots"></i></button>
-        <button class="icon-btn" type="button" data-open-cart aria-label="Open cart">
-          <i class="fas fa-bag-shopping"></i>
-          <span class="cart-count" id="cartCount" hidden>0</span>
+      <div class="dd-actions">
+        <a class="dd-icon-btn dd-hide-xs" data-contact="instagram" href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <button class="dd-icon-btn" id="cartButton" type="button" aria-label="Open cart" title="Cart">
+          <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><span class="dd-badge" data-cart-count hidden>0</span>
         </button>
-        <button class="icon-btn menu-btn" id="menuButton" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <button class="dd-icon-btn" id="menuButton" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteMenu" title="Menu">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
       </div>
     </div>
 
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-      <a href="#top"><i class="fas fa-house"></i>Home</a>
-      <a href="#products"><i class="fas fa-shirt"></i>Products</a>
-      <a href="#collections"><i class="fas fa-layer-group"></i>Collections</a>
-      <a href="#about"><i class="fas fa-circle-info"></i>About</a>
-      <a href="#contact"><i class="fas fa-location-dot"></i>Contact</a>
-      <hr>
-      <button type="button" data-chat><i class="fas fa-comment-dots"></i>Chat with us</button>
-      <a href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener"><i class="fab fa-instagram"></i>Instagram</a>
-      <a class="js-wa" href="#" data-wa target="_blank" rel="noopener" hidden><i class="fab fa-whatsapp"></i>WhatsApp</a>
+    <div class="dd-menu" id="siteMenu" aria-label="Site menu">
+      <a class="dd-menu-item" href="#home"><i class="fa-solid fa-house" aria-hidden="true"></i>Home</a>
+      <button class="dd-menu-item" id="cardsMenuButton" type="button"><i class="fa-solid fa-layer-group" aria-hidden="true"></i>Our cards</button>
+      <a class="dd-menu-item" href="#about"><i class="fa-solid fa-circle-info" aria-hidden="true"></i>About</a>
+      <a class="dd-menu-item" href="#contact"><i class="fa-solid fa-address-book" aria-hidden="true"></i>Contact</a>
+      <button class="dd-menu-item" id="cartMenuButton" type="button"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>Your cart<span class="dd-badge" data-cart-count hidden>0</span></button>
+      <button class="dd-menu-item" id="chatMenuButton" type="button"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i>Chat with us</button>
+      <div class="dd-menu-sep"></div>
+      <p class="dd-menu-label" id="themeLabel">Appearance</p>
+      <div class="dd-seg" role="group" aria-labelledby="themeLabel">
+        <button type="button" data-theme-choice="light" aria-pressed="false"><i class="fa-solid fa-sun" aria-hidden="true"></i>Light</button>
+        <button type="button" data-theme-choice="dark" aria-pressed="false"><i class="fa-solid fa-moon" aria-hidden="true"></i>Dark</button>
+        <button type="button" data-theme-choice="system" aria-pressed="false"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>System</button>
+      </div>
+      <div class="dd-menu-sep"></div>
+      <button class="dd-menu-item" id="staffMenuButton" type="button" hidden><i class="fa-solid fa-user-lock" aria-hidden="true"></i><span id="staffMenuLabel">Staff Sign In</span></button>
     </div>
   </header>
 
-  <main>
-    <!-- ===== Hero ===== -->
-    <section class="hero" id="top">
-      <div class="container hero-copy">
-        <h1>Elevate your style</h1>
-        <p class="lead">Discover premium Jallabiyas, exquisite perfumes, stylish caps &amp; comfortable shoes.</p>
-        <div class="actions">
-          <a class="btn btn-gold" href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener"><i class="fas fa-bag-shopping"></i>Shop now</a>
-          <a class="btn btn-line" href="#products">Explore the collection</a>
+  <main id="main" tabindex="-1">
+
+    <!-- ============ HERO ============ -->
+    <section class="dd-hero" id="home" data-nav="home" aria-label="Welcome to Diz&Dat">
+      <div class="dd-hero-copy">
+        <h1>Elevate Your <span class="dd-gold">Style</span></h1>
+        <div class="dd-gold-rule"></div>
+        <p>Discover premium Jallabiyas, exquisite perfumes, stylish caps &amp; comfortable shoes.</p>
+      </div>
+      <div class="dd-hero-bottom">
+        <div class="dd-hero-actions">
+          <a class="dd-btn dd-btn-gold dd-btn-hero" href="#products"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>Shop now</a>
+          <a class="dd-btn dd-btn-outline-light dd-btn-hero" href="#collections">Explore collection</a>
+        </div>
+        <div class="dd-stats" aria-label="Diz&Dat service highlights">
+          <div class="dd-stat"><i class="fa-solid fa-users" aria-hidden="true"></i><div><strong>400+</strong><span>Satisfied customers</span></div></div>
+          <div class="dd-stat"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><div><strong>100%</strong><span>Premium quality</span></div></div>
+          <div class="dd-stat"><i class="fa-solid fa-truck" aria-hidden="true"></i><div><strong>Nationwide</strong><span>Delivery</span></div></div>
+          <div class="dd-stat"><i class="fa-solid fa-headset" aria-hidden="true"></i><div><strong>24/7</strong><span>Customer support</span></div></div>
+        </div>
+      </div>
+      <span class="dd-scroll-cue" aria-hidden="true">SCROLL TO DISCOVER</span>
+    </section>
+
+    <!-- ============ FEATURED PRODUCTS ============ -->
+    <section class="dd-section dd-surface" id="products" data-nav="products" aria-labelledby="productsTitle">
+      <div class="dd-wrap">
+        <div class="dd-head" data-reveal>
+          <p class="dd-kicker">Our collections</p>
+          <h2 id="productsTitle">Featured products</h2>
+          <div class="dd-rule"></div>
+        </div>
+        <div class="dd-grid" id="productGrid"><noscript><p class="dd-empty">Please turn on JavaScript to browse our products.</p></noscript></div>
+        <div class="dd-center">
+          <a class="dd-btn dd-btn-primary" data-contact="instagram" href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram" aria-hidden="true"></i>View all products on Instagram</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== Facts ===== -->
-    <div class="facts">
-      <div class="container facts-grid">
-        <div class="fact"><i class="fas fa-users"></i><div><strong>400+</strong><span>Satisfied customers</span></div></div>
-        <div class="fact"><i class="fas fa-shield-halved"></i><div><strong>100%</strong><span>Premium quality</span></div></div>
-        <div class="fact"><i class="fas fa-truck-fast"></i><div><strong>Nationwide</strong><span>Delivery</span></div></div>
-        <div class="fact"><i class="fas fa-headset"></i><div><strong>24/7</strong><span>Customer support</span></div></div>
-      </div>
-    </div>
-
-    <!-- ===== Products ===== -->
-    <section class="section" id="products">
-      <div class="container">
-        <div class="section-head">
-          <h2>Featured products</h2>
-          <a class="text-link" href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener">View all on Instagram</a>
+    <!-- ============ STORE ANNOUNCEMENTS (filled from Firestore; hidden until there is something to show) ============ -->
+    <section class="dd-section dd-soft" id="announcements" data-nav="products" aria-labelledby="announcementsTitle" hidden>
+      <div class="dd-wrap">
+        <div class="dd-head">
+          <p class="dd-kicker">From Diz&amp;Dat</p>
+          <h2 id="announcementsTitle">Store announcements</h2>
+          <div class="dd-rule"></div>
         </div>
+        <div class="dd-posts" id="announcementList" aria-live="polite"></div>
+      </div>
+    </section>
 
-        <div class="products" id="productGrid">
-          <article class="item" data-name="Premium Jallabiyas" data-price="&#8358;12,000">
-            <div class="item-media">
-              <img src="https://i.postimg.cc/pdHvMSf8/photo-5848279847263127651-x.jpg" alt="Premium Jallabiyas" loading="lazy" decoding="async">
-              <span class="tag">Bestseller</span>
-            </div>
-            <div class="item-info">
-              <h3>Premium Jallabiyas</h3>
-              <p>Elegant designs with premium fabrics</p>
-              <span class="price">&#8358;12,000</span>
-            </div>
-            <button class="btn btn-outline btn-block add-to-cart" type="button">Add to cart</button>
-          </article>
+    <!-- ============ BANNER ============ -->
+    <section class="dd-banner" data-nav="products" aria-labelledby="bannerTitle">
+      <h2 id="bannerTitle">Summer Collection 2026</h2>
+      <p>Discover our new arrivals with exclusive designs and premium quality.</p>
+      <a class="dd-btn dd-btn-light" href="#products"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>Shop the collection</a>
+    </section>
 
-          <article class="item" data-name="Exquisite Perfumes" data-price="&#8358;3,000 &ndash; &#8358;5,000">
-            <div class="item-media">
-              <img src="https://i.postimg.cc/7hLvHGZr/Screenshot-61.png" alt="Exquisite Perfumes" loading="lazy" decoding="async">
-            </div>
-            <div class="item-info">
-              <h3>Exquisite Perfumes</h3>
-              <p>Long-lasting fragrances for every occasion</p>
-              <span class="price">&#8358;3,000 &ndash; &#8358;5,000</span>
-            </div>
-            <button class="btn btn-outline btn-block add-to-cart" type="button">Add to cart</button>
-          </article>
+    <!-- ============ COLLECTIONS / CATEGORIES ============ -->
+    <section class="dd-section dd-surface" id="collections" data-nav="categories" aria-labelledby="collectionsTitle">
+      <div class="dd-wrap">
+        <div class="dd-head" data-reveal>
+          <p class="dd-kicker">Collections</p>
+          <h2 id="collectionsTitle">Our signature styles</h2>
+          <div class="dd-rule"></div>
+        </div>
+        <div class="dd-collections" id="collectionGrid"></div>
+      </div>
+    </section>
 
-          <article class="item" data-name="Stylish Caps" data-price="&#8358;4,000">
-            <div class="item-media">
-              <img src="https://i.postimg.cc/mrN2h9BP/Screenshot-62.png" alt="Stylish Caps" loading="lazy" decoding="async">
-            </div>
-            <div class="item-info">
-              <h3>Stylish Caps</h3>
-              <p>Trendy designs for the fashion-forward</p>
-              <span class="price">&#8358;4,000</span>
-            </div>
-            <button class="btn btn-outline btn-block add-to-cart" type="button">Add to cart</button>
-          </article>
-
-          <article class="item" data-name="Comfortable Shoes" data-price="&#8358;9,000">
-            <div class="item-media">
-              <img src="https://i.postimg.cc/rsx6HCDg/photo-5848279847263127652-y.jpg" alt="Comfortable Shoes" loading="lazy" decoding="async">
-              <span class="tag is-new">New</span>
-            </div>
-            <div class="item-info">
-              <h3>Comfortable Shoes</h3>
-              <p>Perfect blend of style and comfort</p>
-              <span class="price">&#8358;9,000</span>
-            </div>
-            <button class="btn btn-outline btn-block add-to-cart" type="button">Add to cart</button>
-          </article>
+    <!-- ============ ABOUT ============ -->
+    <section class="dd-section dd-soft" id="about" data-nav="categories" aria-labelledby="aboutTitle">
+      <div class="dd-wrap dd-about">
+        <div data-reveal><img src="https://i.postimg.cc/VsMs6ZqG/Screenshot-68.png" alt="Diz&Dat fashion pieces" loading="lazy" decoding="async"></div>
+        <div data-reveal>
+          <p class="dd-kicker">Our story</p>
+          <h2 id="aboutTitle">About Diz&amp;Dat</h2>
+          <div class="dd-rule"></div>
+          <p class="dd-about-text">Founded with a passion for style and quality, Diz&amp;Dat brings you carefully curated fashion items that blend traditional elegance with contemporary trends. Our collections are designed to help you express your unique personality through fashion.</p>
+          <p class="dd-about-text">We source only the finest materials and work with skilled artisans to create products that stand the test of time while keeping up with the latest fashion movements.</p>
+          <div class="dd-features">
+            <div class="dd-feature"><span class="dd-bubble"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></span>Premium quality</div>
+            <div class="dd-feature"><span class="dd-bubble"><i class="fa-solid fa-truck" aria-hidden="true"></i></span>Fast delivery</div>
+            <div class="dd-feature"><span class="dd-bubble"><i class="fa-solid fa-headset" aria-hidden="true"></i></span>24/7 support</div>
+            <div class="dd-feature"><span class="dd-bubble"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i></span>Easy returns</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== Store announcements (filled from Firebase; hidden when empty) ===== -->
-    <section class="section updates" id="updates" hidden>
-      <div class="container">
-        <div class="section-head"><h2>Store announcements</h2></div>
-        <div class="notes" id="updatesList"></div>
-      </div>
-    </section>
-
-    <!-- ===== Collections ===== -->
-    <section class="section section-linen" id="collections">
-      <div class="container">
-        <div class="section-head"><h2>Our signature styles</h2></div>
-        <div class="mosaic">
-          <a class="tile" href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener">
-            <img src="https://i.postimg.cc/kXrg5NRy/Screenshot-66.png" alt="" loading="lazy" decoding="async">
-            <div class="tile-caption"><h3>Quality Caps</h3><span>View collection</span></div>
-          </a>
-          <a class="tile" href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener">
-            <img src="https://i.postimg.cc/ZnPtndXf/Screenshot-67.png" alt="" loading="lazy" decoding="async">
-            <div class="tile-caption"><h3>Diz&amp;Dat Caps</h3><span>View collection</span></div>
-          </a>
-          <a class="tile" href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener">
-            <img src="https://i.postimg.cc/c4mGNfRC/Screenshot-64.png" alt="" loading="lazy" decoding="async">
-            <div class="tile-caption"><h3>Diz&amp;Dat Special</h3><span>View collection</span></div>
-          </a>
+    <!-- Customer testimonial: kept but switched off (it was already hidden on the old site). Remove the hidden attribute to show it. -->
+    <section class="dd-section dd-surface" id="testimonials" aria-labelledby="testimonialsTitle" hidden>
+      <div class="dd-wrap">
+        <div class="dd-head"><p class="dd-kicker">Testimonials</p><h2 id="testimonialsTitle">What our customers say</h2><div class="dd-rule"></div></div>
+        <div class="dd-card" style="max-width:34rem;margin-inline:auto">
+          <div class="dd-card-body">
+            <h3>Verified customer</h3>
+            <p>“Absolutely love the quality and design of the Jallabiyas. The customer service is exceptional and delivery was faster than expected. Highly recommend!”</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== Banner ===== -->
-    <section class="banner" aria-labelledby="bannerTitle">
-      <div class="container banner-inner">
-        <div>
-          <h2 id="bannerTitle">The 2026 collection</h2>
-          <p>Discover our new arrivals with exclusive designs and premium quality.</p>
+    <!-- ============ CONTACT ============ -->
+    <section class="dd-section dd-surface" id="contact" data-nav="connections" aria-labelledby="contactTitle">
+      <div class="dd-wrap">
+        <div class="dd-head" data-reveal>
+          <p class="dd-kicker">Contact us</p>
+          <h2 id="contactTitle">Get in touch</h2>
+          <div class="dd-rule"></div>
         </div>
-        <a class="btn btn-gold" href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener"><i class="fas fa-bag-shopping"></i>Shop the collection</a>
-      </div>
-    </section>
-
-    <!-- ===== About ===== -->
-    <section class="section" id="about">
-      <div class="container about-grid">
-        <img src="https://i.postimg.cc/VsMs6ZqG/Screenshot-68.png" alt="Inside the Diz&amp;Dat store" loading="lazy" decoding="async">
-        <div class="about-copy">
-          <h2>About Diz&amp;Dat</h2>
-          <p>Founded with a passion for style and quality, Diz&amp;Dat brings you carefully curated fashion items that blend traditional elegance with contemporary trends. Our collections are designed to help you express your unique personality through fashion.</p>
-          <p>We source only the finest materials and work with skilled artisans to create products that stand the test of time while keeping up with the latest fashion movements.</p>
-          <ul class="perks">
-            <li><i class="fas fa-circle-check"></i>Premium quality</li>
-            <li><i class="fas fa-truck-fast"></i>Fast delivery</li>
-            <li><i class="fas fa-headset"></i>24/7 support</li>
-            <li><i class="fas fa-rotate-left"></i>Easy returns</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Contact ===== -->
-    <section class="section section-linen" id="contact">
-      <div class="container contact-grid">
-        <div>
-          <div class="section-head"><h2>Get in touch</h2></div>
-          <dl class="details">
-            <div><dt>Address</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=No+8+Homan+Road+Old+GRA+Maiduguri+Nigeria" target="_blank" rel="noopener">No. 8 Homan Road, Old GRA, Maiduguri, Nigeria</a></dd></div>
-            <div><dt>Phone</dt><dd><a href="tel:+2347066867217">+234 706 686 7217</a></dd></div>
-            <div><dt>Email</dt><dd><a href="mailto:abdulyahmad047@gmail.com">abdulyahmad047@gmail.com</a></dd></div>
-            <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener">@diz_and_dat_by_abdul</a></dd></div>
-          </dl>
-        </div>
-
-        <div class="order-panel">
-          <h3>Ready to order?</h3>
-          <p>Send us the items you want and we will get back to you with price and delivery details.</p>
-          <div class="stack">
-            <a class="btn btn-gold" href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener"><i class="fab fa-instagram"></i>Message us on Instagram</a>
-            <a class="btn btn-line" href="tel:+2347066867217"><i class="fas fa-phone"></i>Call us</a>
-            <a class="btn btn-line js-wa" href="#" data-wa target="_blank" rel="noopener" hidden><i class="fab fa-whatsapp"></i>Chat on WhatsApp</a>
-            <button class="btn btn-line" type="button" data-chat><i class="fas fa-comment-dots"></i>Live chat</button>
+        <div class="dd-contact">
+          <div class="dd-panel" data-reveal>
+            <h3>Contact information</h3>
+            <div class="dd-info">
+              <span class="dd-bubble"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
+              <div><h4>Address</h4><p>NO 8 Homan Road Old GRA Maiduguri, Nigeria</p></div>
+            </div>
+            <h4>Connect with us</h4>
+            <!-- Icons only: the real phone number, e-mail and links live in CONFIG (script) and are applied to these buttons. -->
+            <div class="dd-socials">
+              <a class="dd-social" data-contact="instagram" href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+              <a class="dd-social" data-contact="whatsapp" href="#contact" aria-label="WhatsApp" title="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+              <a class="dd-social" data-contact="email" href="#contact" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+              <a class="dd-social" data-contact="phone" href="#contact" aria-label="Call Diz&Dat" title="Call Diz&Dat"><i class="fa-solid fa-phone" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="dd-panel" data-reveal>
+            <h3>Visit or chat with us</h3>
+            <p>Stop by our store in Old GRA, or start a live chat and we will reply as soon as we can.</p>
+            <div class="dd-form-actions">
+              <a class="dd-btn dd-btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=NO%208%20Homan%20Road%20Old%20GRA%20Maiduguri%20Nigeria" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-arrow" aria-hidden="true"></i>Get directions</a>
+              <button class="dd-btn dd-btn-ghost" id="chatContactButton" type="button"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i>Live chat</button>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ===== Footer ===== -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="wide">
+  <!-- ============ FOOTER ============ -->
+  <footer class="dd-footer" data-nav="connections">
+    <div class="dd-wrap">
+      <div class="dd-footer-grid">
+        <div>
           <h3>Diz&amp;Dat</h3>
           <p>Premium fashion and accessories blending traditional elegance with contemporary style.</p>
         </div>
         <div>
           <h4>Quick links</h4>
           <ul>
-            <li><a href="#top">Home</a></li>
+            <li><a href="#home">Home</a></li>
             <li><a href="#products">Products</a></li>
             <li><a href="#about">About us</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
         <div>
-          <h4>Shop</h4>
+          <h4>Products</h4>
           <ul>
             <li><a href="#products">Jallabiyas</a></li>
             <li><a href="#products">Perfumes</a></li>
             <li><a href="#products">Caps</a></li>
             <li><a href="#products">Shoes</a></li>
-            <li><a href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener">New arrivals</a></li>
+            <li><a href="#collections">New arrivals</a></li>
           </ul>
         </div>
-        <div class="wide">
+        <div>
           <h4>Contact</h4>
-          <ul>
-            <li>No. 8 Homan Road, Old GRA, Maiduguri, Nigeria</li>
-            <li><a href="tel:+2347066867217">+234 706 686 7217</a></li>
-            <li><a href="mailto:abdulyahmad047@gmail.com">abdulyahmad047@gmail.com</a></li>
-          </ul>
+          <p class="dd-addr"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>NO 8 Homan Road Old GRA Maiduguri, Nigeria</span></p>
+          <div class="dd-socials">
+            <a class="dd-social" data-contact="instagram" href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a class="dd-social" data-contact="whatsapp" href="#contact" aria-label="WhatsApp" title="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+            <a class="dd-social" data-contact="email" href="#contact" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+            <a class="dd-social" data-contact="phone" href="#contact" aria-label="Call Diz&Dat" title="Call Diz&Dat"><i class="fa-solid fa-phone" aria-hidden="true"></i></a>
+          </div>
         </div>
       </div>
-
-      <div class="footer-bottom">
-        <p>&copy; <span id="year">2026</span> Diz&amp;Dat. All rights reserved.</p>
-        <p>Our customers are our pride &#129293;</p>
-        <div class="social">
-          <a href="https://www.instagram.com/diz_and_dat_by_abdul" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a class="js-wa" href="#" data-wa target="_blank" rel="noopener" aria-label="WhatsApp" hidden><i class="fab fa-whatsapp"></i></a>
-        </div>
-        <button class="link-btn" id="staffButton" type="button" hidden>Staff sign in</button>
-      </div>
+      <div class="dd-footer-bottom"><p>&copy; 2026 Diz&amp;Dat. All rights reserved.</p></div>
     </div>
   </footer>
 
-  <button class="to-top" id="backToTop" type="button" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <!-- ============ MOBILE BOTTOM NAVIGATION ============ -->
+  <nav class="dd-tabbar" id="tabbar" aria-label="Quick navigation">
+    <a class="dd-tab is-active" href="#home" data-tab="home" aria-current="true"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
+    <a class="dd-tab" href="#collections" data-tab="categories"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span>Categories</span></a>
+    <button class="dd-tab" id="tabCart" type="button" aria-label="Open cart"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><span>Cart</span><span class="dd-badge" data-cart-count hidden>0</span></button>
+    <a class="dd-tab" href="#products" data-tab="products"><i class="fa-solid fa-shirt" aria-hidden="true"></i><span>Products</span></a>
+    <a class="dd-tab" href="#contact" data-tab="connections"><i class="fa-solid fa-address-book" aria-hidden="true"></i><span>Connections</span></a>
+  </nav>
 
-  <!-- ===== Cart dialog ===== -->
-  <dialog id="cartDialog" aria-labelledby="cartTitle">
-    <div class="dialog-inner">
-      <div class="dialog-head">
-        <h2 id="cartTitle">Your cart</h2>
-        <button class="icon-btn" type="button" data-close aria-label="Close cart"><i class="fas fa-xmark"></i></button>
-      </div>
-      <div id="cartBody"></div>
+  <button class="dd-top" id="backToTop" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+
+  <!-- ============ SHARED DIALOG (product, cart, cards, staff panel, image viewer) ============ -->
+  <div class="dd-modal" id="modal" hidden>
+    <div class="dd-modal-backdrop" data-close></div>
+    <div class="dd-modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+      <button class="dd-modal-close" type="button" data-close aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      <div class="dd-modal-body" id="modalBody"></div>
     </div>
-  </dialog>
+  </div>
 
-  <!-- ===== Staff dialog ===== -->
-  <dialog id="adminDialog" aria-labelledby="adminTitle">
-    <div class="dialog-inner">
-      <div class="dialog-head">
-        <h2 id="adminTitle">Staff area</h2>
-        <button class="icon-btn" type="button" data-close aria-label="Close"><i class="fas fa-xmark"></i></button>
-      </div>
-      <p class="small" id="adminStatus" role="status" style="margin-bottom:1rem">Sign in to publish store announcements.</p>
+  <div class="dd-toasts" id="toasts" aria-live="polite"></div>
 
-      <form class="form" id="adminLoginForm">
-        <label class="field"><span>Email</span><input id="adminEmail" type="email" autocomplete="email" required></label>
-        <label class="field"><span>Password</span><input id="adminPassword" type="password" autocomplete="current-password" required></label>
-        <button class="btn btn-forest" type="submit">Sign in</button>
+  <!-- Staff panel (login, Staff Sign In visibility, announcement editor). Cloned into the dialog by the Firebase script. -->
+  <template id="staffTemplate">
+    <div class="dd-staff">
+      <h2 id="modalTitle">Staff sign in</h2>
+      <p class="dd-status" id="staffStatus" role="status">Sign in to manage store announcements.</p>
+
+      <form class="dd-form" id="staffLoginForm">
+        <div class="dd-field"><label for="staffEmail">Email</label><input class="dd-input" id="staffEmail" type="email" autocomplete="username" inputmode="email" required></div>
+        <div class="dd-field"><label for="staffPassword">Password</label><input class="dd-input" id="staffPassword" type="password" autocomplete="current-password" required></div>
+        <button class="dd-btn dd-btn-primary" id="staffLoginSubmit" type="submit">Sign in</button>
       </form>
 
-      <form class="form" id="announcementForm" hidden>
-        <input id="announcementId" type="hidden">
-        <label class="field"><span>Announcement</span><textarea id="announcementText" placeholder="Write a store announcement..."></textarea></label>
-        <label class="field"><span>Photo link (optional)</span><input id="announcementImage" type="url" placeholder="https://..."></label>
-        <div class="row">
-          <button class="btn btn-forest" id="publishButton" type="submit">Publish announcement</button>
-          <button class="btn btn-outline" id="cancelEdit" type="button" hidden>Cancel edit</button>
-        </div>
-        <button class="link-btn small" id="adminSignOut" type="button" style="justify-self:start">Sign out</button>
-      </form>
-    </div>
-  </dialog>
+      <div id="staffAdmin" hidden>
+        <section class="dd-staff-block">
+          <h3>Staff Sign In button</h3>
+          <p class="dd-hint">Choose whether visitors see the Staff Sign In button in the menu. This only hides the button. Staff can still sign in by adding <strong>?staff</strong> to the site address.</p>
+          <div class="dd-seg two" role="group" aria-label="Staff Sign In visibility">
+            <button type="button" data-staff-visibility="show" aria-pressed="true"><i class="fa-solid fa-eye" aria-hidden="true"></i>Show</button>
+            <button type="button" data-staff-visibility="hide" aria-pressed="false"><i class="fa-solid fa-eye-slash" aria-hidden="true"></i>Hide</button>
+          </div>
+        </section>
 
-  <!-- ===== Site script (independent of Firebase, so the cart always works) ===== -->
+        <form class="dd-staff-block dd-form" id="postForm">
+          <h3 id="postFormTitle">New announcement</h3>
+          <input type="hidden" id="postId">
+          <div class="dd-field"><label for="postText">Announcement text</label><textarea class="dd-textarea" id="postText" maxlength="2000" placeholder="Write a store announcement..."></textarea></div>
+          <div class="dd-field">
+            <label for="postImage">Image URL (optional)</label>
+            <input class="dd-input" id="postImage" type="url" inputmode="url" autocomplete="off" placeholder="https://i.postimg.cc/...">
+            <small>Paste a direct image URL, e.g. from Postimages. No upload is needed.</small>
+          </div>
+          <div class="dd-preview" id="postPreview" hidden><img alt="Preview of the announcement image"></div>
+          <div class="dd-form-actions">
+            <button class="dd-btn dd-btn-primary" id="postSubmit" type="submit">Publish</button>
+            <button class="dd-btn dd-btn-ghost" id="postCancel" type="button" hidden>Cancel edit</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="dd-staff-block" id="staffFooter" hidden><button class="dd-link-btn" id="staffSignOut" type="button"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>Sign out</button></div>
+    </div>
+  </template>
+
+  <!-- =====================================================================
+       SITE SCRIPT  (plain script: keeps working even if Firebase cannot load)
+       ===================================================================== -->
   <script>
   (() => {
     'use strict';
 
-    /* ---- Settings you can change ---- */
+    /* ---------------------------------------------------------------
+       CONFIG – the real contact details live here, not in the visible page.
+       --------------------------------------------------------------- */
     const CONFIG = {
-      instagram: 'https://www.instagram.com/diz_and_dat_by_abdul',
-      whatsappNumber: '2347066867217',
-      showWhatsApp: false,          // set to true to show WhatsApp buttons and the WhatsApp order option
-      tawkSrc: 'https://embed.tawk.to/696cf87a452bfa197c8f9902/1jf8ql883'
+      contact: {
+        instagram: 'https://www.instagram.com/diz_and_dat_by_abdul',
+        whatsapp: '2347066867217',          // digits only, with country code
+        phone: '+2347066867217',
+        email: 'abdulyahmad047@gmail.com'
+      },
+      currency: '\u20A6',                   // Naira sign
+      whatsappOrdering: true,               // set false to hide "Order on WhatsApp" in the cart
+      tawkSrc: 'https://embed.tawk.to/696cf87a452bfa197c8f9902/1jf8ql883',
+      storage: { cart: 'dizdatCart', theme: 'dizdatTheme' }
+    };
+    const CONTACT_HREF = {
+      instagram: CONFIG.contact.instagram,
+      whatsapp: 'https://wa.me/' + CONFIG.contact.whatsapp,
+      phone: 'tel:' + CONFIG.contact.phone,
+      email: 'mailto:' + CONFIG.contact.email
     };
 
-    const $ = (sel, root = document) => root.querySelector(sel);
-    const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
-    const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch]);
-    const safeUrl = value => { try { const u = new URL(value, location.href); return /^https?:$/.test(u.protocol) ? u.href : ''; } catch { return ''; } };
+    /* ---------------------------------------------------------------
+       CATALOGUE (same products, prices and images as before)
+       --------------------------------------------------------------- */
+    const PRODUCTS = [
+      { id: 'jallabiyas', name: 'Premium Jallabiyas', tagline: 'Elegant designs with premium fabrics', price: '12,000',
+        image: 'https://i.postimg.cc/pdHvMSf8/photo-5848279847263127651-x.jpg', badge: 'BESTSELLER' },
+      { id: 'perfumes', name: 'Exquisite Perfumes', tagline: 'Long-lasting fragrances for every occasion', price: '3,000 to 5,000',
+        image: 'https://i.postimg.cc/7hLvHGZr/Screenshot-61.png' },
+      { id: 'caps', name: 'Stylish Caps', tagline: 'Trendy designs for the fashion-forward', price: '4,000',
+        image: 'https://i.postimg.cc/mrN2h9BP/Screenshot-62.png' },
+      { id: 'shoes', name: 'Comfortable Shoes', tagline: 'Perfect blend of style and comfort', price: '9,000',
+        image: 'https://i.postimg.cc/rsx6HCDg/photo-5848279847263127652-y.jpg', badge: 'NEW', badgeAlt: true }
+    ];
+    const COLLECTIONS = [
+      { name: 'Quality Caps', image: 'https://i.postimg.cc/kXrg5NRy/Screenshot-66.png' },
+      { name: 'Diz&Dat Caps', image: 'https://i.postimg.cc/ZnPtndXf/Screenshot-67.png' },
+      { name: 'Diz&Dat Special', image: 'https://i.postimg.cc/c4mGNfRC/Screenshot-64.png' }
+    ];
 
-    /* ---- WhatsApp toggle ---- */
-    $$('.js-wa').forEach(el => {
-      el.href = `https://wa.me/${CONFIG.whatsappNumber}`;
-      el.hidden = !CONFIG.showWhatsApp;
+    /* ---------------------------------------------------------------
+       HELPERS
+       --------------------------------------------------------------- */
+    const $ = (s, r = document) => r.querySelector(s);
+    const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+    const root = document.documentElement;
+    /** Tiny safe DOM builder: strings become text nodes, so nothing here can inject HTML. */
+    function h(tag, attrs, ...kids) {
+      const n = document.createElement(tag);
+      for (const [k, v] of Object.entries(attrs || {})) {
+        if (v == null || v === false) continue;
+        if (k === 'class') n.className = v;
+        else if (k.startsWith('on') && typeof v === 'function') n.addEventListener(k.slice(2), v);
+        else n.setAttribute(k, v === true ? '' : v);
+      }
+      kids.flat().forEach(c => { if (c != null && c !== false) n.append(c.nodeType ? c : document.createTextNode(c)); });
+      return n;
+    }
+    const icon = cls => h('i', { class: cls, 'aria-hidden': 'true' });
+    const fmtPrice = p => String(p).split(/\s+to\s+/i).map(x => CONFIG.currency + x.trim()).join(' \u2013 ');
+    const igLink = (label, cls = 'dd-btn dd-btn-ghost') =>
+      h('a', { class: cls, href: CONTACT_HREF.instagram, target: '_blank', rel: 'noopener noreferrer' }, icon('fa-brands fa-instagram'), label);
+
+    /* Contact buttons: apply real destinations from CONFIG */
+    $$('[data-contact]').forEach(a => {
+      const k = a.dataset.contact;
+      a.href = CONTACT_HREF[k];
+      if (k === 'instagram' || k === 'whatsapp') { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
     });
 
-    /* ---- Toast ---- */
-    const toastEl = $('#toast');
-    let toastTimer;
-    function toast(message) {
-      toastEl.textContent = message;
-      toastEl.classList.add('show');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2200);
+    /* ---------------------------------------------------------------
+       THEME (Light / Dark / System, saved in localStorage)
+       --------------------------------------------------------------- */
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const themeMeta = $('meta[name="theme-color"]');
+    const getPref = () => { try { return localStorage.getItem(CONFIG.storage.theme) || 'system'; } catch (e) { return 'system'; } };
+    function applyTheme(pref) {
+      const dark = pref === 'dark' || (pref === 'system' && mq.matches);
+      root.setAttribute('data-theme', dark ? 'dark' : 'light');
+      root.setAttribute('data-theme-pref', pref);
+      if (themeMeta) themeMeta.setAttribute('content', dark ? '#0d1611' : '#254c36');
+      $$('[data-theme-choice]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.themeChoice === pref)));
+    }
+    function setTheme(pref) { try { localStorage.setItem(CONFIG.storage.theme, pref); } catch (e) {} applyTheme(pref); }
+    $$('[data-theme-choice]').forEach(b => b.addEventListener('click', () => setTheme(b.dataset.themeChoice)));
+    const onSchemeChange = () => { if (getPref() === 'system') applyTheme('system'); };
+    if (mq.addEventListener) mq.addEventListener('change', onSchemeChange); else if (mq.addListener) mq.addListener(onSchemeChange);
+    applyTheme(getPref());
+
+    /* ---------------------------------------------------------------
+       TOASTS
+       --------------------------------------------------------------- */
+    function toast(msg, opts = {}) {
+      const t = h('div', { class: 'dd-toast' + (opts.error ? ' is-error' : '') },
+        icon(opts.error ? 'fa-solid fa-circle-exclamation' : 'fa-solid fa-circle-check'), h('span', null, msg));
+      $('#toasts').append(t);
+      setTimeout(() => t.remove(), 3400);
     }
 
-    /* ---- Footer year ---- */
-    $('#year').textContent = new Date().getFullYear();
-
-    /* ---- Mobile menu ---- */
-    const menuButton = $('#menuButton');
-    const menu = $('#mobileMenu');
+    /* ---------------------------------------------------------------
+       MENU
+       --------------------------------------------------------------- */
+    const menu = $('#siteMenu'), menuBtn = $('#menuButton');
+    const menuOpen = () => menu.classList.contains('is-open');
     function setMenu(open) {
       menu.classList.toggle('is-open', open);
-      menu.setAttribute('aria-hidden', String(!open));
-      menuButton.setAttribute('aria-expanded', String(open));
-      menuButton.classList.toggle('is-active', open);
-      menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      menuBtn.firstElementChild.className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
     }
-    menuButton.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
-    menu.addEventListener('click', e => { if (e.target.closest('a, button')) setMenu(false); });
-    document.addEventListener('click', e => { if (!e.target.closest('#mobileMenu, #menuButton')) setMenu(false); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+    menuBtn.addEventListener('click', () => setMenu(!menuOpen()));
+    menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('click', e => { if (menuOpen() && !menu.contains(e.target) && !menuBtn.contains(e.target)) setMenu(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen() && modal.hidden) { setMenu(false); menuBtn.focus(); } });
 
-    /* ---- Header hide/show + back to top ---- */
-    const header = $('#siteHeader');
-    const backToTop = $('#backToTop');
-    let lastY = window.scrollY, ticking = false;
-    window.addEventListener('scroll', () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const y = Math.max(0, window.scrollY);
-        header.classList.toggle('is-scrolled', y > 24);
-        header.classList.toggle('is-hidden', y > lastY && y > 160 && !menu.classList.contains('is-open'));
-        backToTop.classList.toggle('show', y > 500);
-        lastY = y;
-        ticking = false;
-      });
-    }, { passive: true });
-    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    /* ---- Dialogs ---- */
-    $$('dialog').forEach(d => d.addEventListener('click', e => { if (e.target === d) d.close(); }));
-    document.addEventListener('click', e => {
-      const closer = e.target.closest('[data-close]');
-      if (closer) closer.closest('dialog')?.close();
+    /* ---------------------------------------------------------------
+       DIALOG (one accessible dialog reused for product, cart, cards, staff, image)
+       --------------------------------------------------------------- */
+    const modal = $('#modal'), panel = $('.dd-modal-panel', modal), modalBody = $('#modalBody');
+    let lastFocus = null;
+    function openModal(content, opts = {}) {
+      if (modal.hidden) {
+        lastFocus = document.activeElement;
+        if (menu.contains(lastFocus)) lastFocus = menuBtn;
+      }
+      modalBody.replaceChildren(content);
+      panel.classList.toggle('wide', !!opts.wide);
+      modal.dataset.view = opts.view || '';
+      modal.hidden = false;
+      root.classList.add('modal-open');
+      modalBody.scrollTop = 0;
+      panel.focus({ preventScroll: true });
+    }
+    function closeModal() {
+      if (modal.hidden) return;
+      modal.hidden = true;
+      modal.dataset.view = '';
+      modalBody.replaceChildren();
+      root.classList.remove('modal-open');
+      if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+      lastFocus = null;
+    }
+    modal.addEventListener('click', e => { if (e.target.closest('[data-close]')) closeModal(); });
+    modal.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { e.stopPropagation(); closeModal(); return; }
+      if (e.key !== 'Tab') return;
+      const f = $$('a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])', panel).filter(n => n.offsetParent !== null);
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && (document.activeElement === first || document.activeElement === panel)) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
 
-    /* ---- Cart ---- */
-    const CART_KEY = 'dizdatCart';
-    const cartCount = $('#cartCount');
-    const cartDialog = $('#cartDialog');
-    const cartBody = $('#cartBody');
+    /* ---------------------------------------------------------------
+       REVEAL-ON-SCROLL (respects reduced motion)
+       --------------------------------------------------------------- */
+    const revealIO = ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+      ? new IntersectionObserver((entries, obs) => entries.forEach(en => {
+          if (!en.isIntersecting) return;
+          const n = en.target; n.classList.add('is-visible'); obs.unobserve(n);
+          setTimeout(() => n.classList.remove('reveal', 'is-visible'), 800);   // hand hover styles back to the element
+        }), { threshold: 0.12 })
+      : null;
+    function initReveal(scope = document) {
+      if (!revealIO) return;
+      $$('[data-reveal]:not(.reveal)', scope).forEach(n => { n.classList.add('reveal'); revealIO.observe(n); });
+    }
 
+    /* ---------------------------------------------------------------
+       PRODUCTS + COLLECTIONS
+       --------------------------------------------------------------- */
+    function flash(btn, label) {
+      if (!btn) return;
+      if (!btn.dataset.orig) btn.dataset.orig = btn.textContent;
+      const lbl = btn.querySelector('.lbl') || btn;
+      lbl.textContent = label; btn.classList.add('is-added');
+      clearTimeout(btn._t);
+      btn._t = setTimeout(() => { lbl.textContent = btn.dataset.orig; btn.classList.remove('is-added'); delete btn.dataset.orig; }, 1400);
+    }
+    function productCard(p) {
+      return h('article', { class: 'dd-card product-card', 'data-reveal': '' },
+        h('button', { class: 'dd-media', type: 'button', 'aria-label': 'View ' + p.name, onclick: () => openProduct(p) },
+          h('img', { src: p.image, alt: p.name, loading: 'lazy', decoding: 'async' }),
+          p.badge ? h('span', { class: 'dd-tag' + (p.badgeAlt ? ' alt' : '') }, p.badge) : null),
+        h('div', { class: 'dd-card-body' },
+          h('h3', null, p.name),
+          h('p', null, p.tagline),
+          h('p', { class: 'dd-price' }, fmtPrice(p.price)),
+          h('div', { class: 'dd-card-actions' },
+            h('button', { class: 'dd-btn dd-btn-ghost dd-btn-sm', type: 'button', onclick: () => openProduct(p) }, 'View'),
+            h('button', { class: 'dd-btn dd-btn-primary dd-btn-sm', type: 'button', onclick: e => addToCart(p, e.currentTarget) }, 'Add to cart'))));
+    }
+    /* Clicking a product only opens this detail dialog. Instagram opens ONLY when the visitor taps the button inside it. */
+    function openProduct(p) {
+      const add = h('button', { class: 'dd-btn dd-btn-primary', type: 'button', onclick: e => addToCart(p, e.currentTarget) },
+        icon('fa-solid fa-bag-shopping'), h('span', { class: 'lbl' }, 'Add to cart'));
+      openModal(h('div', { class: 'dd-detail' },
+        h('div', { class: 'dd-detail-media' }, h('img', { src: p.image, alt: p.name })),
+        h('h2', { id: 'modalTitle' }, p.name),
+        h('p', { class: 'dd-detail-text' }, p.tagline),
+        h('p', { class: 'dd-price' }, fmtPrice(p.price)),
+        h('div', { class: 'dd-detail-actions' }, add, igLink('View on Instagram')),
+        h('p', { class: 'dd-hint' }, 'Instagram opens in a new tab only when you tap the button above.')), { view: 'product' });
+    }
+    function openCollection(c) {
+      openModal(h('div', { class: 'dd-detail' },
+        h('div', { class: 'dd-detail-media' }, h('img', { src: c.image, alt: c.name })),
+        h('h2', { id: 'modalTitle' }, c.name),
+        h('p', { class: 'dd-detail-text' }, 'See the latest ' + c.name + ' pieces on our Instagram page and message us to order.'),
+        h('div', { class: 'dd-detail-actions', style: 'margin-top:1.25rem' }, igLink('View on Instagram', 'dd-btn dd-btn-primary'))), { view: 'collection' });
+    }
+    function openCards() {
+      openModal(h('div', null,
+        h('p', { class: 'dd-kicker' }, 'Diz&Dat edit'),
+        h('h2', { id: 'modalTitle' }, 'Our cards'),
+        h('div', { class: 'dd-grid dd-grid-compact' }, PRODUCTS.map(productCard))), { wide: true, view: 'cards' });
+    }
+    function renderCatalogue() {
+      $('#productGrid').replaceChildren(...PRODUCTS.map(productCard));
+      $('#collectionGrid').replaceChildren(...COLLECTIONS.map(c =>
+        h('button', { class: 'dd-collection', type: 'button', 'aria-label': 'View ' + c.name + ' collection', onclick: () => openCollection(c), 'data-reveal': '' },
+          h('img', { src: c.image, alt: c.name, loading: 'lazy', decoding: 'async' }),
+          h('span', { class: 'dd-collection-label' }, h('h3', null, c.name), h('span', null, 'View collection')))));
+      initReveal();
+    }
+
+    /* ---------------------------------------------------------------
+       CART  (same localStorage key and item shape as before: {name, price, image, quantity})
+       --------------------------------------------------------------- */
     function loadCart() {
       try {
-        const raw = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
-        if (!Array.isArray(raw)) return [];
-        return raw
-          .filter(item => item && typeof item.name === 'string')
-          .map(item => ({
-            name: item.name,
-            price: String(item.price ?? ''),
-            image: String(item.image ?? ''),
-            quantity: Math.max(1, Math.min(99, parseInt(item.quantity, 10) || 1))
-          }));
-      } catch { return []; }
+        const raw = JSON.parse(localStorage.getItem(CONFIG.storage.cart) || '[]');
+        return Array.isArray(raw) ? raw.filter(i => i && typeof i.name === 'string')
+          .map(i => ({ name: i.name, price: String(i.price == null ? '' : i.price), image: String(i.image || ''), quantity: Math.max(1, parseInt(i.quantity, 10) || 1) })) : [];
+      } catch (e) { return []; }
     }
-    const cart = loadCart();
-
+    let cart = loadCart();
     function saveCart() {
-      try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch { /* storage unavailable */ }
-      const total = cart.reduce((sum, item) => sum + item.quantity, 0);
-      cartCount.textContent = total;
-      cartCount.hidden = total === 0;
+      try { localStorage.setItem(CONFIG.storage.cart, JSON.stringify(cart)); } catch (e) {}
+      const n = cart.reduce((t, i) => t + i.quantity, 0);
+      $$('[data-cart-count]').forEach(b => { b.textContent = n > 99 ? '99+' : String(n); b.hidden = n === 0; });
     }
-
-    function orderText() {
-      return 'Hello Diz&Dat, I would like to order:\n' + cart.map(i => `${i.quantity} x ${i.name} (${i.price})`).join('\n');
+    function addToCart(p, btn) {
+      const found = cart.find(i => i.name === p.name);
+      if (found) found.quantity += 1; else cart.push({ name: p.name, price: p.price, image: p.image, quantity: 1 });
+      saveCart(); flash(btn, 'Added'); toast(p.name + ' added to your cart');
     }
-
-    function renderCart() {
+    const orderText = () => 'Hello Diz&Dat, I would like to order:\n' + cart.map(i => i.quantity + ' \u00D7 ' + i.name + ' (' + fmtPrice(i.price) + ')').join('\n');
+    function rerenderCart(focusKey) {
+      if (modal.dataset.view !== 'cart') return;
+      const y = modalBody.scrollTop;
+      modalBody.replaceChildren(cartView());
+      modalBody.scrollTop = y;
+      const t = focusKey && modalBody.querySelector('[data-key="' + focusKey + '"]');
+      (t && !t.disabled ? t : panel).focus({ preventScroll: true });
+    }
+    function changeQty(i, d) { cart[i].quantity = Math.max(1, cart[i].quantity + d); saveCart(); rerenderCart('qty' + (d > 0 ? '+' : '-') + i); }
+    function removeItem(i) { const [gone] = cart.splice(i, 1); saveCart(); rerenderCart(); toast(gone.name + ' removed'); }
+    function cartView() {
+      const wrap = h('div', { class: 'dd-cart' }, h('h2', { id: 'modalTitle' }, 'Your cart'));
       if (!cart.length) {
-        cartBody.innerHTML = '<div class="empty"><i class="fas fa-bag-shopping"></i><p>Your cart is empty.</p><a class="btn btn-forest" href="#products" data-close>Browse products</a></div>';
-        return;
+        wrap.append(h('p', { class: 'dd-empty' }, 'Your cart is empty. Browse the products and tap \u201CAdd to cart\u201D.'),
+          h('a', { class: 'dd-btn dd-btn-primary', href: '#products', onclick: () => closeModal() }, 'Browse products'));
+        return wrap;
       }
-      const rows = cart.map((item, i) => {
-        const img = safeUrl(item.image);
-        return `<div class="cart-item">
-          ${img ? `<img src="${escapeHtml(img)}" alt="">` : '<span></span>'}
-          <div>
-            <h3>${escapeHtml(item.name)}</h3>
-            <span class="price">${escapeHtml(item.price)}</span>
-            <div class="qty">
-              <button type="button" data-action="dec" data-index="${i}" aria-label="Decrease quantity">&minus;</button>
-              <span>${item.quantity}</span>
-              <button type="button" data-action="inc" data-index="${i}" aria-label="Increase quantity">+</button>
-            </div>
-          </div>
-          <button class="remove" type="button" data-action="remove" data-index="${i}">Remove</button>
-        </div>`;
-      }).join('');
-      const wa = CONFIG.showWhatsApp
-        ? `<a class="btn btn-gold btn-block" target="_blank" rel="noopener" href="https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(orderText())}"><i class="fab fa-whatsapp"></i>Order on WhatsApp</a>`
-        : '';
-      cartBody.innerHTML = `${rows}
-        <div class="cart-actions">
-          <p class="hint">Copy your order, then send it to us on Instagram and we will confirm price and delivery.</p>
-          <button class="btn btn-outline btn-block" type="button" data-action="copy"><i class="fas fa-copy"></i>Copy order</button>
-          <a class="btn btn-forest btn-block" href="${CONFIG.instagram}" target="_blank" rel="noopener"><i class="fab fa-instagram"></i>Order on Instagram</a>
-          ${wa}
-        </div>`;
-    }
-
-    async function copyOrder() {
-      const text = orderText();
-      try {
-        await navigator.clipboard.writeText(text);
-        toast('Order copied');
-      } catch {
-        const ta = document.createElement('textarea');
-        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
-        document.body.appendChild(ta); ta.select();
-        try { document.execCommand('copy'); toast('Order copied'); } catch { toast('Could not copy. Please copy it manually.'); }
-        ta.remove();
+      cart.forEach((item, i) => wrap.append(h('div', { class: 'dd-cart-item' },
+        h('img', { src: item.image, alt: item.name, loading: 'lazy' }),
+        h('div', null, h('p', { class: 'dd-cart-name' }, item.name), h('p', { class: 'dd-cart-price' }, fmtPrice(item.price))),
+        h('div', { class: 'dd-cart-row' },
+          h('div', { class: 'dd-qty', role: 'group', 'aria-label': 'Quantity for ' + item.name },
+            h('button', { type: 'button', 'data-key': 'qty-' + i, 'aria-label': 'Decrease quantity of ' + item.name, disabled: item.quantity <= 1, onclick: () => changeQty(i, -1) }, icon('fa-solid fa-minus')),
+            h('output', null, String(item.quantity)),
+            h('button', { type: 'button', 'data-key': 'qty+' + i, 'aria-label': 'Increase quantity of ' + item.name, onclick: () => changeQty(i, 1) }, icon('fa-solid fa-plus'))),
+          h('button', { class: 'dd-link-btn danger', type: 'button', 'aria-label': 'Remove ' + item.name, onclick: () => removeItem(i) }, icon('fa-solid fa-trash'), 'Remove')))));
+      const actions = h('div', { class: 'dd-cart-actions' });
+      if (CONFIG.whatsappOrdering) {
+        actions.append(h('a', { class: 'dd-btn dd-btn-primary', target: '_blank', rel: 'noopener noreferrer',
+          href: CONTACT_HREF.whatsapp + '?text=' + encodeURIComponent(orderText()) }, icon('fa-brands fa-whatsapp'), 'Order on WhatsApp'));
       }
+      /* Instagram cannot pre-fill a message, so the order list is copied first and the visitor pastes it into the chat. */
+      const ig = igLink('Order on Instagram', CONFIG.whatsappOrdering ? 'dd-btn dd-btn-ghost' : 'dd-btn dd-btn-primary');
+      ig.addEventListener('click', () => {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(orderText()).then(() => toast('Order copied. Paste it into our Instagram chat.'), () => {});
+        }
+      });
+      actions.append(ig,
+        h('button', { class: 'dd-link-btn', type: 'button', onclick: () => { cart = []; saveCart(); rerenderCart(); } }, 'Clear cart'));
+      wrap.append(actions);
+      return wrap;
     }
+    function openCart() { openModal(cartView(), { view: 'cart' }); }
+    ['#cartButton', '#tabCart'].forEach(s => $(s).addEventListener('click', openCart));
+    $('#cartMenuButton').addEventListener('click', () => { setMenu(false); openCart(); });
+    $('#cardsMenuButton').addEventListener('click', () => { setMenu(false); openCards(); });
 
-    cartBody.addEventListener('click', e => {
-      const target = e.target.closest('[data-action]');
-      if (!target) return;
-      const action = target.dataset.action;
-      const i = Number(target.dataset.index);
-      if (action === 'copy') { copyOrder(); return; }
-      if (!cart[i]) return;
-      if (action === 'inc') cart[i].quantity = Math.min(99, cart[i].quantity + 1);
-      if (action === 'dec') { cart[i].quantity -= 1; if (cart[i].quantity < 1) cart.splice(i, 1); }
-      if (action === 'remove') cart.splice(i, 1);
-      saveCart();
-      renderCart();
-    });
-
-    function openCart() { renderCart(); if (!cartDialog.open) cartDialog.showModal(); }
-    $$('[data-open-cart]').forEach(btn => btn.addEventListener('click', openCart));
-
-    $('#productGrid').addEventListener('click', e => {
-      const button = e.target.closest('.add-to-cart');
-      if (!button) return;
-      const card = button.closest('.item');
-      const img = card.querySelector('img');
-      const name = card.dataset.name;
-      const existing = cart.find(entry => entry.name === name);
-      if (existing) existing.quantity = Math.min(99, existing.quantity + 1);
-      else cart.push({ name, price: card.dataset.price, image: img.currentSrc || img.src, quantity: 1 });
-      saveCart();
-      toast(`${name} added to cart`);
-      button.classList.add('is-added');
-      button.innerHTML = '<i class="fas fa-check"></i>Added';
-      clearTimeout(button._t);
-      button._t = setTimeout(() => { button.classList.remove('is-added'); button.textContent = 'Add to cart'; }, 1400);
-    });
-    saveCart();
-
-    /* ---- Live chat (Tawk.to loads only when someone asks for it) ---- */
-    let tawkState = 'idle';
-    function openChat() {
-      if (tawkState === 'ready' && window.Tawk_API) { Tawk_API.showWidget(); Tawk_API.maximize(); return; }
-      if (tawkState === 'loading') return;
-      tawkState = 'loading';
-      toast('Opening chat...');
-      window.Tawk_API = window.Tawk_API || {};
-      window.Tawk_LoadStart = new Date();
-      Tawk_API.onLoad = () => { tawkState = 'ready'; Tawk_API.showWidget(); Tawk_API.maximize(); };
-      Tawk_API.onChatMinimized = () => Tawk_API.hideWidget();
-      Tawk_API.onChatHidden = () => Tawk_API.hideWidget();
+    /* ---------------------------------------------------------------
+       LIVE CHAT (Tawk.to, loaded shortly after the page so it never slows the first paint)
+       --------------------------------------------------------------- */
+    window.Tawk_API = window.Tawk_API || {};
+    window.Tawk_LoadStart = new Date();
+    let tawkLoaded = false, tawkWanted = false;
+    window.Tawk_API.onLoad = () => {
+      tawkLoaded = true;
+      if (tawkWanted) { tawkWanted = false; window.Tawk_API.showWidget(); window.Tawk_API.maximize(); } else window.Tawk_API.hideWidget();
+    };
+    window.Tawk_API.onChatMinimized = () => window.Tawk_API.hideWidget();
+    window.Tawk_API.onChatHidden = () => window.Tawk_API.hideWidget();
+    function loadTawk() {
+      if (document.getElementById('tawkScript')) return;
       const s = document.createElement('script');
-      s.async = true; s.src = CONFIG.tawkSrc; s.charset = 'UTF-8'; s.setAttribute('crossorigin', '*');
-      s.onerror = () => { tawkState = 'idle'; toast('Chat is unavailable right now. Message us on Instagram.'); };
+      s.id = 'tawkScript'; s.async = true; s.src = CONFIG.tawkSrc; s.charset = 'UTF-8'; s.setAttribute('crossorigin', '*');
       document.head.appendChild(s);
     }
-    $$('[data-chat]').forEach(btn => btn.addEventListener('click', openChat));
+    function openChat() {
+      if (tawkLoaded) { window.Tawk_API.showWidget(); window.Tawk_API.maximize(); }
+      else { tawkWanted = true; loadTawk(); toast('Opening live chat...'); }
+    }
+    window.addEventListener('load', () => setTimeout(loadTawk, 3000));
+    $('#chatMenuButton').addEventListener('click', () => { setMenu(false); openChat(); });
+    $('#chatContactButton').addEventListener('click', openChat);
 
-    /* ---- Discourage saving product photos ---- */
-    document.addEventListener('contextmenu', e => { if (e.target.closest('img')) e.preventDefault(); });
-    document.addEventListener('dragstart', e => { if (e.target.closest('img')) e.preventDefault(); });
+    /* ---------------------------------------------------------------
+       HEADER SCROLL BEHAVIOUR + BACK TO TOP
+       --------------------------------------------------------------- */
+    const nav = $('#siteNav'), topBtn = $('#backToTop');
+    let lastY = window.scrollY, ticking = false;
+    window.addEventListener('scroll', () => {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        nav.classList.toggle('is-elevated', y > 24);
+        const dy = y - lastY;   // ignore huge one-frame jumps (page reload restoring scroll position, instant anchors)
+        if (Math.abs(dy) > 2 && Math.abs(dy) < 300) nav.classList.toggle('is-hidden', dy > 0 && y > 150 && !menuOpen());
+        topBtn.classList.toggle('is-visible', y > 400);
+        lastY = y; ticking = false;
+      });
+    }, { passive: true });
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    /* ---- Service worker ---- */
+    /* ---------------------------------------------------------------
+       MOBILE BOTTOM NAVIGATION – active state follows the section in view
+       --------------------------------------------------------------- */
+    const tabs = $$('[data-tab]');
+    let tabLock = 0;
+    function setActiveTab(name) {
+      tabs.forEach(t => {
+        const on = t.dataset.tab === name;
+        t.classList.toggle('is-active', on);
+        if (on) t.setAttribute('aria-current', 'true'); else t.removeAttribute('aria-current');
+      });
+    }
+    tabs.forEach(t => t.addEventListener('click', () => { setActiveTab(t.dataset.tab); tabLock = Date.now() + 1200; }));
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => entries.forEach(en => {
+        if (en.isIntersecting && Date.now() > tabLock) setActiveTab(en.target.dataset.nav);
+      }), { rootMargin: '-45% 0px -50% 0px' });
+      $$('[data-nav]').forEach(s => io.observe(s));
+    }
+
+    /* ---------------------------------------------------------------
+       MISC
+       --------------------------------------------------------------- */
+    /* Discourage saving site imagery via long-press / drag (links and buttons are not affected) */
+    ['contextmenu', 'dragstart'].forEach(t => document.addEventListener(t, e => { if (e.target.closest && e.target.closest('img')) e.preventDefault(); }));
+    $('#staffMenuButton').addEventListener('click', () => { setMenu(false); if (window.DD && window.DD.onStaff) window.DD.onStaff(); });
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => navigator.serviceWorker.register('./dizdat-service-worker.js').catch(() => {}));
     }
+
+    renderCatalogue();
+    saveCart();
+    initReveal();
+
+    /* Shared API for the Firebase module below */
+    window.DD = { $, $$, h, icon, openModal, closeModal, toast, initReveal, setMenu, modalView: () => modal.dataset.view || '', onStaff: null };
   })();
   </script>
 
-  <!-- ===== Announcements + staff login (Firebase). If Firebase fails to load, the rest of the site still works. ===== -->
+  <!-- =====================================================================
+       FIREBASE  (announcements, staff sign-in, Staff Sign In visibility)
+       NOTE: the admin e-mail below only decides what the interface SHOWS.
+       Real protection is in the Firestore security rules (see firestore.rules).
+       ===================================================================== -->
   <script type="module">
     import { initializeApp, getApps } from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js';
     import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js';
-    import { getFirestore, addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp, updateDoc } from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js';
+    import { getFirestore, addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp, setDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js';
 
-    // NOTE: the appId below has "233075127" while messagingSenderId is "233075127017".
-    // Check the appId in Firebase console > Project settings > Your apps and correct it if it differs.
+    const DD = window.DD;
+    const { $, h, icon, openModal, closeModal, toast, initReveal } = DD;
+
+    /* ---- New Firebase project ---- */
     const firebaseConfig = {
-      apiKey: 'AIzaSyCaeOvaHIWBAhQ5U3RilJ5C9gbNPr7Qv3Q',
-      authDomain: 'iphone-5fb25.firebaseapp.com',
-      projectId: 'iphone-5fb25',
-      storageBucket: 'iphone-5fb25.firebasestorage.app',
-      messagingSenderId: '233075127017',
-      appId: '1:233075127:web:4fd99fe139b87ed24eb678'
+      apiKey: "AIzaSyA8mGat43Nu2LQD_f47pj7SnVCmb755OF8",
+      authDomain: "october-7910d.firebaseapp.com",
+      projectId: "october-7910d",
+      storageBucket: "october-7910d.firebasestorage.app",
+      messagingSenderId: "560676343278",
+      appId: "1:560676343278:web:60537ab9140778387112ff"
     };
-    const ADMIN_EMAIL = 'successhere@gmail.com';
-    const COLLECTION = 'dizdatAnnouncements';
-
-    const $ = id => document.getElementById(id);
-    const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch]);
-    const safeUrl = value => { try { const u = new URL(value); return /^https?:$/.test(u.protocol) ? u.href : ''; } catch { return ''; } };
+    const ADMIN_EMAIL = 'dizndat@gmail.com';       // UI only. Must match the e-mail inside firestore.rules
+    const POSTS = 'dizdatAnnouncements';
+    const SETTINGS_DOC = ['dizdatSettings', 'site'];
 
     const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    const section = $('updates');
-    const list = $('updatesList');
-    const dialog = $('adminDialog');
-    const statusEl = $('adminStatus');
-    const loginForm = $('adminLoginForm');
-    const postForm = $('announcementForm');
-    const publishButton = $('publishButton');
-    const cancelButton = $('cancelEdit');
-    const staffButton = $('staffButton');
-    let announcements = [];
+    let user = null, posts = [], showStaffSignIn = true, settingsReady = false, authReady = false;
+    const forceStaff = new URLSearchParams(location.search).has('staff') || location.hash === '#staff';
+    const isAdmin = () => !!user && (user.email || '').toLowerCase() === ADMIN_EMAIL;
 
-    const isAdmin = () => auth.currentUser?.email === ADMIN_EMAIL;
-    const setStatus = text => { statusEl.textContent = text; };
-    const resetForm = () => { postForm.reset(); $('announcementId').value = ''; cancelButton.hidden = true; publishButton.textContent = 'Publish announcement'; };
-
-    function render() {
-      const admin = isAdmin();
-      section.hidden = !(announcements.length || admin);
-      if (!announcements.length) {
-        list.innerHTML = admin ? '<p class="small">No announcements yet. Use Staff sign in to publish one.</p>' : '';
-        return;
-      }
-      list.innerHTML = announcements.map(({ id, post }) => {
-        const date = post.createdAt?.toDate
-          ? post.createdAt.toDate().toLocaleDateString('en-NG', { day: 'numeric', month: 'short', year: 'numeric' })
-          : 'Just now';
-        const image = safeUrl(post.imageUrl);
-        const photo = image ? `<img src="${escapeHtml(image)}" alt="Diz&amp;Dat store announcement" loading="lazy" draggable="false">` : '';
-        const tools = admin ? `<div class="note-tools"><button type="button" data-edit="${escapeHtml(id)}">Edit</button><button type="button" data-delete="${escapeHtml(id)}">Delete</button></div>` : '';
-        return `<article class="note">${photo}<p>${escapeHtml(post.text)}</p><time>${escapeHtml(date)}</time>${tools}</article>`;
-      }).join('');
+    /* ---- Image URL check: https only, valid URL, and catches the common Postimages page-link mistake ---- */
+    function parseImageUrl(raw) {
+      const v = String(raw || '').trim();
+      if (!v) return { ok: true, url: '' };
+      let u;
+      try { u = new URL(v); } catch (e) { return { ok: false, msg: 'That is not a valid link. Paste the full direct image URL.' }; }
+      if (u.protocol !== 'https:') return { ok: false, msg: 'Use a secure link that starts with https://' };
+      const host = u.hostname.toLowerCase();
+      if (/(^|\.)postimg\.cc$/.test(host) && host !== 'i.postimg.cc') return { ok: false, msg: 'That is a Postimages page link. Copy the "Direct link" instead (it starts with https://i.postimg.cc/).' };
+      if (u.href.length > 800) return { ok: false, msg: 'That link is too long. Use the shorter direct image link.' };
+      return { ok: true, url: u.href };
     }
+    const imageLoads = url => new Promise(res => {
+      const i = new Image(); i.referrerPolicy = 'no-referrer';
+      const t = setTimeout(() => res(false), 8000);
+      i.onload = () => { clearTimeout(t); res(true); };
+      i.onerror = () => { clearTimeout(t); res(false); };
+      i.src = url;
+    });
 
-    list.addEventListener('click', async e => {
-      if (!isAdmin()) return;
-      const del = e.target.closest('[data-delete]');
-      const edit = e.target.closest('[data-edit]');
-      if (del && confirm('Delete this announcement?')) {
-        try { await deleteDoc(doc(db, COLLECTION, del.dataset.delete)); }
-        catch { alert('Could not delete the announcement. Check the Firestore rules.'); }
+    /* =========================================================
+       STAFF SIGN IN BUTTON VISIBILITY (global setting in Firestore)
+       ========================================================= */
+    function updateStaffButton() {
+      const btn = $('#staffMenuButton');
+      btn.hidden = !(settingsReady && (showStaffSignIn || forceStaff)) && !user;
+      $('#staffMenuLabel').textContent = isAdmin() ? 'Staff panel' : 'Staff Sign In';
+    }
+    onSnapshot(doc(db, ...SETTINGS_DOC), snap => {
+      showStaffSignIn = snap.exists() ? snap.data().showStaffSignIn !== false : true;
+      settingsReady = true; syncStaffUi();
+    }, () => { showStaffSignIn = true; settingsReady = true; syncStaffUi(); });
+
+    /* =========================================================
+       ANNOUNCEMENTS (real-time, rendered with DOM text nodes so admin text can never inject HTML)
+       ========================================================= */
+    function viewImage(url, alt) {
+      openModal(h('div', { class: 'dd-viewer' }, h('h2', { id: 'modalTitle', class: 'sr-only' }, 'Announcement image'),
+        h('img', { src: url, alt, referrerpolicy: 'no-referrer' })), { wide: true, view: 'image' });
+    }
+    function postCard(a) {
+      const card = h('article', { class: 'dd-card dd-post', 'data-reveal': '' });
+      const img = parseImageUrl(a.imageUrl);
+      if (img.ok && img.url) {
+        const alt = a.text ? 'Announcement image: ' + a.text.slice(0, 80) : 'Diz&Dat store announcement';
+        const pic = h('img', { src: img.url, alt, loading: 'lazy', decoding: 'async', referrerpolicy: 'no-referrer' });
+        const media = h('button', { class: 'dd-media', type: 'button', 'aria-label': 'View image larger', onclick: () => viewImage(img.url, alt) }, pic);
+        media.style.setProperty('--bg-img', 'url("' + img.url + '")');
+        pic.addEventListener('error', () => media.remove());
+        card.append(media);
       }
-      if (edit) {
-        const item = announcements.find(entry => entry.id === edit.dataset.edit);
-        if (!item) return;
-        $('announcementId').value = item.id;
-        $('announcementText').value = item.post.text || '';
-        $('announcementImage').value = item.post.imageUrl || '';
-        cancelButton.hidden = false;
-        publishButton.textContent = 'Save changes';
-        dialog.showModal();
+      const when = a.createdAt && a.createdAt.toDate ? a.createdAt.toDate().toLocaleDateString('en-NG', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+      const body = h('div', { class: 'dd-card-body' }, when ? h('p', { class: 'dd-post-date' }, when) : null);
+      if (a.text) {
+        const text = h('p', { class: 'dd-post-text is-clamped' }, a.text);
+        const more = h('button', { class: 'dd-link-btn', type: 'button', hidden: true, 'aria-expanded': 'false' }, 'Read more');
+        more.addEventListener('click', () => {
+          const open = text.classList.toggle('is-clamped') === false;
+          more.textContent = open ? 'Show less' : 'Read more'; more.setAttribute('aria-expanded', String(open));
+        });
+        body.append(text, more);
+        requestAnimationFrame(() => { if (text.scrollHeight > text.clientHeight + 1) more.hidden = false; });
       }
+      if (isAdmin()) {
+        body.append(h('div', { class: 'dd-post-admin' },
+          h('button', { class: 'dd-link-btn', type: 'button', onclick: () => openStaffPanel(a) }, icon('fa-solid fa-pen'), 'Edit'),
+          h('button', { class: 'dd-link-btn danger', type: 'button', onclick: () => deletePost(a) }, icon('fa-solid fa-trash'), 'Delete')));
+      }
+      card.append(body);
+      return card;
+    }
+    function renderAnnouncements() {
+      const section = $('#announcements'), list = $('#announcementList');
+      section.hidden = !posts.length && !isAdmin();               // visitors never see an empty section
+      list.replaceChildren(...posts.map(postCard));
+      if (!posts.length && isAdmin()) list.append(h('p', { class: 'dd-empty' }, 'No announcements yet. Open the staff panel to publish your first one.'));
+      initReveal(list);
+    }
+    async function deletePost(a) {
+      if (!isAdmin() || !confirm('Delete this announcement? This cannot be undone.')) return;
+      try { await deleteDoc(doc(db, POSTS, a.id)); toast('Announcement deleted'); }
+      catch (e) { console.error(e); toast('Could not delete. Sign in with the admin account and check the Firestore rules.', { error: true }); }
+    }
+    onSnapshot(query(collection(db, POSTS), orderBy('createdAt', 'desc')), snap => {
+      posts = snap.docs.map(d => ({ id: d.id, ...d.data({ serverTimestamps: 'estimate' }) }));
+      renderAnnouncements();
+    }, err => { console.error('Announcements could not load:', err); posts = []; renderAnnouncements(); });
+
+    /* =========================================================
+       STAFF PANEL (login, visibility switch, announcement editor)
+       ========================================================= */
+    const staff = $('#staffTemplate').content.firstElementChild.cloneNode(true);
+    const q = s => staff.querySelector(s);
+    const el = {
+      title: q('#modalTitle'), status: q('#staffStatus'), login: q('#staffLoginForm'), email: q('#staffEmail'), pass: q('#staffPassword'), loginBtn: q('#staffLoginSubmit'),
+      admin: q('#staffAdmin'), footer: q('#staffFooter'), signOut: q('#staffSignOut'), vis: Array.from(staff.querySelectorAll('[data-staff-visibility]')),
+      post: q('#postForm'), postId: q('#postId'), text: q('#postText'), image: q('#postImage'), preview: q('#postPreview'), previewImg: q('#postPreview img'),
+      submit: q('#postSubmit'), cancel: q('#postCancel'), formTitle: q('#postFormTitle')
+    };
+    el.previewImg.referrerPolicy = 'no-referrer';
+    const setStatus = (msg, error) => { el.status.textContent = msg; el.status.classList.toggle('is-error', !!error); };
+    function syncStatus() {
+      if (!user) setStatus('Sign in to manage store announcements.');
+      else if (isAdmin()) setStatus('Signed in as ' + user.email + '.');
+      else setStatus('This account is not authorised to publish announcements.', true);
+    }
+    function syncStaffUi() {
+      el.login.hidden = !!user;
+      el.admin.hidden = !isAdmin();
+      el.footer.hidden = !user;
+      el.title.textContent = isAdmin() ? 'Staff panel' : 'Staff sign in';
+      el.vis.forEach(b => b.setAttribute('aria-pressed', String((b.dataset.staffVisibility === 'show') === showStaffSignIn)));
+      updateStaffButton();
+    }
+    function authMessage(err) {
+      const c = err && err.code;
+      if (c === 'auth/invalid-credential' || c === 'auth/wrong-password' || c === 'auth/user-not-found' || c === 'auth/invalid-email') return 'Wrong email or password.';
+      if (c === 'auth/too-many-requests') return 'Too many attempts. Wait a few minutes and try again.';
+      if (c === 'auth/network-request-failed') return 'No connection. Check your internet and try again.';
+      return 'Could not sign in. Please try again.';
+    }
+    function resetPostForm() {
+      el.post.reset(); el.postId.value = ''; el.formTitle.textContent = 'New announcement';
+      el.submit.textContent = 'Publish'; el.cancel.hidden = true; el.preview.hidden = true;
+    }
+    function updatePreview() {
+      const v = el.image.value.trim();
+      if (!v) { el.preview.hidden = true; syncStatus(); return; }
+      const r = parseImageUrl(v);
+      if (!r.ok) { el.preview.hidden = true; setStatus(r.msg, true); return; }
+      syncStatus(); el.previewImg.src = r.url; el.preview.hidden = false;
+    }
+    function openStaffPanel(post) {
+      if (post && isAdmin()) {
+        el.postId.value = post.id; el.text.value = post.text || ''; el.image.value = post.imageUrl || '';
+        el.formTitle.textContent = 'Edit announcement'; el.submit.textContent = 'Save changes'; el.cancel.hidden = false;
+        updatePreview();
+      }
+      syncStaffUi(); syncStatus();
+      openModal(staff, { view: 'staff' });
+    }
+    DD.onStaff = () => openStaffPanel();
+
+    let previewTimer;
+    el.image.addEventListener('input', () => { clearTimeout(previewTimer); previewTimer = setTimeout(updatePreview, 450); });
+    el.previewImg.addEventListener('error', () => { el.preview.hidden = true; setStatus('That link did not load as an image. Make sure it is the direct image link.', true); });
+    el.cancel.addEventListener('click', () => { resetPostForm(); syncStatus(); });
+
+    el.login.addEventListener('submit', async e => {
+      e.preventDefault(); el.loginBtn.disabled = true; setStatus('Signing in...');
+      try { await signInWithEmailAndPassword(auth, el.email.value.trim(), el.pass.value); el.pass.value = ''; }
+      catch (err) { setStatus(authMessage(err), true); }
+      finally { el.loginBtn.disabled = false; }
     });
+    el.signOut.addEventListener('click', async () => { await signOut(auth); resetPostForm(); closeModal(); toast('Signed out'); });
 
-    onSnapshot(
-      query(collection(db, COLLECTION), orderBy('createdAt', 'desc')),
-      snapshot => { announcements = snapshot.docs.map(item => ({ id: item.id, post: item.data() })); render(); },
-      error => { console.warn('Announcements could not load:', error); }
-    );
-
-    staffButton.hidden = false;
-    staffButton.addEventListener('click', () => dialog.showModal());
-    cancelButton.addEventListener('click', resetForm);
-    $('adminSignOut').addEventListener('click', () => signOut(auth));
-
-    loginForm.addEventListener('submit', async e => {
-      e.preventDefault();
-      try {
-        await signInWithEmailAndPassword(auth, $('adminEmail').value.trim(), $('adminPassword').value);
-        loginForm.reset();
-      } catch { setStatus('Could not sign in. Check the email and password and try again.'); }
-    });
-
-    onAuthStateChanged(auth, user => {
-      const allowed = user?.email === ADMIN_EMAIL;
-      loginForm.hidden = allowed;
-      postForm.hidden = !allowed;
-      setStatus(allowed ? `Signed in as ${ADMIN_EMAIL}` : user ? 'This account cannot publish announcements.' : 'Sign in to publish store announcements.');
-      render();
-    });
-
-    postForm.addEventListener('submit', async e => {
-      e.preventDefault();
+    el.vis.forEach(b => b.addEventListener('click', async () => {
       if (!isAdmin()) return;
-      const id = $('announcementId').value;
-      const text = $('announcementText').value.trim();
-      const imageUrl = $('announcementImage').value.trim();
-      if (!text && !imageUrl) return setStatus('Add some text or a photo link first.');
-      if (imageUrl && !safeUrl(imageUrl)) return setStatus('The photo link must start with https://');
-      const data = { text, imageUrl, updatedAt: serverTimestamp() };
+      const show = b.dataset.staffVisibility === 'show';
       try {
-        if (id) await updateDoc(doc(db, COLLECTION, id), data);
-        else await addDoc(collection(db, COLLECTION), { ...data, createdAt: serverTimestamp() });
-        resetForm();
-        setStatus('Announcement saved.');
-      } catch { setStatus('Could not save the announcement. Check the Firestore rules.'); }
+        await setDoc(doc(db, ...SETTINGS_DOC), { showStaffSignIn: show, updatedAt: serverTimestamp() }, { merge: true });
+        toast(show ? 'Staff Sign In is now visible to visitors' : 'Staff Sign In is now hidden from visitors');
+      } catch (err) { console.error(err); toast('Could not save the setting. Check the Firestore rules.', { error: true }); }
+    }));
+
+    el.post.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!isAdmin()) { setStatus('Only the admin account can publish.', true); return; }
+      const text = el.text.value.trim();
+      const img = parseImageUrl(el.image.value);
+      if (!img.ok) { setStatus(img.msg, true); return; }
+      if (!text && !img.url) { setStatus('Add some text or an image URL first.', true); return; }
+      el.submit.disabled = true;
+      try {
+        if (img.url) {
+          setStatus('Checking the image...');
+          if (!(await imageLoads(img.url)) && !confirm('This image could not be loaded. Publish anyway?')) { syncStatus(); return; }
+        }
+        const id = el.postId.value;
+        const data = { text, imageUrl: img.url, updatedAt: serverTimestamp() };
+        if (id) await updateDoc(doc(db, POSTS, id), data);
+        else await addDoc(collection(db, POSTS), { ...data, createdAt: serverTimestamp() });
+        toast(id ? 'Changes saved' : 'Announcement published');
+        resetPostForm(); syncStatus(); closeModal();
+        setTimeout(() => { const s = $('#announcements'); if (s && !s.hidden) s.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 250);
+      } catch (err) {
+        console.error(err);
+        setStatus(err && err.code === 'permission-denied'
+          ? 'Permission denied. Sign in with the admin account and make sure the Firestore rules are published.'
+          : 'Could not save the announcement. Check your connection and try again.', true);
+      } finally { el.submit.disabled = false; }
+    });
+
+    onAuthStateChanged(auth, u => {
+      user = u; syncStaffUi(); syncStatus(); renderAnnouncements();
+      if (!authReady) { authReady = true; if (forceStaff && !u) openStaffPanel(); }
     });
   </script>
 </body>
