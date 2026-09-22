@@ -113,6 +113,9 @@
        elements (nav, bottom tab bar, toasts) could still bleed past the edge. Setting it explicitly on
        <html> as well, plus disabling horizontal overscroll/bounce, removes the line without touching layout. */
     html, body { width: 100%; max-width: 100%; overflow-x: hidden; overscroll-behavior-x: none; }
+    /* Hide the visible scrollbar track/thumb while keeping normal scrolling. */
+    html { scrollbar-width: none; -ms-overflow-style: none; }
+    html::-webkit-scrollbar { width: 0; height: 0; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     html.modal-open { overflow: hidden; }
     body { margin: 0; font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; line-height: 1.6; letter-spacing: .01em;
@@ -131,7 +134,7 @@
     .skip-link:focus { top: 12px; }
     main:focus { outline: none; }
     .dd-wrap { width: min(100%, 80rem); margin-inline: auto; }
-    .dd-section { padding: clamp(4rem, 8vw, 7rem) 1.25rem; scroll-margin-top: 4.5rem; }
+    .dd-section { padding: clamp(4rem, 8vw, 7rem) 1.25rem; scroll-margin-top: calc(4.5rem + env(safe-area-inset-top, 0px)); }
     .dd-surface { background: var(--surface); }
     .dd-soft { background: var(--bg); }
 
@@ -170,15 +173,17 @@
     /* =====================================================
        4. HEADER + MENU
        ===================================================== */
-    .dd-nav { position: fixed; top: 14px; left: 50%; z-index: 60; width: min(calc(100% - 28px), 1180px); transform: translateX(-50%);
+    /* top offset clears the status bar / notch / Dynamic Island on iOS; 14px is the base "floating" gap on top of that */
+    .dd-nav { position: fixed; top: calc(14px + env(safe-area-inset-top, 0px)); left: 50%; z-index: 60; width: min(calc(100% - 28px), 1180px); transform: translateX(-50%);
       border: 1px solid var(--glass-border); border-radius: 20px; background: var(--glass); box-shadow: var(--shadow);
       -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); transition: transform .3s ease, box-shadow .3s ease; }
     .dd-nav.is-elevated { box-shadow: 0 16px 38px rgba(20,32,24,.2); }
     .dd-nav.is-hidden { transform: translate(-50%, -140%); }
     .dd-nav-inner { display: flex; align-items: center; justify-content: space-between; gap: .75rem; height: 68px; padding: 0 .85rem 0 1rem; }
-    .dd-brand { display: flex; align-items: center; gap: .6rem; min-width: 0; text-decoration: none; }
-    .dd-logo { flex: none; width: auto; height: 42px; max-width: 128px; object-fit: contain; }
-    .dd-wordmark { display: none; font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -.05em; color: var(--link); white-space: nowrap; }
+    .dd-brand { display: flex; align-items: center; gap: .55rem; min-width: 0; text-decoration: none; }
+    /* Circular logo: fixed equal width/height + border-radius:50% + object-fit:cover crops the badge into a clean circle (no square background box). */
+    .dd-logo { flex: none; width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1px solid var(--glass-border); box-shadow: var(--shadow); }
+    .dd-wordmark { display: inline; font-family: 'Playfair Display', Georgia, serif; font-size: 1.15rem; font-weight: 700; letter-spacing: -.03em; color: var(--link); white-space: nowrap; }
     .dd-nav-links { display: none; align-items: center; gap: 1.75rem; }
     .dd-nav-links a { font-weight: 500; font-size: .95rem; text-decoration: none; transition: color .2s; }
     .dd-nav-links a:hover { color: var(--kicker); }
@@ -201,7 +206,7 @@
     /* =====================================================
        5. HERO
        ===================================================== */
-    .dd-hero { position: relative; display: grid; grid-template-rows: 1fr auto; min-height: 100vh; min-height: 100svh; padding: 6.5rem 1.25rem 2rem; overflow: hidden; isolation: isolate; color: #fff;
+    .dd-hero { position: relative; display: grid; grid-template-rows: 1fr auto; min-height: 100vh; min-height: 100svh; padding: calc(6.5rem + env(safe-area-inset-top, 0px)) 1.25rem 2rem; overflow: hidden; isolation: isolate; color: #fff;
       background: linear-gradient(115deg, rgba(8,17,12,.9), rgba(27,67,50,.62)), url('https://i.postimg.cc/28kNN5xX/IMG-1390.jpg') center / cover no-repeat; }
     .dd-hero > * { width: min(100%, 70rem); margin-inline: auto; }
     .dd-hero-copy { align-self: center; padding-bottom: 1rem; }
@@ -221,30 +226,30 @@
     /* =====================================================
        6. CARDS  (products, announcements)
        ===================================================== */
-    .dd-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-    .dd-grid > * { width: 100%; max-width: 26rem; margin-inline: auto; }
+    .dd-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .dd-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); transition: transform .25s ease, box-shadow .25s ease, border-color .25s; }
     .dd-soft .dd-card, .dd-modal-panel .dd-card { background: var(--surface); }
     .dd-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-    .dd-media { position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; padding: 0; overflow: hidden; border: 0; background: var(--surface-2); }
+    .dd-media { position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; padding: 0; overflow: hidden; border: 0; background: var(--surface-2); }
     .dd-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; -webkit-touch-callout: none; -webkit-user-drag: none; user-select: none; }
     .dd-card:hover .dd-media img { transform: scale(1.04); }
-    .dd-tag { position: absolute; top: .8rem; right: .8rem; padding: .25rem .7rem; border-radius: 999px; background: var(--btn-bg); color: var(--btn-fg); font-size: .66rem; font-weight: 700; letter-spacing: .06em; box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+    .dd-tag { position: absolute; top: .6rem; right: .6rem; padding: .2rem .6rem; border-radius: 999px; background: var(--btn-bg); color: var(--btn-fg); font-size: .62rem; font-weight: 700; letter-spacing: .06em; box-shadow: 0 4px 12px rgba(0,0,0,.2); }
     .dd-tag.alt { background: var(--badge-bg); color: var(--badge-fg); }
-    .dd-card-body { display: flex; flex: 1; flex-direction: column; gap: .35rem; padding: 1.1rem 1.15rem 1.2rem; }
-    .dd-card h3 { font-size: 1.2rem; line-height: 1.25; letter-spacing: -.02em; overflow-wrap: anywhere; }
-    .dd-card-body > :where(p) { color: var(--muted); font-size: .92rem; }
-    .dd-price { margin-top: auto; padding-top: .55rem; font-size: 1.05rem; font-weight: 700; color: var(--link); }
-    .dd-card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-top: .7rem; }
-    .dd-card-actions .dd-btn { padding-inline: .5rem; font-size: .84rem; }
+    .dd-card-body { display: flex; flex: 1; flex-direction: column; gap: .3rem; padding: .85rem .9rem .95rem; }
+    .dd-card h3 { font-size: 1.02rem; line-height: 1.25; letter-spacing: -.02em; overflow-wrap: anywhere; }
+    .dd-card-body > :where(p) { color: var(--muted); font-size: .82rem; }
+    .dd-price { margin-top: auto; padding-top: .45rem; font-size: .95rem; font-weight: 700; color: var(--link); }
+    .dd-card-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); gap: .4rem; margin-top: .6rem; }
+    .dd-card-actions .dd-btn { padding-inline: .4rem; font-size: .78rem; min-height: 40px; }
     .dd-center { margin-top: 3rem; text-align: center; }
 
-    /* Announcement cards: same card system, image is shown complete (contain) over a soft blurred copy of itself */
-    .dd-posts { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
-    .dd-post { flex: 1 1 260px; max-width: 22rem; }
-    .dd-post .dd-media { isolation: isolate; }
-    .dd-post .dd-media::before { content: ''; position: absolute; inset: 0; z-index: -1; background: var(--bg-img) center / cover no-repeat; filter: blur(22px) saturate(1.1); transform: scale(1.2); opacity: .55; }
-    .dd-post .dd-media img { object-fit: contain; }
+    /* Announcement cards: same card system. The box takes its height from each photo's own
+       proportions (aspect-ratio: auto) instead of forcing a fixed square, so the image fills the
+       card width edge-to-edge with no left/right letterboxing, while still showing it uncropped. */
+    .dd-posts { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
+    .dd-post { flex: 1 1 220px; max-width: 17rem; }
+    .dd-post .dd-media { aspect-ratio: auto; height: auto; }
+    .dd-post .dd-media img { width: 100%; height: auto; object-fit: contain; display: block; }
     .dd-post-date { font-size: .78rem; font-weight: 600; color: var(--muted); }
     .dd-post-text { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .97rem; color: var(--text); }
     .dd-post-text.is-clamped { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
@@ -394,12 +399,8 @@
       .dd-hero { padding-bottom: calc(6.2rem + env(safe-area-inset-bottom, 0px)); }
       .dd-footer { padding-bottom: calc(7rem + env(safe-area-inset-bottom, 0px)); }
     }
-    @media (min-width: 480px) { .dd-wordmark { display: inline; } }
     @media (min-width: 640px) {
-      .dd-grid { grid-template-columns: repeat(2, 1fr); }
-      .dd-grid > * { max-width: none; }
       .dd-media { aspect-ratio: 6 / 7; }
-      .dd-post .dd-media { aspect-ratio: 1 / 1; }
       .dd-stats { grid-template-columns: repeat(4, 1fr); }
       .dd-footer-grid { grid-template-columns: repeat(2, 1fr); }
       .dd-modal { place-items: center; padding: 20px; }
@@ -411,7 +412,8 @@
     @media (min-width: 768px) {
       .dd-nav-links { display: flex; }
       .dd-nav-inner { height: 72px; padding-inline: 1.25rem 1rem; }
-      .dd-logo { height: 48px; max-width: 150px; }
+      .dd-logo { width: 44px; height: 44px; }
+      .dd-wordmark { font-size: 1.4rem; }
       .dd-hero { padding-inline: 2rem; padding-bottom: 3.25rem; }
       .dd-scroll-cue { position: absolute; bottom: 1rem; left: 50%; display: block; width: auto; color: #fff; font-size: .68rem; letter-spacing: .22em; transform: translateX(-50%); opacity: .8; }
       .dd-collections { grid-template-columns: repeat(3, 1fr); }
@@ -1239,7 +1241,6 @@
         const alt = a.text ? 'Announcement image: ' + a.text.slice(0, 80) : 'Diz&Dat store announcement';
         const pic = h('img', { src: img.url, alt, loading: 'lazy', decoding: 'async', referrerpolicy: 'no-referrer' });
         const media = h('button', { class: 'dd-media', type: 'button', 'aria-label': 'View image larger', onclick: () => viewImage(img.url, alt) }, pic);
-        media.style.setProperty('--bg-img', 'url("' + img.url + '")');
         pic.addEventListener('error', () => media.remove());
         card.append(media);
       }
@@ -1417,9 +1418,16 @@
         setTimeout(() => { const s = $('#announcements'); if (s && !s.hidden) s.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 250);
       } catch (err) {
         console.error(err);
-        setStatus(err && err.code === 'permission-denied'
-          ? 'Permission denied. Sign in with the admin account and make sure the Firestore rules are published.'
-          : 'Could not save the announcement. Check your connection and try again.', true);
+        if (err && err.code === 'permission-denied') {
+          // A product post writes 3 extra fields (sellable, productName, price). If the live Firestore
+          // rules were published before Add to Cart existed, those extra fields fail validation and
+          // Firestore reports it the same way it reports a real auth problem: permission-denied.
+          setStatus(sell
+            ? 'Permission denied. This usually means the Firestore rules on the live project are older than this "Add to Cart" feature: open Firebase Console -> Firestore Database -> Rules and confirm the published rules mention "sellable" - then Publish them again.'
+            : 'Permission denied. Sign in with the admin account and make sure the Firestore rules are published.', true);
+        } else {
+          setStatus('Could not save the announcement. Check your connection and try again.', true);
+        }
       } finally { el.submit.disabled = false; }
     });
 
