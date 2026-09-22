@@ -178,7 +178,11 @@
       border: 1px solid var(--glass-border); border-radius: 20px; background: var(--glass); box-shadow: var(--shadow);
       -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); transition: transform .3s ease, box-shadow .3s ease; }
     .dd-nav.is-elevated { box-shadow: 0 16px 38px rgba(20,32,24,.2); }
-    .dd-nav.is-hidden { transform: translate(-50%, -140%); }
+    /* The hidden-state transform must fully cancel the resting "top" offset (14px + the safe-area inset)
+       plus its own height, or a sliver stays on screen inside the status-bar/notch area on scroll — which
+       is exactly what -140% alone did on notch/Dynamic-Island phones. calc() lets us cancel the real
+       offset precisely, on any device, instead of guessing a percentage. */
+    .dd-nav.is-hidden { transform: translate(-50%, calc(-100% - 14px - env(safe-area-inset-top, 0px) - 24px)); }
     .dd-nav-inner { display: flex; align-items: center; justify-content: space-between; gap: .75rem; height: 68px; padding: 0 .85rem 0 1rem; }
     .dd-brand { display: flex; align-items: center; gap: .55rem; min-width: 0; text-decoration: none; }
     /* Circular logo: fixed equal width/height + border-radius:50% + object-fit:cover crops the badge into a clean circle (no square background box). */
@@ -248,14 +252,17 @@
        card width edge-to-edge with no left/right letterboxing, while still showing it uncropped. */
     .dd-posts { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
     .dd-post { flex: 1 1 220px; max-width: 17rem; }
-    .dd-post .dd-media { aspect-ratio: auto; height: auto; }
-    .dd-post .dd-media img { width: 100%; height: auto; object-fit: contain; display: block; }
+    /* Default: whole, uncropped photo (announcement mode). Skipped when a post opts into
+       product-style display (.is-product-card), which instead uses the same crop/aspect-ratio
+       as Featured Products via the ordinary .dd-media rule below. */
+    .dd-post:not(.is-product-card) .dd-media { aspect-ratio: auto; height: auto; }
+    .dd-post:not(.is-product-card) .dd-media img { width: 100%; height: auto; object-fit: contain; display: block; }
     .dd-post-date { font-size: .78rem; font-weight: 600; color: var(--muted); }
     .dd-post-text { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .97rem; color: var(--text); }
     .dd-post-text.is-clamped { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
     .dd-post-admin { display: flex; gap: 1rem; margin-top: .5rem; padding-top: .7rem; border-top: 1px solid var(--border); }
     .dd-empty { padding: 1rem 0; color: var(--muted); text-align: center; }
-    .dd-post .dd-card-actions { grid-template-columns: 1fr; }
+    .dd-post:not(.is-product-card) .dd-card-actions { grid-template-columns: 1fr; }
     .dd-post h3 { overflow-wrap: anywhere; }
 
     /* =====================================================
@@ -720,7 +727,7 @@
           <h3 id="postFormTitle">New announcement</h3>
           <input type="hidden" id="postId">
           <p class="dd-hint" id="postMeta" hidden></p>
-          <div class="dd-field"><label for="postText">Announcement text</label><textarea class="dd-textarea" id="postText" maxlength="2000" placeholder="Write a store announcement..."></textarea></div>
+          <div class="dd-field"><label for="postText" id="postTextLabel">Announcement text</label><textarea class="dd-textarea" id="postText" maxlength="2000" placeholder="Write a store announcement..."></textarea></div>
           <div class="dd-field">
             <label for="postImage">Image URL (optional)</label>
             <input class="dd-input" id="postImage" type="url" inputmode="url" autocomplete="off" placeholder="https://i.postimg.cc/...">
@@ -729,10 +736,11 @@
           <div class="dd-preview" id="postPreview" hidden><img alt="Preview of the announcement image"></div>
           <!-- Add to Cart option: only offered when the post has an image -->
           <div id="postSellBlock" hidden>
-            <label class="dd-check" for="postSellable"><input type="checkbox" id="postSellable"><span>Enable “Add to Cart” for this item<small>Visitors will see a price and an Add to cart button on this post.</small></span></label>
+            <label class="dd-check" for="postSellable"><input type="checkbox" id="postSellable"><span>Display as product-style card<small>Shows this post the same way as Featured Products, with a title, price and Add to cart button.</small></span></label>
             <div id="postSellFields" hidden>
               <div class="dd-field" style="margin-top:1rem"><label for="postProductName">Product name</label><input class="dd-input" id="postProductName" type="text" maxlength="80" autocomplete="off" placeholder="e.g. Premium Jallabiya"></div>
               <div class="dd-field"><label for="postPrice">Price (₦)</label><input class="dd-input" id="postPrice" type="text" inputmode="decimal" maxlength="40" autocomplete="off" placeholder="12,000"><small>A single price like 12,000, or a range like 3,000 to 5,000.</small></div>
+              <div class="dd-field"><label for="postBadge">Badge (optional)</label><input class="dd-input" id="postBadge" type="text" maxlength="24" autocomplete="off" placeholder="e.g. Bestseller"><small>Leave blank for no badge.</small></div>
             </div>
           </div>
           <div class="dd-form-actions">
@@ -1234,22 +1242,35 @@
       openModal(h('div', { class: 'dd-viewer' }, h('h2', { id: 'modalTitle', class: 'sr-only' }, 'Announcement image'),
         h('img', { src: url, alt, referrerpolicy: 'no-referrer' })), { wide: true, view: 'image' });
     }
+    function openPostProduct(product, description) {
+      const add = h('button', { class: 'dd-btn dd-btn-primary', type: 'button', onclick: e => addToCart(product, e.currentTarget) },
+        icon('fa-solid fa-bag-shopping'), h('span', { class: 'lbl' }, 'Add to cart'));
+      openModal(h('div', { class: 'dd-detail' },
+        h('div', { class: 'dd-detail-media' }, h('img', { src: product.image, alt: product.name })),
+        h('h2', { id: 'modalTitle' }, product.name),
+        description ? h('p', { class: 'dd-detail-text' }, description) : null,
+        h('p', { class: 'dd-price' }, fmtPrice(product.price)),
+        h('div', { class: 'dd-detail-actions' }, add)), { view: 'product' });
+    }
     function postCard(a) {
-      const card = h('article', { class: 'dd-card dd-post', 'data-reveal': '' });
+      /* "Add to cart" AND the Featured-Product visual style are offered together, only on image posts
+         the admin marked as a product; a plain announcement (checkbox off) looks exactly as before. */
       const img = parseImageUrl(a.imageUrl);
+      const product = a.sellable === true && img.ok && img.url && typeof a.productName === 'string' && a.productName.trim() && typeof a.price === 'string' && a.price.trim()
+        ? { cartId: 'post:' + a.id, name: a.productName.trim(), price: a.price.trim(), image: img.url, badge: typeof a.badge === 'string' ? a.badge.trim() : '' } : null;
+      const card = h('article', { class: 'dd-card dd-post' + (product ? ' is-product-card' : ''), 'data-reveal': '' });
       if (img.ok && img.url) {
-        const alt = a.text ? 'Announcement image: ' + a.text.slice(0, 80) : 'Diz&Dat store announcement';
+        const alt = product ? product.name : (a.text ? 'Announcement image: ' + a.text.slice(0, 80) : 'Diz&Dat store announcement');
         const pic = h('img', { src: img.url, alt, loading: 'lazy', decoding: 'async', referrerpolicy: 'no-referrer' });
-        const media = h('button', { class: 'dd-media', type: 'button', 'aria-label': 'View image larger', onclick: () => viewImage(img.url, alt) }, pic);
+        const openLarger = () => product ? openPostProduct(product, a.text) : viewImage(img.url, alt);
+        const media = h('button', { class: 'dd-media', type: 'button', 'aria-label': product ? 'View ' + product.name : 'View image larger', onclick: openLarger },
+          pic, product && product.badge ? h('span', { class: 'dd-tag' }, product.badge) : null);
         pic.addEventListener('error', () => media.remove());
         card.append(media);
       }
       /* The date stays in the database, but only the signed-in admin sees it. */
       const when = dateLabel(a.createdAt);
       const body = h('div', { class: 'dd-card-body' }, when && isAdmin() ? h('p', { class: 'dd-post-date' }, when) : null);
-      /* "Add to cart" is offered ONLY on image posts the admin marked as a product. */
-      const product = a.sellable === true && img.ok && img.url && typeof a.productName === 'string' && a.productName.trim() && typeof a.price === 'string' && a.price.trim()
-        ? { cartId: 'post:' + a.id, name: a.productName.trim(), price: a.price.trim(), image: img.url } : null;
       if (product) body.append(h('h3', null, product.name));
       if (a.text) {
         const text = h('p', { class: 'dd-post-text is-clamped' }, a.text);
@@ -1264,6 +1285,7 @@
       if (product) {
         body.append(h('p', { class: 'dd-price' }, fmtPrice(product.price)),
           h('div', { class: 'dd-card-actions' },
+            h('button', { class: 'dd-btn dd-btn-ghost dd-btn-sm', type: 'button', onclick: () => openPostProduct(product, a.text) }, 'View'),
             h('button', { class: 'dd-btn dd-btn-primary dd-btn-sm', type: 'button', onclick: e => addToCart(product, e.currentTarget) }, 'Add to cart')));
       }
       if (isAdmin()) {
@@ -1300,8 +1322,8 @@
       title: q('#modalTitle'), status: q('#staffStatus'), login: q('#staffLoginForm'), email: q('#staffEmail'), pass: q('#staffPassword'), loginBtn: q('#staffLoginSubmit'),
       admin: q('#staffAdmin'), footer: q('#staffFooter'), signOut: q('#staffSignOut'), vis: Array.from(staff.querySelectorAll('[data-staff-visibility]')),
       post: q('#postForm'), postId: q('#postId'), text: q('#postText'), image: q('#postImage'), preview: q('#postPreview'), previewImg: q('#postPreview img'),
-      submit: q('#postSubmit'), cancel: q('#postCancel'), formTitle: q('#postFormTitle'), meta: q('#postMeta'),
-      sellBlock: q('#postSellBlock'), sellable: q('#postSellable'), sellFields: q('#postSellFields'), pname: q('#postProductName'), price: q('#postPrice')
+      submit: q('#postSubmit'), cancel: q('#postCancel'), formTitle: q('#postFormTitle'), meta: q('#postMeta'), textLabel: q('#postTextLabel'),
+      sellBlock: q('#postSellBlock'), sellable: q('#postSellable'), sellFields: q('#postSellFields'), pname: q('#postProductName'), price: q('#postPrice'), badge: q('#postBadge')
     };
     el.previewImg.referrerPolicy = 'no-referrer';
     const setStatus = (msg, error) => { el.status.textContent = msg; el.status.classList.toggle('is-error', !!error); };
@@ -1332,6 +1354,7 @@
       el.sellBlock.hidden = !hasImage;
       if (!hasImage) el.sellable.checked = false;
       el.sellFields.hidden = !(hasImage && el.sellable.checked);
+      el.textLabel.textContent = (hasImage && el.sellable.checked) ? 'Short description' : 'Announcement text';
     }
     function resetPostForm() {
       el.post.reset(); el.postId.value = ''; el.formTitle.textContent = 'New announcement';
@@ -1350,7 +1373,7 @@
       if (post && isAdmin()) {
         el.postId.value = post.id; el.text.value = post.text || ''; el.image.value = post.imageUrl || '';
         el.formTitle.textContent = 'Edit announcement'; el.submit.textContent = 'Save changes'; el.cancel.hidden = false;
-        el.sellable.checked = post.sellable === true; el.pname.value = post.productName || ''; el.price.value = post.price || '';
+        el.sellable.checked = post.sellable === true; el.pname.value = post.productName || ''; el.price.value = post.price || ''; el.badge.value = post.badge || '';
         const when = dateLabel(post.createdAt);                 // admin-only: shown here and on the cards while signed in
         el.meta.textContent = when ? 'Published on ' + when + '. Visitors do not see this date.' : ''; el.meta.hidden = !when;
         updatePreview();
@@ -1391,13 +1414,14 @@
       if (!img.ok) { setStatus(img.msg, true); return; }
       if (!text && !img.url) { setStatus('Add some text or an image URL first.', true); return; }
       const sell = el.sellable.checked && !!img.url;           // products must have an image
-      let productName = '', price = '';
+      let productName = '', price = '', badge = '';
       if (sell) {
         productName = el.pname.value.trim();
         const pr = parsePrice(el.price.value);
         if (!productName) { setStatus('Enter a product name for the Add to Cart option.', true); return; }
         if (!pr.ok) { setStatus('Enter a valid price, for example 12,000 or 3,000 to 5,000.', true); return; }
         price = pr.value;
+        badge = el.badge.value.trim();
       }
       el.submit.disabled = true;
       try {
@@ -1410,7 +1434,7 @@
         /* Product fields are only written for products (or when turning a product back into a normal post),
            so ordinary posts keep saving exactly as before. */
         const before = id ? posts.find(p => p.id === id) : null;
-        if (sell || (before && before.sellable !== undefined)) Object.assign(data, { sellable: sell, productName, price });
+        if (sell || (before && before.sellable !== undefined)) Object.assign(data, { sellable: sell, productName, price, badge });
         if (id) await updateDoc(doc(db, POSTS, id), data);
         else await addDoc(collection(db, POSTS), { ...data, createdAt: serverTimestamp() });
         toast(id ? 'Changes saved' : 'Announcement published');
