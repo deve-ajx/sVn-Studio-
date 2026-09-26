@@ -216,23 +216,25 @@
     /* =====================================================
        5. HERO
        ===================================================== */
-    /* Premium light hero, left-aligned editorial composition matching the reference design.
-       Image is a framed, object-fit:contain card so it's never cropped/distorted/zoomed. */
-    .dd-hero { position: relative; padding: calc(5.5rem + env(safe-area-inset-top, 0px)) 1.25rem 2.5rem; background: linear-gradient(180deg, #FBF8F1, #F3EDE0); color: var(--hero-ink, #182418); }
-    .dd-hero > * { width: min(100%, 70rem); margin-inline: auto; }
-    .dd-hero-copy { text-align: left; margin-bottom: 1.5rem; }
+    /* Premium hero: the fashion photo is now the hero's own background/right-side visual (not a
+       separate boxed image below the buttons) -- text sits on the left over a soft fade into the photo,
+       so it reads as one unified band. The stats card stays a separate card below it, as in the reference. */
+    .dd-hero { position: relative; padding-bottom: 2.5rem; background: linear-gradient(180deg, #FBF8F1, #F3EDE0); color: var(--hero-ink, #182418); }
+    .dd-hero-band { position: relative; overflow: hidden; min-height: 80vh; display: flex; align-items: flex-start; }
+    .dd-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 78% center; z-index: 0; }
+    .dd-hero-band::after { content: ''; position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(to right, #FBF8F1 0%, rgba(251,248,241,.9) 38%, rgba(251,248,241,.4) 60%, rgba(251,248,241,0) 80%); }
+    .dd-hero-copy { position: relative; z-index: 1; width: 100%; max-width: 25rem; text-align: left; padding: calc(6.5rem + env(safe-area-inset-top, 0px)) 1.25rem 2rem; }
     .dd-hero-kicker { display: inline-flex; align-items: center; gap: .6rem; font-size: .72rem; font-weight: 700; letter-spacing: .2em; color: #254c36; }
     .dd-hero-kicker::after { content: ''; width: 2.2rem; height: 2px; border-radius: 2px; background: #254c36; }
-    .dd-hero h1 { margin-top: .7rem; font-size: clamp(2.5rem, 11vw, 4.2rem); font-weight: 700; line-height: 1.04; letter-spacing: -.03em; color: #182418; }
+    .dd-hero h1 { margin-top: .7rem; font-size: clamp(2.5rem, 11vw, 3.4rem); font-weight: 700; line-height: 1.04; letter-spacing: -.03em; color: #182418; }
     .dd-hero h1 .dd-accent-line { display: block; }
     .dd-gold { color: #254c36; font-style: normal; }
-    .dd-hero-copy p { max-width: 28rem; margin-top: 1rem; font-size: 1.02rem; line-height: 1.6; color: #56645a; }
+    .dd-hero-copy p { margin-top: 1rem; font-size: 1.02rem; line-height: 1.6; color: #3c463f; }
     .dd-hero-actions { display: flex; flex-direction: column; align-items: flex-start; gap: .8rem; margin-top: 1.6rem; }
-    .dd-hero-actions .dd-btn { justify-content: space-between; gap: 1rem; width: min(100%, 19rem); }
+    .dd-hero-actions .dd-btn { justify-content: space-between; gap: 1rem; width: min(100%, 17rem); }
     .dd-hero-actions .dd-btn > i:last-child { font-size: .85rem; }
-    .dd-hero-media { margin-top: 2rem; padding: .4rem; border-radius: 26px; background: #F3EDE0; }
-    .dd-hero-media img { width: 100%; height: clamp(18rem, 92vw, 30rem); object-fit: contain; object-position: center; border-radius: 22px; }
-    .dd-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 1.5rem; padding: 1.1rem .25rem; border: 1px solid var(--border); border-radius: 22px; background: #fff;
+    .dd-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; width: min(calc(100% - 2.5rem), 70rem); margin: 1.5rem auto 0; padding: 1.1rem .25rem; border: 1px solid var(--border); border-radius: 22px; background: #fff;
       box-shadow: 0 18px 42px rgba(24,36,24,.08); }
     .dd-stat { display: flex; flex-direction: column; align-items: center; gap: .45rem; padding: 0 .2rem; text-align: center; border-right: 1px solid var(--border); }
     .dd-stat:last-child { border-right: 0; }
@@ -493,9 +495,9 @@
       .dd-nav-inner { height: 72px; padding-inline: 1.25rem 1rem; }
       .dd-logo { width: 44px; height: 44px; }
       .dd-wordmark { font-size: 1.4rem; }
-      .dd-hero { padding-inline: 2rem; }
-      .dd-hero-copy { max-width: 34rem; }
-      .dd-hero-media img { height: clamp(22rem, 36vw, 30rem); }
+      .dd-hero-band { min-height: 34rem; }
+      .dd-hero-copy { max-width: 30rem; padding-inline: 2rem; }
+      .dd-hero h1 { font-size: clamp(2.8rem, 5vw, 3.8rem); }
       .dd-collections { grid-template-columns: repeat(3, 1fr); }
       .dd-collection { aspect-ratio: 4 / 5; }
       .dd-contact { grid-template-columns: 1fr 1fr; }
@@ -575,17 +577,17 @@
 
     <!-- ============ HERO ============ -->
     <section class="dd-hero" id="home" data-nav="home" aria-label="Welcome to Diz&Dat">
-      <div class="dd-hero-copy">
-        <span class="dd-hero-kicker">PREMIUM FASHION</span>
-        <h1>Elevate Your <span class="dd-accent-line dd-gold">Style</span></h1>
-        <p>Discover premium Jallabiyas, exquisite perfumes, stylish caps &amp; comfortable shoes.</p>
-        <div class="dd-hero-actions">
-          <a class="dd-btn dd-btn-hero-primary dd-btn-hero" href="#products"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>Shop now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-          <a class="dd-btn dd-btn-hero-secondary dd-btn-hero" href="#collections"><i class="fa-solid fa-table-cells-large" aria-hidden="true"></i>Explore collection<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      <div class="dd-hero-band">
+        <img class="dd-hero-bg" src="https://i.postimg.cc/q7vGQKPc/47E6CDA2-2038-42A7-BB53-312174347E81.png" alt="Diz&Dat premium fashion: Jallabiya, perfume, cap and shoes" loading="eager" fetchpriority="high">
+        <div class="dd-hero-copy">
+          <span class="dd-hero-kicker">PREMIUM FASHION</span>
+          <h1>Elevate Your <span class="dd-accent-line dd-gold">Style</span></h1>
+          <p>Discover premium Jallabiyas, exquisite perfumes, stylish caps &amp; comfortable shoes.</p>
+          <div class="dd-hero-actions">
+            <a class="dd-btn dd-btn-hero-primary dd-btn-hero" href="#products"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>Shop now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a class="dd-btn dd-btn-hero-secondary dd-btn-hero" href="#collections"><i class="fa-solid fa-table-cells-large" aria-hidden="true"></i>Explore collection<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
         </div>
-      </div>
-      <div class="dd-hero-media">
-        <img src="https://i.postimg.cc/q7vGQKPc/47E6CDA2-2038-42A7-BB53-312174347E81.png" alt="Diz&Dat premium fashion" loading="eager" fetchpriority="high">
       </div>
       <div class="dd-stats" aria-label="Diz&Dat service highlights">
         <div class="dd-stat"><i class="fa-solid fa-users" aria-hidden="true"></i><div><strong>400+</strong><span>Satisfied customers</span></div></div>
