@@ -208,6 +208,12 @@
     .dd-menu-item .dd-badge { position: static; margin-left: auto; }
     .dd-menu-sep { height: 1px; margin: .4rem .5rem; background: var(--border); }
     .dd-menu-label { padding: .4rem .8rem .5rem; font-size: .78rem; font-weight: 600; color: var(--muted); }
+    .dd-menu-row { display: flex; align-items: center; justify-content: space-between; padding: .5rem .8rem; font-size: .95rem; font-weight: 500; }
+    /* Minimal native-style switch: track = the button itself, knob slides via the aria-checked state. */
+    .dd-switch { position: relative; flex: none; width: 46px; height: 26px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface-2); transition: background-color .2s ease, border-color .2s ease; }
+    .dd-switch[aria-checked="true"] { background: var(--btn-bg); border-color: var(--btn-bg); }
+    .dd-switch-knob { position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25); transition: transform .2s ease; }
+    .dd-switch[aria-checked="true"] .dd-switch-knob { transform: translateX(20px); }
     .dd-seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: .25rem; margin: 0 .3rem .3rem; padding: .25rem; border-radius: 14px; background: var(--surface-2); }
     .dd-seg.two { grid-template-columns: repeat(2, 1fr); margin: 0; }
     .dd-seg button { display: flex; flex-direction: column; align-items: center; gap: .25rem; padding: .55rem .25rem; border: 0; border-radius: 10px; background: transparent; color: var(--muted); font-size: .74rem; font-weight: 600; transition: background-color .2s, color .2s; }
@@ -231,6 +237,7 @@
     .dd-hero h1 .dd-accent-line { display: block; }
     .dd-gold { color: #254c36; font-style: normal; }
     .dd-hero-copy p { margin-top: 1rem; font-size: 1.02rem; line-height: 1.6; color: #3c463f; }
+    .dd-hero-tan { color: var(--clay); }
     .dd-hero-actions { display: flex; flex-direction: column; align-items: flex-start; gap: .8rem; margin-top: 1.6rem; }
     .dd-hero-actions .dd-btn { justify-content: space-between; gap: 1rem; width: min(100%, 17rem); }
     .dd-hero-actions .dd-btn > i:last-child { font-size: .85rem; }
@@ -480,6 +487,12 @@
     @media (max-width: 767px) {
       .dd-tabbar { display: grid; }
       .dd-footer { padding-bottom: calc(7rem + env(safe-area-inset-bottom, 0px)); }
+      /* Move hero buttons down and shrink them so they clear the perfume/cap in the hero photo. */
+      .dd-hero-actions { margin-top: 2.75rem; }
+      .dd-hero-actions .dd-btn { width: min(100%, 14.5rem); }
+      .dd-btn-hero { min-height: 42px; padding-inline: 1.1rem; }
+      /* Extra clearance below the hero so the fixed bottom nav never sits over the stats card. */
+      .dd-hero { padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px)); }
     }
     @media (min-width: 640px) {
       .dd-media { aspect-ratio: 6 / 7; }
@@ -568,6 +581,10 @@
         <button type="button" data-theme-choice="dark" aria-pressed="false"><i class="fa-solid fa-moon" aria-hidden="true"></i>Dark</button>
         <button type="button" data-theme-choice="system" aria-pressed="false"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>System</button>
       </div>
+      <div class="dd-menu-row">
+        <span>Notifications</span>
+        <button class="dd-switch" type="button" role="switch" aria-checked="false" aria-label="Notifications" id="notifSwitch"><span class="dd-switch-knob"></span></button>
+      </div>
       <div class="dd-menu-sep"></div>
       <button class="dd-menu-item" id="staffMenuButton" type="button" hidden><i class="fa-solid fa-user-lock" aria-hidden="true"></i><span id="staffMenuLabel">Staff Sign In</span></button>
     </div>
@@ -582,7 +599,7 @@
         <div class="dd-hero-copy">
           <span class="dd-hero-kicker">PREMIUM FASHION</span>
           <h1>Elevate Your <span class="dd-accent-line dd-gold">Style</span></h1>
-          <p>Discover premium Jallabiyas, exquisite perfumes, stylish caps &amp; comfortable shoes.</p>
+          <p>Discover premium Jallabiyas, <span class="dd-hero-tan">exquisite</span> perfumes, stylish caps &amp; <span class="dd-hero-tan">comfortable shoes</span>.</p>
           <div class="dd-hero-actions">
             <a class="dd-btn dd-btn-hero-primary dd-btn-hero" href="#products"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>Shop now<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             <a class="dd-btn dd-btn-hero-secondary dd-btn-hero" href="#collections"><i class="fa-solid fa-table-cells-large" aria-hidden="true"></i>Explore collection<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
@@ -1379,6 +1396,52 @@
           { total: increment(1), unique: increment(isNewUnique ? 1 : 0), updatedAt: serverTimestamp() },
           { merge: true });
       } catch (e) { /* stats are non-essential: never let this affect the page */ }
+    })();
+
+    /* =========================================================
+       NOTIFICATIONS TOGGLE (menu, below Appearance)
+       This wires the real permission flow, never re-prompts once denied, and persists the user's
+       choice (localStorage + a small per-device Firestore record the admin can read). Actually
+       DELIVERING push notifications needs a configured push service (e.g. Firebase Cloud Messaging
+       with a VAPID key), which is a separate setup step in the Firebase console -- this stores the
+       opt-in state correctly so that piece can be added later without touching this toggle.
+       ========================================================= */
+    (function initNotifications() {
+      const notifSwitch = document.getElementById('notifSwitch');
+      if (!notifSwitch) return;
+      const PREF_KEY = 'dizdatNotifPref', DEVICE_KEY = 'dizdatDeviceId';
+      const support = 'Notification' in window;
+      const getDeviceId = () => {
+        try {
+          let id = localStorage.getItem(DEVICE_KEY);
+          if (!id) { id = 'dn_' + Math.random().toString(36).slice(2) + Date.now().toString(36); localStorage.setItem(DEVICE_KEY, id); }
+          return id;
+        } catch (e) { return 'dn_' + Date.now().toString(36); }
+      };
+      const setSwitch = on => notifSwitch.setAttribute('aria-checked', String(on));
+      const saveState = (enabled, permission) => {
+        try { localStorage.setItem(PREF_KEY, enabled ? 'on' : 'off'); } catch (e) {}
+        setDoc(doc(db, 'dizdatNotifications', getDeviceId()), { enabled, permission, updatedAt: serverTimestamp() }, { merge: true }).catch(() => {});
+      };
+
+      if (!support) { notifSwitch.disabled = true; setSwitch(false); return; }
+      // Reflect BOTH the saved preference and the browser's real permission, so a revoked permission
+      // never shows as ON, and a fresh browser/profile never shows ON just because localStorage says so.
+      let saved; try { saved = localStorage.getItem(PREF_KEY); } catch (e) { saved = null; }
+      setSwitch(saved === 'on' && Notification.permission === 'granted');
+
+      notifSwitch.addEventListener('click', async () => {
+        const isOn = notifSwitch.getAttribute('aria-checked') === 'true';
+        if (isOn) { setSwitch(false); saveState(false, Notification.permission); toast('Notifications turned off'); return; }
+        if (Notification.permission === 'denied') {
+          toast('Notifications are blocked for this site in your browser settings.', { error: true });
+          return; // never re-prompt once denied -- browsers won't show a prompt anyway
+        }
+        let permission = Notification.permission;
+        if (permission === 'default') permission = await Notification.requestPermission();
+        setSwitch(permission === 'granted'); saveState(permission === 'granted', permission);
+        toast(permission === 'granted' ? 'Notifications turned on' : 'Notification permission was not granted.', { error: permission !== 'granted' });
+      });
     })();
 
     let user = null, posts = [], showStaffSignIn = true, settingsReady = false, authReady = false;
